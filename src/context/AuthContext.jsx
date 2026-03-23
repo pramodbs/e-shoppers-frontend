@@ -3,11 +3,10 @@ import React, {createContext, useContext, useEffect, useState} from 'react'
 const Ctx = createContext()
 
 export function AuthProvider({children}) {
-    const [user, setUser] = useState(null)
-    useEffect(() => {
+    const [user, setUser] = useState(() => {
         const s = localStorage.getItem('esh_user');
-        if (s) setUser(JSON.parse(s))
-    }, [])
+        return s ? JSON.parse(s) : null;
+    });
     const login = (data) => {
         setUser(data);
         localStorage.setItem('esh_user', JSON.stringify(data))

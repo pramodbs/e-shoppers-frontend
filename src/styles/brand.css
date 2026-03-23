@@ -1,5 +1,15 @@
-:root{ --royal:#4169E1; --royal-dark:#1F3AA6; --accent:#FFB000; }
-body{ background:#f6f7fb; }
-.header-search .MuiOutlinedInput-root{ background:#fff; border-radius:8px; }
-.card-shadow{ box-shadow: 0 4px 16px rgba(0,0,0,.06); }
-.primary-gradient{ background: linear-gradient(90deg, var(--royal-dark), var(--royal)); color:#fff; }
+:root { 
+    --royal: #0038A8; 
+    --royal-dark: #002266; 
+    --royal-light: #4169E1;
+    --accent: #FF8C00; 
+
+    /* PrimeReact Overrides */
+    --primary-color: var(--royal);
+    --primary-color-text: #ffffff;
+    --secondary-color: var(--accent);
+}
+
+body { background: #f8f9fa; margin: 0; font-family: var(--font-family); }
+.card-shadow { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+.primary-gradient { background: linear-gradient(90deg, var(--royal-dark), var(--royal)); color: #fff; }

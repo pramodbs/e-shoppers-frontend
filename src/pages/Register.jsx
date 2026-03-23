@@ -26,7 +26,7 @@ const ROLES = ['ADMIN', 'USER', 'DELIVERY', 'EDITOR']
 const HOBBIES = ['reading', 'music', 'gaming', 'travel', 'fitness', 'cooking', 'photography']
 const INTERESTS = ['tech', 'shopping', 'fashion', 'food', 'art', 'sports', 'finance']
 
-export default function Register() {
+export default function Register({ isModal, onSuccess, onSwitchToLogin }) {
     const nav = useNavigate()
     const {login} = useAuth()
     const [msg, setMsg] = useState({type: '', text: ''})
@@ -61,11 +61,16 @@ export default function Register() {
             const {data} = await api.post('/user/login', {identifier, password: form.password})
             login(data)
 
+            if (onSuccess) {
+                onSuccess(data);
+                return;
+            }
+
             // 3) Route by role
             const role = data?.role || 'USER'
-            if (role === 'ADMIN') nav('/admin')
+            if (role === 'ADMIN' || role === 'EDITOR') nav('/admin')
             else if (role === 'DELIVERY') nav('/delivery')
-            else nav('/admin')
+            else nav('/')
         } catch (err) {
             const t = err?.response?.data?.message || err?.response?.data || 'Registration failed'
             setMsg({type: 'error', text: String(t)})
@@ -74,9 +79,9 @@ export default function Register() {
         }
     }
 
-    return (
-        <Paper sx={{maxWidth: 1000, mx: 'auto', mt: 4, p: 3}}>
-            <Typography variant='h5' gutterBottom>Create Account</Typography>
+    const formContent = (
+        <Box sx={{p: isModal ? 0 : 3}}>
+            {!isModal && <Typography variant='h5' gutterBottom>Create Account</Typography>}
             {msg.text && <Alert severity={msg.type || 'info'} sx={{mb: 2}}>{msg.text}</Alert>}
 
             <Box component='form' onSubmit={submit}>
@@ -180,9 +185,11 @@ export default function Register() {
 
                 <Stack direction='row' spacing={2} sx={{mt: 3}}>
                     <Button type='submit' variant='contained' disabled={loading || !canSubmit()}>Create account</Button>
-                    <Button variant='text' onClick={() => nav('/login')}>Back to Login</Button>
+                    <Button variant='text' onClick={() => onSwitchToLogin ? onSwitchToLogin() : nav('/login')}>Back to Login</Button>
                 </Stack>
             </Box>
-        </Paper>
-    )
+        </Box>
+    );
+
+    return isModal ? formContent : <Paper sx={{maxWidth: 1000, mx: 'auto', mt: 4}}>{formContent}</Paper>;
 }

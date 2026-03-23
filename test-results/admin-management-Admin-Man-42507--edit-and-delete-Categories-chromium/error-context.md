@@ -1,0 +1,87 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - generic [ref=e5]:
+    - generic [ref=e7]:
+      - button "" [ref=e8] [cursor=pointer]:
+        - generic: 
+      - link "E-SHOPPERS" [ref=e9] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e10]: E-SHOPPERS
+    - menubar
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - generic [ref=e14]: 
+        - textbox "Search products..." [ref=e15]
+      - button "" [ref=e16] [cursor=pointer]:
+        - generic: 
+      - generic [ref=e17]:
+        - generic [ref=e18]:
+          - generic [ref=e19]: Hello,
+          - text: Admin
+        - button "" [ref=e20] [cursor=pointer]:
+          - generic: 
+        - button "" [ref=e21] [cursor=pointer]:
+          - generic: 
+      - button "" [ref=e22] [cursor=pointer]:
+        - generic: 
+  - generic [ref=e23]:
+    - complementary [ref=e24]:
+      - generic [ref=e25]:
+        - generic [ref=e26]:
+          - generic [ref=e28]: A
+          - generic [ref=e29]:
+            - generic [ref=e30]: Hello,
+            - generic [ref=e31]: Admin
+        - generic [ref=e32]:
+          - text:  
+          - button "Shop by Category" [ref=e34]:
+            - link " Shop by Category" [ref=e36] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e37]
+              - generic [ref=e39]: 
+              - generic [ref=e40]: Shop by Category
+          - button "Latest Offers" [ref=e42]:
+            - link " Latest Offers" [ref=e44] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e45]
+              - generic [ref=e47]: 
+              - generic [ref=e48]: Latest Offers
+          - button "Account & Operations" [ref=e50]:
+            - link " Account & Operations" [ref=e52] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e53]
+              - generic [ref=e55]: 
+              - generic [ref=e56]: Account & Operations
+    - main [ref=e57]:
+      - generic [ref=e59]:
+        - heading "Categories" [level=6] [ref=e60]
+        - generic [ref=e61]:
+          - generic [ref=e62]:
+            - generic: New Category Title
+            - generic [ref=e63]:
+              - textbox "New Category Title" [ref=e64]
+              - group:
+                - generic: New Category Title
+          - button "Add" [disabled]
+        - table [ref=e65]:
+          - rowgroup [ref=e66]:
+            - row "ID Title Actions" [ref=e67]:
+              - columnheader "ID" [ref=e68]
+              - columnheader "Title" [ref=e69]
+              - columnheader "Actions" [ref=e70]
+          - rowgroup
+        - generic [ref=e72]:
+          - paragraph [ref=e73]: "Rows per page:"
+          - generic [ref=e74]:
+            - 'combobox "Rows per page: 10" [ref=e75] [cursor=pointer]': "10"
+            - textbox: "10"
+            - img
+          - paragraph [ref=e76]: 0–0 of 0
+          - generic [ref=e77]:
+            - button "Go to previous page" [disabled]:
+              - img
+            - button "Go to next page" [disabled]:
+              - img
+```
