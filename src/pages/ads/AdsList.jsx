@@ -1,89 +1,127 @@
-import React, {useEffect, useState} from 'react'
-import {
-    Button,
-    Checkbox,
-    Dialog,
-    DialogContent,
-    DialogTitle,
-    FormControlLabel,
-    IconButton,
-    Paper,
-    Stack,
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TablePagination,
-    TableRow,
-    TextField,
-    Typography
-} from '@mui/material'
-import {Add, Delete, Edit} from '@mui/icons-material'
+import React, { useEffect, useState } from 'react'
+import { Button } from 'primereact/button'
+import { Checkbox } from 'primereact/checkbox'
+import { Dialog } from 'primereact/dialog'
+import { InputText } from 'primereact/inputtext'
+import { InputTextarea } from 'primereact/inputtextarea'
+import { DataTable } from 'primereact/datatable'
+import { Column } from 'primereact/column'
+import { Card } from 'primereact/card'
 import api from '../../services/api'
 
 export default function AdsList() {
     const [rows, setRows] = useState([]);
     const [open, setOpen] = useState(false);
     const [editing, setEditing] = useState(null);
-    const [form, setForm] = useState({title: '', content: '', categoryId: '', active: true, imageUrl: '', linkUrl: ''})
-    const [page, setPage] = useState(0);
-    const [rowsPerPage, setRowsPerPage] = useState(10)
+    const [form, setForm] = useState({ title: '', content: '', categoryId: '', active: true, imageUrl: '', linkUrl: '' })
+
     const load = async () => {
-        const {data} = await api.get('/admin/ads');
+        const { data } = await api.get('/admin/ads');
         setRows(data)
     }
     useEffect(() => {
         load()
     }, [])
+
     const save = async () => {
-        if (editing) await api.put(`/admin/ads/${editing.id}`, form); else await api.post('/admin/ads', form);
-        setOpen(false);
-        setEditing(null);
-        setForm({title: '', content: '', categoryId: '', active: true, imageUrl: '', linkUrl: ''});
-        load()
+        try {
+            const payload = { ...form, categoryId: form.categoryId ? parseInt(form.categoryId, 10) : null };
+            if (editing) {
+                await api.put(`/admin/advertisement/${editing.id}`, payload);
+            } else {
+                await api.post('/admin/advertisement', payload);
+            }
+            setOpen(false);
+            setEditing(null);
+            setForm({ title: '', content: '', categoryId: '', active: true, imageUrl: '', linkUrl: '' });
+            load();
+        } catch (err) {
+            console.error("Save failed", err);
+        }
     }
+
     const remove = async (id) => {
         if (!confirm('Delete item?')) return;
-        await api.delete(`/admin/ads/${id}`);
-        load()
+        try {
+            await api.delete(`/admin/ads/${id}`);
+            load()
+        } catch (err) {
+            console.error(err);
+        }
     }
-    const paged = rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-    return (<Paper sx={{p: 2}}><Stack direction='row' justifyContent='space-between' sx={{mb: 2}}><Typography
-        variant='h6'>Ads</Typography><Button startIcon={<Add/>} variant='contained' onClick={() => {
-        setEditing(null);
-        setForm({title: '', content: '', categoryId: '', active: true, imageUrl: '', linkUrl: ''});
-        setOpen(true)
-    }}>Add</Button></Stack>
-        <Table
-            size='small'><TableHead><TableRow><TableCell>ID</TableCell><TableCell>Title</TableCell><TableCell>Active</TableCell><TableCell
-            align='right'>Actions</TableCell></TableRow></TableHead><TableBody>{paged.map(r => (<TableRow
-            key={r.id}><TableCell>{r.id}</TableCell><TableCell>{r.title}</TableCell><TableCell>{String(r.active)}</TableCell><TableCell
-            align='right'><IconButton onClick={() => {
-            setEditing(r);
-            setForm(r);
-            setOpen(true)
-        }}><Edit/></IconButton><IconButton color='error' onClick={() => remove(r.id)}><Delete/></IconButton></TableCell></TableRow>))}</TableBody></Table>
-        <TablePagination component='div' count={rows.length} page={page} onPageChange={(e, p) => setPage(p)}
-                         rowsPerPage={rowsPerPage} onRowsPerPageChange={e => {
-            setRowsPerPage(parseInt(e.target.value, 10));
-            setPage(0)
-        }} rowsPerPageOptions={[5, 10, 25, 50]}/>
-        <Dialog open={open} onClose={() => setOpen(false)} maxWidth='sm'
-                fullWidth><DialogTitle>{editing ? 'Edit' : 'Add'} Ad</DialogTitle><DialogContent>
-            <Stack spacing={2} sx={{mt: 1}}><TextField label='Title' value={form.title} onChange={e => setForm({
-                ...form,
-                title: e.target.value
-            })}/><TextField label='Content' value={form.content}
-                            onChange={e => setForm({...form, content: e.target.value})} multiline rows={3}/><TextField
-                label='Category ID' value={form.categoryId}
-                onChange={e => setForm({...form, categoryId: e.target.value})}/><FormControlLabel
-                control={<Checkbox checked={!!form.active}
-                                   onChange={e => setForm({...form, active: e.target.checked})}/>}
-                label='Active'/><TextField label='Image URL' value={form.imageUrl || ''}
-                                           onChange={e => setForm({...form, imageUrl: e.target.value})}/><TextField
-                label='Link URL' value={form.linkUrl || ''}
-                onChange={e => setForm({...form, linkUrl: e.target.value})}/><Stack direction='row' spacing={1}><Button
-                variant='contained' onClick={save}>Save</Button><Button
-                onClick={() => setOpen(false)}>Cancel</Button></Stack></Stack>
-        </DialogContent></Dialog></Paper>)
+
+    const actionTemplate = (rowData) => {
+        return (
+            <div className="flex gap-2">
+                <Button icon="pi pi-pencil" className="p-button-rounded p-button-text" onClick={() => {
+                    setEditing(rowData);
+                    setForm(rowData);
+                    setOpen(true)
+                }} />
+                <Button icon="pi pi-trash" className="p-button-rounded p-button-text p-button-danger" onClick={() => remove(rowData.id)} />
+            </div>
+        );
+    }
+
+    return (
+        <div className="p-4">
+            <Card title={<h2 className="m-0">Ads</h2>} subTitle="Manage store marketing banners" className="mb-4">
+                <div className="flex justify-content-end mb-3">
+                    <Button label="Add Advertisement" icon="pi pi-plus" onClick={() => {
+                        setEditing(null);
+                        setForm({ title: '', content: '', categoryId: '', active: true, imageUrl: '', linkUrl: '' });
+                        setOpen(true)
+                    }} />
+                </div>
+
+                <DataTable value={rows} paginator rows={10} className="p-datatable-sm" responsiveLayout="scroll">
+                    <Column field="id" header="ID" sortable style={{ width: '80px' }} />
+                    <Column field="title" header="Title" sortable filter />
+                    <Column field="active" header="Active" body={(r) => String(r.active)} sortable style={{ width: '100px' }} />
+                    <Column header="Actions" body={actionTemplate} style={{ width: '120px', textAlign: 'right' }} />
+                </DataTable>
+            </Card>
+
+            <Dialog 
+                visible={open} 
+                onHide={() => setOpen(false)} 
+                header={editing ? 'Edit Advertisement' : 'Add Advertisement'} 
+                modal 
+                style={{ width: '500px' }}
+                footer={
+                    <div className="flex gap-2 justify-content-end">
+                        <Button label="Cancel" icon="pi pi-times" className="p-button-text" onClick={() => setOpen(false)} />
+                        <Button label="Save" icon="pi pi-check" onClick={save} />
+                    </div>
+                }
+            >
+                <div className="p-fluid">
+                    <div className="field mb-3">
+                        <label htmlFor="adTitle">Title</label>
+                        <InputText id="adTitle" value={form.title} onChange={e => setForm({ ...form, title: e.target.value })} />
+                    </div>
+                    <div className="field mb-3">
+                        <label htmlFor="adContent">Content</label>
+                        <InputTextarea id="adContent" value={form.content} onChange={e => setForm({ ...form, content: e.target.value })} rows={3} autoResize />
+                    </div>
+                    <div className="field mb-3">
+                        <label htmlFor="adCatId">Category ID</label>
+                        <InputText id="adCatId" value={form.categoryId} onChange={e => setForm({ ...form, categoryId: e.target.value })} />
+                    </div>
+                    <div className="field mb-3">
+                        <label htmlFor="adImg">Image URL</label>
+                        <InputText id="adImg" value={form.imageUrl || ''} onChange={e => setForm({ ...form, imageUrl: e.target.value })} />
+                    </div>
+                    <div className="field mb-3">
+                        <label htmlFor="adLink">Link URL</label>
+                        <InputText id="adLink" value={form.linkUrl || ''} onChange={e => setForm({ ...form, linkUrl: e.target.value })} />
+                    </div>
+                    <div className="field-checkbox flex align-items-center">
+                        <Checkbox inputId="adActive" checked={!!form.active} onChange={e => setForm({ ...form, active: e.checked })} />
+                        <label htmlFor="adActive" className="ml-2">Active</label>
+                    </div>
+                </div>
+            </Dialog>
+        </div>
+    )
 }

@@ -1,26 +1,18 @@
-import React, {useEffect, useState} from 'react'
-import {
-    Button,
-    Dialog,
-    DialogContent,
-    DialogTitle,
-    Divider,
-    MenuItem,
-    Paper,
-    Stack,
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TablePagination,
-    TableRow,
-    TextField,
-    Typography
-} from '@mui/material'
+import React, { useEffect, useState } from 'react'
+import { Button } from 'primereact/button'
+import { Dialog } from 'primereact/dialog'
+import { DataTable } from 'primereact/datatable'
+import { Column } from 'primereact/column'
+import { InputText } from 'primereact/inputtext'
+import { Dropdown } from 'primereact/dropdown'
+import { Calendar } from 'primereact/calendar'
+import { Card } from 'primereact/card'
+import { Divider } from 'primereact/divider'
 import api from '../../services/api'
 
 const STATUS = ['Delivered', 'On the Way', 'Pending', 'Processing']
-const TIMES = ['Morning', 'Afternoon', 'Evening', 'Night', '']
+const TIMES = ['Morning', 'Afternoon', 'Evening', 'Night']
+
 export default function AdminOrders() {
     const [rows, setRows] = useState([])
     const [orderId, setOrderId] = useState('')
@@ -34,27 +26,35 @@ export default function AdminOrders() {
         deliveryTime: 'Morning',
         deliveryDate: ''
     })
-    const [assign, setAssign] = useState({orderId: '', deliveryId: ''})
-    const [page, setPage] = useState(0)
-    const [rowsPerPage, setRowsPerPage] = useState(10)
+    const [assign, setAssign] = useState({ orderId: '', deliveryId: '' })
+
     const loadAll = async () => {
-        const {data} = await api.get('/user/admin/allorder');
-        setRows(data)
+        try {
+            const { data } = await api.get('/user/admin/allorder');
+            setRows(data)
+        } catch (err) {
+            console.error(err);
+        }
     }
     const searchById = async () => {
         if (!orderId) return;
-        const {data} = await api.get(`/user/admin/showorder`, {params: {orderId}});
-        setRows(data)
+        try {
+            const { data } = await api.get(`/user/admin/showorder`, { params: { orderId } });
+            setRows(data)
+        } catch (err) {
+            console.error(err);
+        }
     }
     useEffect(() => {
         loadAll()
     }, [])
+
     const openUpd = (oid) => {
-        setUpd({orderId: oid, deliveryStatus: 'On the Way', deliveryTime: 'Morning', deliveryDate: ''});
+        setUpd({ orderId: oid, deliveryStatus: 'On the Way', deliveryTime: 'Morning', deliveryDate: '' });
         setDlgUpd(true)
     }
     const openAssign = (oid) => {
-        setAssign({orderId: oid, deliveryId: ''});
+        setAssign({ orderId: oid, deliveryId: '' });
         setDlgAssign(true)
     }
     const openDetails = (row) => {
@@ -62,107 +62,130 @@ export default function AdminOrders() {
         setDlgDetails(true)
     }
     const saveUpd = async () => {
-        await api.post('/user/admin/order/deliveryStatus/update', upd);
-        setDlgUpd(false);
-        (orderId ? searchById() : loadAll())
+        try {
+            await api.post('/user/admin/order/deliveryStatus/update', upd);
+            setDlgUpd(false);
+            (orderId ? searchById() : loadAll())
+        } catch (err) {
+            console.error(err);
+        }
     }
     const saveAssign = async () => {
-        await api.post('/user/admin/order/assignDelivery', assign);
-        setDlgAssign(false);
-        (orderId ? searchById() : loadAll())
+        try {
+            await api.post('/user/admin/order/assignDelivery', assign);
+            setDlgAssign(false);
+            (orderId ? searchById() : loadAll())
+        } catch (err) {
+            console.error(err);
+        }
     }
-    const paged = rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+
+    const actionTemplate = (rowData) => {
+        return (
+            <div className="flex gap-2">
+                <Button label="View" icon="pi pi-eye" className="p-button-text p-button-sm" onClick={() => openDetails(rowData)} />
+                <Button label="Update" icon="pi pi-refresh" className="p-button-text p-button-sm" onClick={() => openUpd(rowData.orderId)} />
+                <Button label="Assign" icon="pi pi-user-plus" className="p-button-text p-button-sm" onClick={() => openAssign(rowData.orderId)} />
+            </div>
+        );
+    }
+
     return (
-        <Paper sx={{p: 2}}>
-            <Typography variant='h6' sx={{mb: 2}}>Orders (Admin)</Typography>
-            <Stack direction='row' spacing={1} sx={{mb: 2}}><TextField label='Search by Order ID' value={orderId}
-                                                                       onChange={e => setOrderId(e.target.value)}/><Button
-                variant='outlined' onClick={searchById}>Search</Button><Button onClick={() => {
-                setOrderId('');
-                loadAll()
-            }}>Load All</Button></Stack>
-            <Table size='small'><TableHead><TableRow><TableCell>Order
-                ID</TableCell><TableCell>User</TableCell><TableCell>Product</TableCell><TableCell>Qty</TableCell><TableCell>Total</TableCell><TableCell>Status</TableCell><TableCell>Delivery
-                Date</TableCell><TableCell>Delivery Person</TableCell><TableCell
-                align='right'>Actions</TableCell></TableRow></TableHead><TableBody>{paged.map(r => (<TableRow
-                key={`${r.orderId}-${r.productId}`}><TableCell>{r.orderId}</TableCell><TableCell>{r.userName}</TableCell><TableCell>{r.productName}</TableCell><TableCell>{r.quantity}</TableCell><TableCell>{r.totalPrice}</TableCell><TableCell>{r.deliveryStatus}</TableCell><TableCell>{r.deliveryDate}</TableCell><TableCell>{r.deliveryPersonName}</TableCell><TableCell
-                align='right'><Button size='small' onClick={() => openDetails(r)}>View</Button><Button size='small'
-                                                                                                       onClick={() => openUpd(r.orderId)}>Update</Button><Button
-                size='small' onClick={() => openAssign(r.orderId)}>Assign</Button></TableCell></TableRow>))}</TableBody></Table>
-            <TablePagination component='div' count={rows.length} page={page} onPageChange={(e, p) => setPage(p)}
-                             rowsPerPage={rowsPerPage} onRowsPerPageChange={e => {
-                setRowsPerPage(parseInt(e.target.value, 10));
-                setPage(0)
-            }} rowsPerPageOptions={[5, 10, 25, 50]}/>
-            <Dialog open={dlgUpd} onClose={() => setDlgUpd(false)} maxWidth='sm' fullWidth><DialogTitle>Update
-                Delivery</DialogTitle><DialogContent>
-                <Stack spacing={2} sx={{mt: 1}}><TextField select label='Delivery Status' value={upd.deliveryStatus}
-                                                           onChange={e => setUpd({
-                                                               ...upd,
-                                                               deliveryStatus: e.target.value
-                                                           })}>{STATUS.map(s => <MenuItem key={s}
-                                                                                          value={s}>{s}</MenuItem>)}</TextField><TextField
-                    select label='Delivery Time' value={upd.deliveryTime}
-                    onChange={e => setUpd({...upd, deliveryTime: e.target.value})}>{TIMES.map(t => <MenuItem key={t}
-                                                                                                             value={t}>{t || 'Default'}</MenuItem>)}</TextField><TextField
-                    label='Delivery Date (yyyy-MM-dd)' value={upd.deliveryDate}
-                    onChange={e => setUpd({...upd, deliveryDate: e.target.value})}/><Stack direction='row'
-                                                                                           spacing={1}><Button
-                    variant='contained' onClick={saveUpd}>Save</Button><Button
-                    onClick={() => setDlgUpd(false)}>Cancel</Button></Stack></Stack>
-            </DialogContent></Dialog>
-            <Dialog open={dlgAssign} onClose={() => setDlgAssign(false)} maxWidth='sm' fullWidth><DialogTitle>Assign
-                Delivery Person</DialogTitle><DialogContent>
-                <Stack spacing={2} sx={{mt: 1}}><TextField label='Order ID' value={assign.orderId}
-                                                           onChange={e => setAssign({
-                                                               ...assign,
-                                                               orderId: e.target.value
-                                                           })}/><TextField label='Delivery Person ID'
-                                                                           value={assign.deliveryId}
-                                                                           onChange={e => setAssign({
-                                                                               ...assign,
-                                                                               deliveryId: e.target.value
-                                                                           })}/><Stack direction='row'
-                                                                                       spacing={1}><Button
-                    variant='contained' onClick={saveAssign}>Assign</Button><Button
-                    onClick={() => setDlgAssign(false)}>Cancel</Button></Stack></Stack>
-            </DialogContent></Dialog>
-            <Dialog open={dlgDetails} onClose={() => setDlgDetails(false)} maxWidth='md' fullWidth><DialogTitle>Order
-                Details</DialogTitle><DialogContent>
-                {selected && (<Stack spacing={1} sx={{mt: 1}}>
-                    <Typography variant='subtitle2'>Order</Typography>
-                    <Stack direction='row' spacing={2}>
-                        <div><b>ID:</b> {selected.orderId}</div>
-                        <div><b>Date:</b> {selected.orderDate}</div>
-                        <div><b>Status:</b> {selected.deliveryStatus}</div>
-                    </Stack>
-                    <Divider sx={{my: 1}}/>
-                    <Typography variant='subtitle2'>Product</Typography>
-                    <Stack direction='row' spacing={2}>
-                        <div><b>Name:</b> {selected.productName}</div>
-                        <div><b>Qty:</b> {selected.quantity}</div>
-                        <div><b>Total:</b> {selected.totalPrice}</div>
-                    </Stack>
-                    <div><b>Description:</b> {selected.productDescription}</div>
-                    <Divider sx={{my: 1}}/>
-                    <Typography variant='subtitle2'>Customer</Typography>
-                    <Stack direction='row' spacing={2}>
-                        <div><b>User ID:</b> {selected.userId}</div>
-                        <div><b>Name:</b> {selected.userName}</div>
-                        <div><b>Phone:</b> {selected.userPhone}</div>
-                    </Stack>
-                    {selected.address && (<div>
-                        <b>Address:</b> {selected.address.street}, {selected.address.city}, {selected.address.state}, {selected.address.country} - {selected.address.pincode}
-                    </div>)}
-                    <Divider sx={{my: 1}}/>
-                    <Typography variant='subtitle2'>Delivery</Typography>
-                    <Stack direction='row' spacing={2}>
-                        <div><b>Delivery Date:</b> {selected.deliveryDate}</div>
-                        <div><b>Delivery Person:</b> {selected.deliveryPersonName || 'PENDING'}</div>
-                        <div><b>Contact:</b> {selected.deliveryPersonContact || 'PENDING'}</div>
-                    </Stack>
-                </Stack>)}
-            </DialogContent></Dialog>
-        </Paper>
+        <div className="p-4">
+            <Card title="Orders Management" subTitle="Administrator View" className="mb-4">
+                <div className="flex gap-2 mb-4 p-fluid max-w-lg">
+                    <div className="flex-grow-1">
+                        <InputText placeholder="Search by Order ID" value={orderId} onChange={e => setOrderId(e.target.value)} />
+                    </div>
+                    <Button label="Search" icon="pi pi-search" className="p-button-outlined" onClick={searchById} />
+                    <Button label="Load All" icon="pi pi-sync" onClick={() => { setOrderId(''); loadAll() }} />
+                </div>
+
+                <DataTable value={rows} paginator rows={10} className="p-datatable-sm" responsiveLayout="scroll">
+                    <Column field="orderId" header="Order ID" sortable />
+                    <Column field="userName" header="User" sortable />
+                    <Column field="productName" header="Product" sortable />
+                    <Column field="quantity" header="Qty" sortable />
+                    <Column field="totalPrice" header="Total" sortable />
+                    <Column field="deliveryStatus" header="Status" sortable />
+                    <Column field="deliveryDate" header="Delivery Date" sortable />
+                    <Column field="deliveryPersonName" header="Delivery Person" sortable />
+                    <Column header="Actions" body={actionTemplate} style={{ width: '250px', textAlign: 'right' }} />
+                </DataTable>
+            </Card>
+
+            <Dialog visible={dlgUpd} onHide={() => setDlgUpd(false)} header="Update Delivery" modal style={{ width: '400px' }}
+                footer={<div className="flex gap-2 justify-content-end"><Button label="Cancel" className="p-button-text" onClick={() => setDlgUpd(false)} /><Button label="Save" onClick={saveUpd} /></div>}>
+                <div className="p-fluid">
+                    <div className="field mb-3">
+                        <label className="block mb-1">Delivery Status</label>
+                        <Dropdown value={upd.deliveryStatus} options={STATUS} onChange={e => setUpd({ ...upd, deliveryStatus: e.value })} placeholder="Select Status" />
+                    </div>
+                    <div className="field mb-3">
+                        <label className="block mb-1">Delivery Time</label>
+                        <Dropdown value={upd.deliveryTime} options={TIMES} onChange={e => setUpd({ ...upd, deliveryTime: e.value })} placeholder="Select Time" />
+                    </div>
+                    <div className="field mb-3">
+                        <label className="block mb-1">Delivery Date</label>
+                        <InputText value={upd.deliveryDate} onChange={e => setUpd({ ...upd, deliveryDate: e.target.value })} placeholder="yyyy-MM-dd" />
+                    </div>
+                </div>
+            </Dialog>
+
+            <Dialog visible={dlgAssign} onHide={() => setDlgAssign(false)} header="Assign Delivery Person" modal style={{ width: '400px' }}
+                footer={<div className="flex gap-2 justify-content-end"><Button label="Cancel" className="p-button-text" onClick={() => setDlgAssign(false)} /><Button label="Assign" onClick={saveAssign} /></div>}>
+                <div className="p-fluid">
+                    <div className="field mb-3">
+                        <label className="block mb-1">Order ID</label>
+                        <InputText value={assign.orderId} disabled />
+                    </div>
+                    <div className="field mb-3">
+                        <label className="block mb-1">Delivery Person ID</label>
+                        <InputText value={assign.deliveryId} onChange={e => setAssign({ ...assign, deliveryId: e.target.value })} placeholder="Enter Numeric ID" />
+                    </div>
+                </div>
+            </Dialog>
+
+            <Dialog visible={dlgDetails} onHide={() => setDlgDetails(false)} header="Order Details" modal style={{ width: '600px' }}>
+                {selected && (
+                    <div className="p-fluid">
+                        <div className="text-xl font-bold mb-2">Order</div>
+                        <div className="grid mb-3">
+                            <div className="col-4"><b>ID:</b> {selected.orderId}</div>
+                            <div className="col-4"><b>Date:</b> {selected.orderDate}</div>
+                            <div className="col-4"><b>Status:</b> {selected.deliveryStatus}</div>
+                        </div>
+                        <Divider />
+                        <div className="text-xl font-bold mb-2 pt-2">Product</div>
+                        <div className="grid mb-1">
+                            <div className="col-8"><b>Name:</b> {selected.productName}</div>
+                            <div className="col-2"><b>Qty:</b> {selected.quantity}</div>
+                            <div className="col-2"><b>Total:</b> {selected.totalPrice}</div>
+                        </div>
+                        <div className="mb-3"><b>Description:</b> {selected.productDescription}</div>
+                        <Divider />
+                        <div className="text-xl font-bold mb-2 pt-2">Customer</div>
+                        <div className="grid mb-1">
+                            <div className="col-4"><b>User ID:</b> {selected.userId}</div>
+                            <div className="col-8"><b>Name:</b> {selected.userName}</div>
+                        </div>
+                        <div className="mb-2"><b>Phone:</b> {selected.userPhone}</div>
+                        {selected.address && (
+                            <div className="mb-3">
+                                <b>Address:</b> {selected.address.street}, {selected.address.city}, {selected.address.state}, {selected.address.country} - {selected.address.pincode}
+                            </div>
+                        )}
+                        <Divider />
+                        <div className="text-xl font-bold mb-2 pt-2">Delivery</div>
+                        <div className="grid">
+                            <div className="col-4"><b>Date:</b> {selected.deliveryDate}</div>
+                            <div className="col-4"><b>Person:</b> {selected.deliveryPersonName || 'PENDING'}</div>
+                            <div className="col-4"><b>Contact:</b> {selected.deliveryPersonContact || 'PENDING'}</div>
+                        </div>
+                    </div>
+                )}
+            </Dialog>
+        </div>
     )
 }
+

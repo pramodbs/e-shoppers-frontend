@@ -1,23 +1,13 @@
-import React, {useEffect, useState} from 'react'
-import {
-  Button,
-  Checkbox,
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  FormControlLabel,
-  IconButton,
-  Paper,
-  Stack,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-  TextField,
-  Typography
-} from '@mui/material'
-import {Add, Delete, Edit} from '@mui/icons-material'
+import React, { useEffect, useState } from 'react'
+import { Button } from 'primereact/button'
+import { DataTable } from 'primereact/datatable'
+import { Column } from 'primereact/column'
+import { Dialog } from 'primereact/dialog'
+import { InputText } from 'primereact/inputtext'
+import { InputNumber } from 'primereact/inputnumber'
+import { InputTextarea } from 'primereact/inputtextarea'
+import { Checkbox } from 'primereact/checkbox'
+import { Card } from 'primereact/card'
 import api from '../../services/api'
 
 export default function AdminProducts() {
@@ -27,7 +17,7 @@ export default function AdminProducts() {
     const [form, setForm] = useState({
         title: '',
         description: '',
-        price: '0',
+        price: 0,
         imageName: '',
         categoryId: '',
         active: true,
@@ -35,7 +25,7 @@ export default function AdminProducts() {
     })
 
     const load = async () => {
-        const {data} = await api.get('/admin/product');
+        const { data } = await api.get('/admin/product');
         setRows(data)
     }
     useEffect(() => {
@@ -48,83 +38,112 @@ export default function AdminProducts() {
             description: form.description,
             price: Number(form.price),
             imageName: form.imageName,
-            categoryId: form.categoryId ? Number(form.categoryId) : null
+            categoryId: form.categoryId ? Number(form.categoryId) : null,
+            active: form.active,
+            quantity: Number(form.quantity)
         }
-        if (editing) await api.put(`/admin/product/${editing.id}`, body)
-        else await api.post('/admin/product', body)
-        setOpen(false);
-        setEditing(null);
-        setForm({title: '', description: '', price: '0', imageName: '', categoryId: '', active: true, quantity: 0});
-        load()
+        try {
+            if (editing) await api.put(`/admin/product/${editing.id}`, body)
+            else await api.post('/admin/product', body)
+            setOpen(false);
+            setEditing(null);
+            setForm({ title: '', description: '', price: 0, imageName: '', categoryId: '', active: true, quantity: 0 });
+            load()
+        } catch (err) {
+            console.error(err);
+        }
     }
     const remove = async (id) => {
         if (!confirm('Delete product?')) return;
-        await api.delete(`/admin/product/${id}`);
-        load()
+        try {
+            await api.delete(`/admin/product/${id}`);
+            load()
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    const actionTemplate = (rowData) => {
+        return (
+            <div className="flex gap-2">
+                <Button aria-label="edit" icon="pi pi-pencil" className="p-button-rounded p-button-text" onClick={() => {
+                    setEditing(rowData);
+                    setForm({ ...rowData, categoryId: rowData.category?.id || rowData.categoryId || '' });
+                    setOpen(true);
+                }} />
+                <Button aria-label="delete" icon="pi pi-trash" className="p-button-rounded p-button-text p-button-danger" onClick={() => remove(rowData.id)} />
+            </div>
+        );
     }
 
     return (
-        <Paper sx={{p: 2}}>
-            <Stack direction='row' justifyContent='space-between' sx={{mb: 2}}>
-                <Typography variant='h6'>Products</Typography>
-                <Button startIcon={<Add/>} variant='contained' onClick={() => {
-                    setEditing(null);
-                    setOpen(true)
-                }}>Add</Button>
-            </Stack>
+        <div className="p-4">
+            <Card title={<h2 className="m-0">Products</h2>} subTitle="Manage your store products" className="mb-4">
+                <div className="flex justify-content-end mb-3">
+                    <Button label="Add Product" icon="pi pi-plus" onClick={() => {
+                        setEditing(null);
+                        setForm({ title: '', description: '', price: 0, imageName: '', categoryId: '', active: true, quantity: 0 });
+                        setOpen(true)
+                    }} />
+                </div>
 
-            <Table size='small'>
-                <TableHead><TableRow>
-                    <TableCell>ID</TableCell><TableCell>Title</TableCell><TableCell>Price</TableCell><TableCell>Qty</TableCell><TableCell>Active</TableCell><TableCell
-                    align='right'>Actions</TableCell>
-                </TableRow></TableHead>
-                <TableBody>{rows.map(r => (
-                    <TableRow key={r.id}>
-                        <TableCell>{r.id}</TableCell>
-                        <TableCell>{r.title}</TableCell>
-                        <TableCell>{r.price}</TableCell>
-                        <TableCell>{r.quantity}</TableCell>
-                        <TableCell>{String(r.active)}</TableCell>
-                        <TableCell align='right'>
-                            <IconButton onClick={() => {
-                                setEditing(r);
-                                setForm({...r, price: String(r.price || 0), categoryId: r.category?.id || r.categoryId})
-                            }}><Edit/></IconButton>
-                            <IconButton color='error' onClick={() => remove(r.id)}><Delete/></IconButton>
-                        </TableCell>
-                    </TableRow>
-                ))}</TableBody>
-            </Table>
+                <DataTable value={rows} paginator rows={10} className="p-datatable-sm" responsiveLayout="scroll">
+                    <Column field="id" header="ID" sortable />
+                    <Column field="title" header="Title" sortable filter />
+                    <Column field="price" header="Price" sortable body={(r) => `₹${r.price}`} />
+                    <Column field="quantity" header="Qty" sortable />
+                    <Column field="active" header="Active" body={(r) => String(r.active)} sortable />
+                    <Column header="Actions" body={actionTemplate} style={{ width: '120px', textAlign: 'right' }} />
+                </DataTable>
+            </Card>
 
-            <Dialog open={open || !!editing} onClose={() => {
-                setOpen(false);
-                setEditing(null)
-            }} maxWidth='sm' fullWidth>
-                <DialogTitle>{editing ? 'Edit' : 'Add'} Product</DialogTitle>
-                <DialogContent>
-                    <Stack spacing={2} sx={{mt: 1}}>
-                        <TextField label='Title' value={form.title}
-                                   onChange={e => setForm({...form, title: e.target.value})}/>
-                        <TextField label='Description' value={form.description}
-                                   onChange={e => setForm({...form, description: e.target.value})} multiline rows={3}/>
-                        <TextField label='Price' type='number' value={form.price}
-                                   onChange={e => setForm({...form, price: e.target.value})}/>
-                        <TextField label='Image Name' value={form.imageName}
-                                   onChange={e => setForm({...form, imageName: e.target.value})}/>
-                        <TextField label='Category ID' value={form.categoryId}
-                                   onChange={e => setForm({...form, categoryId: e.target.value})}/>
-                        <FormControlLabel control={<Checkbox checked={!!form.active} onChange={e => setForm({
-                            ...form,
-                            active: e.target.checked
-                        })}/>} label='Active'/>
-                        <Stack direction='row' spacing={1}><Button variant='contained'
-                                                                   onClick={save}>Save</Button><Button onClick={() => {
-                            setOpen(false);
-                            setEditing(null)
-                        }}>Cancel</Button></Stack>
-                    </Stack>
-                </DialogContent>
+            <Dialog 
+                visible={open} 
+                onHide={() => { setOpen(false); setEditing(null); }} 
+                header={editing ? 'Edit Product' : 'Add Product'} 
+                modal 
+                style={{ width: '50vw' }}
+                breakpoints={{ '960px': '75vw', '641px': '100vw' }}
+                footer={
+                    <div className="flex gap-2 justify-content-end">
+                        <Button label="Cancel" icon="pi pi-times" className="p-button-text" onClick={() => setOpen(false)} />
+                        <Button label="Save" icon="pi pi-check" onClick={save} />
+                    </div>
+                }
+            >
+                <div className="p-fluid">
+                    <div className="field mb-3">
+                        <label htmlFor="title">Title</label>
+                        <InputText id="title" value={form.title} onChange={e => setForm({ ...form, title: e.target.value })} />
+                    </div>
+                    <div className="field mb-3">
+                        <label htmlFor="description">Description</label>
+                        <InputTextarea id="description" value={form.description} onChange={e => setForm({ ...form, description: e.target.value })} rows={3} autoResize />
+                    </div>
+                    <div className="grid">
+                        <div className="col-12 md:col-6 field mb-3">
+                            <label htmlFor="price">Price</label>
+                            <InputNumber inputId="price" value={form.price} onValueChange={e => setForm({ ...form, price: e.value })} mode="currency" currency="INR" locale="en-IN" />
+                        </div>
+                        <div className="col-12 md:col-6 field mb-3">
+                            <label htmlFor="quantity">Quantity</label>
+                            <InputNumber id="quantity" value={form.quantity} onValueChange={e => setForm({ ...form, quantity: e.value })} />
+                        </div>
+                    </div>
+                    <div className="field mb-3">
+                        <label htmlFor="imageName">Image Name (URL)</label>
+                        <InputText id="imageName" value={form.imageName} onChange={e => setForm({ ...form, imageName: e.target.value })} />
+                    </div>
+                    <div className="field mb-3">
+                        <label htmlFor="categoryId">Category ID</label>
+                        <InputText id="categoryId" value={form.categoryId} onChange={e => setForm({ ...form, categoryId: e.target.value })} />
+                    </div>
+                    <div className="field-checkbox mb-3 flex align-items-center">
+                        <Checkbox inputId="active" checked={!!form.active} onChange={e => setForm({ ...form, active: e.checked })} />
+                        <label htmlFor="active" className="ml-2">Active</label>
+                    </div>
+                </div>
             </Dialog>
-        </Paper>
+        </div>
     )
 }

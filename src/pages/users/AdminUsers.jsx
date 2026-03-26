@@ -1,115 +1,204 @@
-import React,{useState, useEffect} from 'react'
-import { Paper, Typography, Stack, TextField, Button, MenuItem, Chip, Select, OutlinedInput, InputLabel, FormControl, Alert, Table, TableHead, TableRow, TableCell, TableBody, IconButton } from '@mui/material'
-import { Edit, Delete } from '@mui/icons-material'
+import React, { useState, useEffect } from 'react'
+import { Card } from 'primereact/card'
+import { InputText } from 'primereact/inputtext'
+import { Button } from 'primereact/button'
+import { Dropdown } from 'primereact/dropdown'
+import { MultiSelect } from 'primereact/multiselect'
+import { DataTable } from 'primereact/datatable'
+import { Column } from 'primereact/column'
+import { Message } from 'primereact/message'
 import api from '../../services/api'
-const ROLES = ['ADMIN','USER','DELIVERY','EDITOR']
-const HOBBIES = ['reading','music','gaming','travel','fitness']
-const INTERESTS = ['tech','shopping','fashion','food','art']
-export default function AdminUsers(){
-  const [msg,setMsg] = useState('')
-  const [editingId, setEditingId] = useState(null)
-  const [users, setUsers] = useState([])
-  const initialForm = { firstName:'', lastName:'', emailId:'', password:'', phoneNo:'', role:'USER', gender:'', colorPreference:'#7c4dff', hobbies:[], interests:[], street:'', city:'', state:'', country:'', pincode:'' }
-  const [form,setForm] = useState(initialForm)
-  const onChange = (e)=> setForm({...form,[e.target.name]: e.target.value})
-  
-  const loadUsers = async () => {
-    try {
-      const {data} = await api.get('/user/all');
-      setUsers(data);
-    } catch(err) {
-      console.error(err);
+
+const ROLES = ['ADMIN', 'USER', 'DELIVERY', 'EDITOR']
+const HOBBIES = [
+    { name: 'Reading', value: 'reading' },
+    { name: 'Music', value: 'music' },
+    { name: 'Gaming', value: 'gaming' },
+    { name: 'Travel', value: 'travel' },
+    { name: 'Fitness', value: 'fitness' }
+]
+const INTERESTS = [
+    { name: 'Tech', value: 'tech' },
+    { name: 'Shopping', value: 'shopping' },
+    { name: 'Fashion', value: 'fashion' },
+    { name: 'Food', value: 'food' },
+    { name: 'Art', value: 'art' }
+]
+
+export default function AdminUsers() {
+    const [msg, setMsg] = useState('')
+    const [editingId, setEditingId] = useState(null)
+    const [users, setUsers] = useState([])
+    const initialForm = { firstName: '', lastName: '', emailId: '', password: '', phoneNo: '', role: 'USER', gender: '', colorPreference: '#7c4dff', hobbies: [], interests: [], street: '', city: '', state: '', country: '', pincode: '' }
+    const [form, setForm] = useState(initialForm)
+    const onChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
+
+    const loadUsers = async () => {
+        try {
+            const { data } = await api.get('/user/all');
+            setUsers(data);
+        } catch (err) {
+            console.error(err);
+        }
     }
-  }
 
-  useEffect(() => { loadUsers(); }, [])
+    useEffect(() => { loadUsers(); }, [])
 
-  const submit = async()=>{ 
-    try{ 
-      if(editingId) {
-        await api.put(`/user/${editingId}`, form); 
-        setMsg('User updated successfully');
-        setEditingId(null);
-      } else {
-        await api.post('/user/register', form); 
-        setMsg('User registered successfully'); 
-      }
-      setForm(initialForm);
-      loadUsers();
-    }catch(err){ 
-      setMsg(err?.response?.data?.error || err?.response?.data || 'Failed to save user') 
-    } 
-  }
-
-  const editUser = (u) => {
-    setEditingId(u.id);
-    setForm({
-      ...initialForm,
-      firstName: u.firstName || '',
-      lastName: u.lastName || '',
-      emailId: u.emailId || '',
-      phoneNo: u.phoneNo || '',
-      role: u.roles?.name || 'USER',
-      gender: u.gender || '',
-      colorPreference: u.colorPreference || '#7c4dff'
-    });
-    window.scrollTo({top: 0, behavior: 'smooth'});
-  }
-
-  const deleteUser = async (id) => {
-    if(!confirm('Delete this user?')) return;
-    try {
-      await api.delete(`/user/${id}`);
-      loadUsers();
-    } catch(err) {
-      console.error(err);
+    const submit = async () => {
+        try {
+            if (editingId) {
+                await api.put(`/user/${editingId}`, form);
+                setMsg('User updated successfully');
+                setEditingId(null);
+            } else {
+                await api.post('/user/register', form);
+                setMsg('User registered successfully');
+            }
+            setForm(initialForm);
+            loadUsers();
+        } catch (err) {
+            setMsg(err?.response?.data?.error || err?.response?.data || 'Failed to save user')
+        }
     }
-  }
-  return (
-    <Paper sx={{p:2, maxWidth:900, mx: 'auto'}}>
-      <Typography variant='h6' sx={{mb:2}}>User Management ({editingId ? 'Edit' : 'Create'})</Typography>
-      {msg && <Alert sx={{mb:2}} severity='info'>{msg}</Alert>}
-      <Typography variant='subtitle2' sx={{mb:1}}>Basic</Typography>
-      <Stack direction='row' spacing={2} sx={{mb:2}}><TextField name='firstName' label='First Name' value={form.firstName} onChange={onChange} fullWidth/><TextField name='lastName' label='Last Name' value={form.lastName} onChange={onChange} fullWidth/></Stack>
-      <Stack direction='row' spacing={2} sx={{mb:2}}><TextField name='emailId' label='Email' value={form.emailId} onChange={onChange} fullWidth/><TextField name='phoneNo' label='Phone' value={form.phoneNo} onChange={onChange} fullWidth/></Stack>
-      <Stack direction='row' spacing={2} sx={{mb:2}}><TextField name='password' label='Password' type='password' value={form.password} onChange={onChange} fullWidth/><TextField name='gender' label='Gender' value={form.gender} onChange={onChange} fullWidth/></Stack>
-      <Stack direction='row' spacing={2} sx={{mb:2}}><TextField name='colorPreference' label='Theme Color' value={form.colorPreference} onChange={onChange} fullWidth/><TextField select name='role' label='Role' value={form.role} onChange={onChange} fullWidth>{ROLES.map(r=> <MenuItem key={r} value={r}>{r}</MenuItem>)}</TextField></Stack>
-      <Stack direction='row' spacing={2} sx={{mb:2}}><FormControl fullWidth><InputLabel id='h-l'>Hobbies</InputLabel><Select labelId='h-l' multiple value={form.hobbies} onChange={e=>setForm({...form,hobbies:e.target.value})} input={<OutlinedInput label='Hobbies'/>} renderValue={(sel)=> (<Stack direction='row' spacing={1}>{sel.map(v=> <Chip key={v} label={v}/>)}</Stack>)}>{HOBBIES.map(h=> <MenuItem key={h} value={h}>{h}</MenuItem>)}</Select></FormControl><FormControl fullWidth><InputLabel id='i-l'>Interests</InputLabel><Select labelId='i-l' multiple value={form.interests} onChange={e=>setForm({...form,interests:e.target.value})} input={<OutlinedInput label='Interests'/>} renderValue={(sel)=> (<Stack direction='row' spacing={1}>{sel.map(v=> <Chip key={v} label={v}/>)}</Stack>)}>{INTERESTS.map(h=> <MenuItem key={h} value={h}>{h}</MenuItem>)}</Select></FormControl></Stack>
-      <Typography variant='subtitle2' sx={{mb:1}}>Address</Typography>
-      <Stack direction='row' spacing={2} sx={{mb:2}}><TextField name='street' label='Street' value={form.street} onChange={onChange} fullWidth/><TextField name='city' label='City' value={form.city} onChange={onChange} fullWidth/></Stack>
-      <Stack direction='row' spacing={2} sx={{mb:2}}><TextField name='state' label='State' value={form.state} onChange={onChange} fullWidth/><TextField name='country' label='Country' value={form.country} onChange={onChange} fullWidth/></Stack>
-      <Stack direction='row' spacing={2} sx={{mb:2}}><TextField name='pincode' label='Pincode' value={form.pincode} onChange={onChange} fullWidth/></Stack>
-      <Stack direction='row' spacing={2} sx={{mb:2}}>
-        <Button variant='contained' onClick={submit}>{editingId ? 'Update' : 'Create'} User</Button>
-        {editingId && <Button variant='outlined' onClick={() => { setEditingId(null); setForm(initialForm); }}>Cancel</Button>}
-      </Stack>
 
-      <Typography variant='h6' sx={{mt:4, mb:2}}>Existing Users</Typography>
-      <Table size="small">
-        <TableHead>
-          <TableRow>
-            <TableCell>ID</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Email</TableCell>
-            <TableCell>Role</TableCell>
-            <TableCell align="right">Actions</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {users.map(u => (
-            <TableRow key={u.id}>
-              <TableCell>{u.id}</TableCell>
-              <TableCell>{u.firstName} {u.lastName}</TableCell>
-              <TableCell>{u.emailId}</TableCell>
-              <TableCell>{u.roles?.name}</TableCell>
-              <TableCell align="right">
-                <IconButton size="small" onClick={() => editUser(u)}><Edit fontSize="small" /></IconButton>
-                <IconButton size="small" color="error" onClick={() => deleteUser(u.id)}><Delete fontSize="small" /></IconButton>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </Paper>
-  )
+    const editUser = (u) => {
+        setEditingId(u.id);
+        setForm({
+            ...initialForm,
+            firstName: u.firstName || '',
+            lastName: u.lastName || '',
+            emailId: u.emailId || '',
+            phoneNo: u.phoneNo || '',
+            role: u.roles?.name || 'USER',
+            gender: u.gender || '',
+            colorPreference: u.colorPreference || '#7c4dff'
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    const deleteUser = async (id) => {
+        if (!confirm('Delete this user?')) return;
+        try {
+            await api.delete(`/user/${id}`);
+            loadUsers();
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    const actionTemplate = (rowData) => {
+        return (
+            <div className="flex gap-2">
+                <Button icon="pi pi-pencil" className="p-button-rounded p-button-text" onClick={() => editUser(rowData)} />
+                <Button icon="pi pi-trash" className="p-button-rounded p-button-text p-button-danger" onClick={() => deleteUser(rowData.id)} />
+            </div>
+        );
+    }
+
+    return (
+        <div className="p-4 max-w-5xl mx-auto">
+            <Card title={`User Management (${editingId ? 'Edit' : 'Create'})`} className="mb-4">
+                {msg && <Message severity="info" text={msg} className="w-full mb-3" />}
+                
+                <h4 className="mb-2">Basic Information</h4>
+                <div className="grid mb-3">
+                    <div className="col-12 md:col-6 p-fluid">
+                        <label className="block mb-1">First Name</label>
+                        <InputText name='firstName' value={form.firstName} onChange={onChange} />
+                    </div>
+                    <div className="col-12 md:col-6 p-fluid">
+                        <label className="block mb-1">Last Name</label>
+                        <InputText name='lastName' value={form.lastName} onChange={onChange} />
+                    </div>
+                </div>
+
+                <div className="grid mb-3">
+                    <div className="col-12 md:col-6 p-fluid">
+                        <label className="block mb-1">Email</label>
+                        <InputText name='emailId' value={form.emailId} onChange={onChange} />
+                    </div>
+                    <div className="col-12 md:col-6 p-fluid">
+                        <label className="block mb-1">Phone</label>
+                        <InputText name='phoneNo' value={form.phoneNo} onChange={onChange} />
+                    </div>
+                </div>
+
+                <div className="grid mb-3">
+                    <div className="col-12 md:col-6 p-fluid">
+                        <label className="block mb-1">Password</label>
+                        <InputText name='password' type='password' value={form.password} onChange={onChange} />
+                    </div>
+                    <div className="col-12 md:col-6 p-fluid">
+                        <label className="block mb-1">Gender</label>
+                        <InputText name='gender' value={form.gender} onChange={onChange} />
+                    </div>
+                </div>
+
+                <div className="grid mb-3">
+                    <div className="col-12 md:col-6 p-fluid">
+                        <label className="block mb-1">Theme Color</label>
+                        <InputText name='colorPreference' value={form.colorPreference} onChange={onChange} />
+                    </div>
+                    <div className="col-12 md:col-6 p-fluid">
+                        <label className="block mb-1">Role</label>
+                        <Dropdown name='role' value={form.role} options={ROLES} onChange={onChange} placeholder="Select Role" />
+                    </div>
+                </div>
+
+                <div className="grid mb-3">
+                    <div className="col-12 md:col-6 p-fluid">
+                        <label className="block mb-1">Hobbies</label>
+                        <MultiSelect value={form.hobbies} options={HOBBIES} onChange={(e) => setForm({...form, hobbies: e.value})} optionLabel="name" display="chip" placeholder="Select Hobbies" />
+                    </div>
+                    <div className="col-12 md:col-6 p-fluid">
+                        <label className="block mb-1">Interests</label>
+                        <MultiSelect value={form.interests} options={INTERESTS} onChange={(e) => setForm({...form, interests: e.value})} optionLabel="name" display="chip" placeholder="Select Interests" />
+                    </div>
+                </div>
+
+                <h4 className="mb-2 mt-4">Address Information</h4>
+                <div className="grid mb-3">
+                    <div className="col-12 md:col-6 p-fluid">
+                        <label className="block mb-1">Street</label>
+                        <InputText name='street' value={form.street} onChange={onChange} />
+                    </div>
+                    <div className="col-12 md:col-6 p-fluid">
+                        <label className="block mb-1">City</label>
+                        <InputText name='city' value={form.city} onChange={onChange} />
+                    </div>
+                </div>
+
+                <div className="grid mb-3">
+                    <div className="col-12 md:col-6 p-fluid">
+                        <label className="block mb-1">State</label>
+                        <InputText name='state' value={form.state} onChange={onChange} />
+                    </div>
+                    <div className="col-12 md:col-6 p-fluid">
+                        <label className="block mb-1">Country</label>
+                        <InputText name='country' value={form.country} onChange={onChange} />
+                    </div>
+                </div>
+                
+                <div className="p-fluid mb-4 w-full md:w-6">
+                    <label className="block mb-1">Pincode</label>
+                    <InputText name='pincode' value={form.pincode} onChange={onChange} />
+                </div>
+
+                <div className="flex gap-2">
+                    <Button label={editingId ? 'Update User' : 'Create User'} icon="pi pi-check" onClick={submit} />
+                    {editingId && <Button label="Cancel" icon="pi pi-times" className="p-button-outlined" onClick={() => { setEditingId(null); setForm(initialForm); }} />}
+                </div>
+            </Card>
+
+            <Card title="Existing Users">
+                <DataTable value={users} paginator rows={10} className="p-datatable-sm">
+                    <Column field="id" header="ID" sortable />
+                    <Column header="Name" body={(u) => `${u.firstName} ${u.lastName}`} sortable />
+                    <Column field="emailId" header="Email" sortable />
+                    <Column field="roles.name" header="Role" sortable />
+                    <Column header="Actions" body={actionTemplate} style={{ width: '120px', textAlign: 'right' }} />
+                </DataTable>
+            </Card>
+        </div>
+    )
 }

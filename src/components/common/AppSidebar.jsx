@@ -49,6 +49,7 @@ export default function AppSidebar({ visible, onHide }) {
         if (!user) return [];
 
         const adminItems = [
+            { label: 'Storefront Home', icon: 'pi pi-home', command: () => handleNav('/') },
             { label: 'Dashboard', icon: 'pi pi-chart-bar', command: () => handleNav('/admin') },
             { label: 'User Management', icon: 'pi pi-users', command: () => handleNav('/admin/users') },
             { label: 'Product Catalog', icon: 'pi pi-box', command: () => handleNav('/admin/products') },
@@ -60,6 +61,7 @@ export default function AppSidebar({ visible, onHide }) {
         ];
 
         const userItems = [
+            { label: 'Storefront Home', icon: 'pi pi-home', command: () => handleNav('/') },
             { label: 'My Profile', icon: 'pi pi-user-edit', command: () => handleNav('/profile') },
             { label: 'My Orders', icon: 'pi pi-list', command: () => handleNav('/orders') },
             { label: 'My Favorites', icon: 'pi pi-heart', command: () => handleNav('/favorites') },
@@ -67,13 +69,15 @@ export default function AppSidebar({ visible, onHide }) {
         ];
 
         const deliveryItems = [
+            { label: 'Storefront Home', icon: 'pi pi-home', command: () => handleNav('/') },
             { label: 'Assigned Deliveries', icon: 'pi pi-truck', command: () => handleNav('/delivery') },
             { label: 'Delivery History', icon: 'pi pi-history', command: () => handleNav('/delivery/history') }
         ];
 
         const editorItems = [
-             { label: 'Manage Ads', icon: 'pi pi-megaphone', command: () => handleNav('/admin/ads') },
-             { label: 'Manage Offers', icon: 'pi pi-percentage', command: () => handleNav('/admin/offers') }
+            { label: 'Storefront Home', icon: 'pi pi-home', command: () => handleNav('/') },
+            { label: 'Manage Ads', icon: 'pi pi-megaphone', command: () => handleNav('/admin/ads') },
+            { label: 'Manage Offers', icon: 'pi pi-percentage', command: () => handleNav('/admin/offers') }
         ];
 
         switch (user.role) {
@@ -103,9 +107,9 @@ export default function AppSidebar({ visible, onHide }) {
             className: 'lg:hidden',
             icon: 'pi pi-palette',
             items: [
-                { 
-                    label: mode === 'light' ? 'Dark Mode' : 'Light Mode', 
-                    icon: mode === 'light' ? 'pi pi-moon' : 'pi pi-sun', 
+                {
+                    label: mode === 'light' ? 'Dark Mode' : 'Light Mode',
+                    icon: mode === 'light' ? 'pi pi-moon' : 'pi pi-sun',
                     command: () => {
                         toggleTheme();
                         if (onHide) onHide();
@@ -120,10 +124,10 @@ export default function AppSidebar({ visible, onHide }) {
         {
             label: 'Shop by Category',
             icon: 'pi pi-th-large',
-            items: categories.map(cat => ({ 
-                label: cat.title, 
-                icon: 'pi pi-chevron-right', 
-                command: () => handleNav(`/category/${cat.id}`) 
+            items: categories.map(cat => ({
+                label: cat.title,
+                icon: 'pi pi-chevron-right',
+                command: () => handleNav(`/category/${cat.id}`)
             }))
         },
         {
@@ -163,23 +167,23 @@ export default function AppSidebar({ visible, onHide }) {
     ];
 
     return (
-        <div className="flex flex-column h-full surface-card border-right-1 border-surface-border shadow-1 overflow-y-auto" 
-             style={{ 
-                 width: '280px', 
-                 minHeight: 'calc(100vh - 64px)',
-                 background: 'var(--surface-card)'
-             }}>
+        <div className="flex flex-column h-full surface-card border-right-1 border-surface-border shadow-1 overflow-y-auto"
+            style={{
+                width: '280px',
+                minHeight: 'calc(100vh - 64px)',
+                background: 'var(--surface-card)'
+            }}>
             {user ? (
-                <div className="p-4 mb-2 flex align-items-center gap-3 shadow-2" 
-                     style={{ 
-                         background: mode === 'light' ? 'linear-gradient(135deg, #1A237E 0%, #4169E1 100%)' : 'var(--primary-color)',
-                         color: '#ffffff'
-                     }}>
-                    <Avatar 
-                        label={user.firstName ? user.firstName[0] : 'U'} 
-                        size="large" 
-                        shape="circle" 
-                        className="bg-white text-primary font-bold shadow-1" 
+                <div className="p-4 mb-2 flex align-items-center gap-3 shadow-2"
+                    style={{
+                        background: mode === 'light' ? 'linear-gradient(135deg, #1A237E 0%, #4169E1 100%)' : 'var(--primary-color)',
+                        color: '#ffffff'
+                    }}>
+                    <Avatar
+                        label={user.firstName ? user.firstName[0] : 'U'}
+                        size="large"
+                        shape="circle"
+                        className="bg-white text-primary font-bold shadow-1"
                     />
                     <div className="flex flex-column">
                         <span className="text-xs opacity-80" style={{ color: '#ffffff' }}>Hello,</span>
@@ -191,7 +195,11 @@ export default function AppSidebar({ visible, onHide }) {
                     <Avatar icon="pi pi-user" size="large" shape="circle" className="bg-primary text-white shadow-1" />
                     <div className="flex flex-column">
                         <span className="text-xs text-color-secondary">Welcome Guest,</span>
-                        <span className="font-bold text-primary cursor-pointer hover:underline" onClick={() => nav('/login')}>Login / Sign Up</span>
+                        <div className="flex gap-2">
+                            <span className="font-bold text-primary cursor-pointer hover:underline" onClick={() => nav('/login')}>Login</span>
+                            <span className="text-400">|</span>
+                            <span className="font-bold text-primary cursor-pointer hover:underline" onClick={() => nav('/register')}>Sign Up</span>
+                        </div>
                     </div>
                 </div>
             )}

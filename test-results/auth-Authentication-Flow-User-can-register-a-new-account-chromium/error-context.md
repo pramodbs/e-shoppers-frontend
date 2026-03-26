@@ -1,0 +1,138 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - generic [ref=e5]:
+    - generic [ref=e7]:
+      - button "" [ref=e8] [cursor=pointer]:
+        - generic: 
+      - link "E-SHOPPERS" [ref=e9] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e10]: E-SHOPPERS
+    - menubar
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - generic [ref=e14]: 
+        - textbox "Search products or categories..." [ref=e15]
+      - button "" [ref=e16] [cursor=pointer]:
+        - generic: 
+      - button "Sign In" [ref=e17] [cursor=pointer]:
+        - generic: 
+        - generic [ref=e18]: Sign In
+      - button "" [ref=e19] [cursor=pointer]:
+        - generic: 
+  - generic [ref=e20]:
+    - complementary [ref=e21]:
+      - generic [ref=e22]:
+        - generic [ref=e23]:
+          - generic [ref=e25]: 
+          - generic [ref=e26]:
+            - generic [ref=e27]: Welcome Guest,
+            - generic [ref=e28] [cursor=pointer]: Login / Sign Up
+        - generic [ref=e29]:
+          - text:  
+          - button "Shop by Category" [ref=e31]:
+            - link " Shop by Category" [ref=e33] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e34]
+              - generic [ref=e36]: 
+              - generic [ref=e37]: Shop by Category
+          - button "Latest Offers" [ref=e39]:
+            - link " Latest Offers" [ref=e41] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e42]
+              - generic [ref=e44]: 
+              - generic [ref=e45]: Latest Offers
+          - button "Account & Operations" [ref=e47]:
+            - link " Account & Operations" [ref=e49] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e50]
+              - generic [ref=e52]: 
+              - generic [ref=e53]: Account & Operations
+    - main [ref=e54]:
+      - generic [ref=e60]:
+        - heading "Create Account" [level=2] [ref=e61]
+        - generic [ref=e62]:
+          - heading "Personal Details" [level=3] [ref=e63]
+          - generic [ref=e64]:
+            - generic [ref=e65]:
+              - generic [ref=e66]: First Name*
+              - textbox [ref=e67]
+            - generic [ref=e68]:
+              - generic [ref=e69]: Last Name*
+              - textbox [ref=e70]
+            - generic [ref=e71]:
+              - generic [ref=e72]: Email
+              - textbox [ref=e73]
+            - generic [ref=e74]:
+              - generic [ref=e75]: Phone (10 digits)
+              - textbox [ref=e76]
+            - generic [ref=e77]:
+              - generic [ref=e78]: Password*
+              - textbox [ref=e79]
+            - generic [ref=e80]:
+              - generic [ref=e81]: Gender
+              - generic [ref=e82]:
+                - generic [ref=e83]:
+                  - radio "Male" [checked] [ref=e85] [cursor=pointer]
+                  - generic [ref=e88]: Male
+                - generic [ref=e89]:
+                  - radio "Female" [ref=e91] [cursor=pointer]
+                  - generic [ref=e93]: Female
+                - generic [ref=e94]:
+                  - radio "Other" [ref=e96] [cursor=pointer]
+                  - generic [ref=e98]: Other
+            - generic [ref=e99]:
+              - generic [ref=e100]: Theme Color Preference
+              - generic [ref=e101]:
+                - textbox [ref=e103] [cursor=pointer]
+                - generic [ref=e104]: Pick a brand color
+            - generic [ref=e105]:
+              - generic [ref=e106]: Role
+              - generic [ref=e107] [cursor=pointer]:
+                - generic:
+                  - textbox: USER
+                - generic:
+                  - combobox:
+                    - option "USER" [selected]
+                - generic [ref=e108]: USER
+                - button "Select Role" [ref=e109]:
+                  - img [ref=e110]
+            - generic [ref=e112]:
+              - generic [ref=e113]: Hobbies
+              - generic [ref=e114] [cursor=pointer]:
+                - generic:
+                  - combobox
+                - generic [ref=e116]: Select Hobbies
+                - img [ref=e118]
+            - generic [ref=e120]:
+              - generic [ref=e121]: Interests
+              - generic [ref=e122] [cursor=pointer]:
+                - generic:
+                  - combobox
+                - generic [ref=e124]: Select Interests
+                - img [ref=e126]
+          - heading "Address" [level=3] [ref=e128]
+          - generic [ref=e129]:
+            - generic [ref=e130]:
+              - generic [ref=e131]: Street*
+              - textbox [ref=e132]
+            - generic [ref=e133]:
+              - generic [ref=e134]: City*
+              - textbox [ref=e135]
+            - generic [ref=e136]:
+              - generic [ref=e137]: State*
+              - textbox [ref=e138]
+            - generic [ref=e139]:
+              - generic [ref=e140]: Country*
+              - textbox [ref=e141]: IN
+            - generic [ref=e142]:
+              - generic [ref=e143]: Pincode*
+              - textbox [ref=e144]
+          - generic [ref=e145]:
+            - button "Create Account" [disabled]:
+              - generic: 
+              - generic: Create Account
+            - button "Back to Login" [ref=e146] [cursor=pointer]:
+              - generic [ref=e147]: Back to Login
+```

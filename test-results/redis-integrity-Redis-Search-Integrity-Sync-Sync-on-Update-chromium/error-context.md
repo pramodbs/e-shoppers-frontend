@@ -1,0 +1,229 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - generic [ref=e5]:
+    - generic [ref=e7]:
+      - button "" [ref=e8] [cursor=pointer]:
+        - generic: 
+      - link "E-SHOPPERS" [ref=e9] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e10]: E-SHOPPERS
+    - menubar
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - generic [ref=e14]: 
+        - textbox "Search products or categories..." [ref=e15]
+      - button "" [ref=e16] [cursor=pointer]:
+        - generic: 
+      - generic [ref=e17]:
+        - generic [ref=e18]:
+          - generic [ref=e19]: Hello,
+          - text: Admin
+        - button "" [ref=e20] [cursor=pointer]:
+          - generic: 
+        - button "" [ref=e21] [cursor=pointer]:
+          - generic: 
+      - button "" [ref=e22] [cursor=pointer]:
+        - generic: 
+  - generic [ref=e23]:
+    - complementary [ref=e24]:
+      - generic [ref=e25]:
+        - generic [ref=e26]:
+          - generic [ref=e28]: A
+          - generic [ref=e29]:
+            - generic [ref=e30]: Hello,
+            - generic [ref=e31]: Admin
+        - generic [ref=e32]:
+          - text:  
+          - button "Shop by Category" [ref=e34]:
+            - link " Shop by Category" [ref=e36] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e37]
+              - generic [ref=e39]: 
+              - generic [ref=e40]: Shop by Category
+          - button "Latest Offers" [ref=e42]:
+            - link " Latest Offers" [ref=e44] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e45]
+              - generic [ref=e47]: 
+              - generic [ref=e48]: Latest Offers
+          - button "Account & Operations" [ref=e50]:
+            - link " Account & Operations" [ref=e52] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e53]
+              - generic [ref=e55]: 
+              - generic [ref=e56]: Account & Operations
+    - main [ref=e57]:
+      - generic [ref=e61]:
+        - heading "Products" [level=2] [ref=e63]
+        - generic [ref=e64]: Manage your store products
+        - generic [ref=e65]:
+          - button "Add Product" [active] [ref=e67] [cursor=pointer]:
+            - generic: 
+            - generic [ref=e68]: Add Product
+          - generic [ref=e69]:
+            - table [ref=e71]:
+              - rowgroup [ref=e72]:
+                - row "ID Title Show Filter Menu Price Qty Active Actions" [ref=e73]:
+                  - columnheader "ID" [ref=e74] [cursor=pointer]:
+                    - generic [ref=e75]:
+                      - generic [ref=e76]: ID
+                      - img [ref=e78]
+                  - columnheader "Title Show Filter Menu" [ref=e83] [cursor=pointer]:
+                    - generic [ref=e84]:
+                      - generic [ref=e85]: Title
+                      - img [ref=e87]
+                      - button "Show Filter Menu" [ref=e93]:
+                        - img [ref=e94]
+                  - columnheader "Price" [ref=e96] [cursor=pointer]:
+                    - generic [ref=e97]:
+                      - generic [ref=e98]: Price
+                      - img [ref=e100]
+                  - columnheader "Qty" [ref=e105] [cursor=pointer]:
+                    - generic [ref=e106]:
+                      - generic [ref=e107]: Qty
+                      - img [ref=e109]
+                  - columnheader "Active" [ref=e114] [cursor=pointer]:
+                    - generic [ref=e115]:
+                      - generic [ref=e116]: Active
+                      - img [ref=e118]
+                  - columnheader "Actions" [ref=e123]:
+                    - generic [ref=e125]: Actions
+              - rowgroup [ref=e126]:
+                - row "2 Lymio Lightweight Jacket - Model v1 ₹3929.56 96 true edit delete" [ref=e127]:
+                  - cell "2" [ref=e128]
+                  - cell "Lymio Lightweight Jacket - Model v1" [ref=e129]
+                  - cell "₹3929.56" [ref=e130]
+                  - cell "96" [ref=e131]
+                  - cell "true" [ref=e132]
+                  - cell "edit delete" [ref=e133]:
+                    - generic [ref=e134]:
+                      - button "edit" [ref=e135] [cursor=pointer]:
+                        - generic: 
+                      - button "delete" [ref=e136] [cursor=pointer]:
+                        - generic: 
+                - row "3 Meyer Stainless Turner - Model v1 ₹3403.39 86 true edit delete" [ref=e137]:
+                  - cell "3" [ref=e138]
+                  - cell "Meyer Stainless Turner - Model v1" [ref=e139]
+                  - cell "₹3403.39" [ref=e140]
+                  - cell "86" [ref=e141]
+                  - cell "true" [ref=e142]
+                  - cell "edit delete" [ref=e143]:
+                    - generic [ref=e144]:
+                      - button "edit" [ref=e145] [cursor=pointer]:
+                        - generic: 
+                      - button "delete" [ref=e146] [cursor=pointer]:
+                        - generic: 
+                - row "4 IKIGAI - Model v1 ₹415.47 149 true edit delete" [ref=e147]:
+                  - cell "4" [ref=e148]
+                  - cell "IKIGAI - Model v1" [ref=e149]
+                  - cell "₹415.47" [ref=e150]
+                  - cell "149" [ref=e151]
+                  - cell "true" [ref=e152]
+                  - cell "edit delete" [ref=e153]:
+                    - generic [ref=e154]:
+                      - button "edit" [ref=e155] [cursor=pointer]:
+                        - generic: 
+                      - button "delete" [ref=e156] [cursor=pointer]:
+                        - generic: 
+                - row "5 Decathlon Yoga Mat - Model v1 ₹1749.24 39 true edit delete" [ref=e157]:
+                  - cell "5" [ref=e158]
+                  - cell "Decathlon Yoga Mat - Model v1" [ref=e159]
+                  - cell "₹1749.24" [ref=e160]
+                  - cell "39" [ref=e161]
+                  - cell "true" [ref=e162]
+                  - cell "edit delete" [ref=e163]:
+                    - generic [ref=e164]:
+                      - button "edit" [ref=e165] [cursor=pointer]:
+                        - generic: 
+                      - button "delete" [ref=e166] [cursor=pointer]:
+                        - generic: 
+                - row "6 OnePlus Nord CE 3 Lite - Model v1 ₹19846.29 45 true edit delete" [ref=e167]:
+                  - cell "6" [ref=e168]
+                  - cell "OnePlus Nord CE 3 Lite - Model v1" [ref=e169]
+                  - cell "₹19846.29" [ref=e170]
+                  - cell "45" [ref=e171]
+                  - cell "true" [ref=e172]
+                  - cell "edit delete" [ref=e173]:
+                    - generic [ref=e174]:
+                      - button "edit" [ref=e175] [cursor=pointer]:
+                        - generic: 
+                      - button "delete" [ref=e176] [cursor=pointer]:
+                        - generic: 
+                - row "7 AUSK T-Shirt for Men - Model v2 ₹1895.05 101 true edit delete" [ref=e177]:
+                  - cell "7" [ref=e178]
+                  - cell "AUSK T-Shirt for Men - Model v2" [ref=e179]
+                  - cell "₹1895.05" [ref=e180]
+                  - cell "101" [ref=e181]
+                  - cell "true" [ref=e182]
+                  - cell "edit delete" [ref=e183]:
+                    - generic [ref=e184]:
+                      - button "edit" [ref=e185] [cursor=pointer]:
+                        - generic: 
+                      - button "delete" [ref=e186] [cursor=pointer]:
+                        - generic: 
+                - row "8 Victorinox Peeler - Model v2 ₹1125.1 176 true edit delete" [ref=e187]:
+                  - cell "8" [ref=e188]
+                  - cell "Victorinox Peeler - Model v2" [ref=e189]
+                  - cell "₹1125.1" [ref=e190]
+                  - cell "176" [ref=e191]
+                  - cell "true" [ref=e192]
+                  - cell "edit delete" [ref=e193]:
+                    - generic [ref=e194]:
+                      - button "edit" [ref=e195] [cursor=pointer]:
+                        - generic: 
+                      - button "delete" [ref=e196] [cursor=pointer]:
+                        - generic: 
+                - row "9 Atomic Habits - Model v2 ₹885.11 78 true edit delete" [ref=e197]:
+                  - cell "9" [ref=e198]
+                  - cell "Atomic Habits - Model v2" [ref=e199]
+                  - cell "₹885.11" [ref=e200]
+                  - cell "78" [ref=e201]
+                  - cell "true" [ref=e202]
+                  - cell "edit delete" [ref=e203]:
+                    - generic [ref=e204]:
+                      - button "edit" [ref=e205] [cursor=pointer]:
+                        - generic: 
+                      - button "delete" [ref=e206] [cursor=pointer]:
+                        - generic: 
+                - row "10 Quechua Backpack - Model v2 ₹1896.3 164 true edit delete" [ref=e207]:
+                  - cell "10" [ref=e208]
+                  - cell "Quechua Backpack - Model v2" [ref=e209]
+                  - cell "₹1896.3" [ref=e210]
+                  - cell "164" [ref=e211]
+                  - cell "true" [ref=e212]
+                  - cell "edit delete" [ref=e213]:
+                    - generic [ref=e214]:
+                      - button "edit" [ref=e215] [cursor=pointer]:
+                        - generic: 
+                      - button "delete" [ref=e216] [cursor=pointer]:
+                        - generic: 
+                - row "11 Noise Twist Smartwatch - Model v2 ₹28962.66 163 true edit delete" [ref=e217]:
+                  - cell "11" [ref=e218]
+                  - cell "Noise Twist Smartwatch - Model v2" [ref=e219]
+                  - cell "₹28962.66" [ref=e220]
+                  - cell "163" [ref=e221]
+                  - cell "true" [ref=e222]
+                  - cell "edit delete" [ref=e223]:
+                    - generic [ref=e224]:
+                      - button "edit" [ref=e225] [cursor=pointer]:
+                        - generic: 
+                      - button "delete" [ref=e226] [cursor=pointer]:
+                        - generic: 
+            - generic [ref=e227]:
+              - button "First Page" [disabled]:
+                - img
+              - button "Previous Page" [disabled]:
+                - img
+              - generic [ref=e228]:
+                - button "Page 1" [ref=e229] [cursor=pointer]: "1"
+                - button "Page 2" [ref=e230] [cursor=pointer]: "2"
+                - button "Page 3" [ref=e231] [cursor=pointer]: "3"
+                - button "Page 4" [ref=e232] [cursor=pointer]: "4"
+                - button "Page 5" [ref=e233] [cursor=pointer]: "5"
+              - button "Next Page" [ref=e234] [cursor=pointer]:
+                - img [ref=e235]
+              - button "Last Page" [ref=e237] [cursor=pointer]:
+                - img [ref=e238]
+```

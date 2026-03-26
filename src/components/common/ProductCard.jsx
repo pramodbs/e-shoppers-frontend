@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Card } from 'primereact/card';
 import { Button } from 'primereact/button';
 import { Rating } from 'primereact/rating';
@@ -47,12 +48,14 @@ export default function ProductCard({ product, onLoginRequired }) {
 
     const header = (
         <div className="flex justify-content-center p-3 relative" style={{ background: 'var(--surface-ground)', borderRadius: '12px 12px 0 0' }}>
-            <img 
-                alt={product.title} 
-                src={imageUrl} 
-                className="w-full h-15rem object-contain transition-transform duration-300 hover:scale-105" 
-                style={{ mixBlendMode: mode === 'light' ? 'multiply' : 'normal' }}
-            />
+            <Link to={`/product/${product.id}`} className="w-full">
+                <img 
+                    alt={product.title} 
+                    src={imageUrl} 
+                    className="w-full h-15rem object-contain transition-transform duration-300 hover:scale-105" 
+                    style={{ mixBlendMode: mode === 'light' ? 'multiply' : 'normal' }}
+                />
+            </Link>
             {product.quantity <= 5 && product.quantity > 0 && (
                 <Badge value={`Only ${product.quantity} left`} severity="warning" className="absolute top-0 right-0 m-2"></Badge>
             )}
@@ -86,13 +89,15 @@ export default function ProductCard({ product, onLoginRequired }) {
                 className="shadow-2 hover:shadow-4 transition-all duration-300 h-full flex flex-column border-round-xl border-1 border-transparent hover:border-primary"
             >
                 <div className="flex flex-column h-full">
-                    <span 
-                        className="text-lg font-bold mb-2 block line-clamp-2 min-h-3rem overflow-hidden text-overflow-ellipsis" 
-                        title={product.title}
-                        style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}
-                    >
-                        {product.title}
-                    </span>
+                    <Link to={`/product/${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <span 
+                            className="text-lg font-bold mb-2 block line-clamp-2 min-h-3rem overflow-hidden text-overflow-ellipsis hover:text-primary transition-colors duration-200" 
+                            title={product.title}
+                            style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}
+                        >
+                            {product.title}
+                        </span>
+                    </Link>
                     
                     <div className="flex align-items-center mb-3">
                         <Rating value={4} readOnly cancel={false} className="mr-2" />

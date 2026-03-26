@@ -1,0 +1,97 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - generic [ref=e5]:
+    - generic [ref=e7]:
+      - button "" [ref=e8] [cursor=pointer]:
+        - generic: 
+      - link "E-SHOPPERS" [ref=e9] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e10]: E-SHOPPERS
+    - menubar
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - generic [ref=e14]: 
+        - textbox "Search products or categories..." [ref=e15]
+      - button "" [ref=e16] [cursor=pointer]:
+        - generic: 
+      - generic [ref=e17]:
+        - generic [ref=e18]:
+          - generic [ref=e19]: Hello,
+          - text: Content
+        - button "" [ref=e20] [cursor=pointer]:
+          - generic: 
+        - button "" [ref=e21] [cursor=pointer]:
+          - generic: 
+      - button "" [ref=e22] [cursor=pointer]:
+        - generic: 
+  - generic [ref=e23]:
+    - complementary [ref=e24]:
+      - generic [ref=e25]:
+        - generic [ref=e26]:
+          - generic [ref=e28]: C
+          - generic [ref=e29]:
+            - generic [ref=e30]: Hello,
+            - generic [ref=e31]: Content
+        - generic [ref=e32]:
+          - text:  
+          - button "Shop by Category" [ref=e34]:
+            - link " Shop by Category" [ref=e36] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e37]
+              - generic [ref=e39]: 
+              - generic [ref=e40]: Shop by Category
+          - button "Latest Offers" [ref=e42]:
+            - link " Latest Offers" [ref=e44] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e45]
+              - generic [ref=e47]: 
+              - generic [ref=e48]: Latest Offers
+          - button "Account & Operations" [ref=e50]:
+            - link " Account & Operations" [ref=e52] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e53]
+              - generic [ref=e55]: 
+              - generic [ref=e56]: Account & Operations
+    - main [ref=e57]:
+      - generic [ref=e61]:
+        - heading "Ads" [level=2] [ref=e63]
+        - generic [ref=e64]: Manage store marketing banners
+        - generic [ref=e65]:
+          - button "Add Advertisement" [ref=e67] [cursor=pointer]:
+            - generic: 
+            - generic [ref=e68]: Add Advertisement
+          - generic [ref=e69]:
+            - table [ref=e71]:
+              - rowgroup [ref=e72]:
+                - row "ID Title Show Filter Menu Active Actions" [ref=e73]:
+                  - columnheader "ID" [ref=e74] [cursor=pointer]:
+                    - generic [ref=e75]:
+                      - generic [ref=e76]: ID
+                      - img [ref=e78]
+                  - columnheader "Title Show Filter Menu" [ref=e83] [cursor=pointer]:
+                    - generic [ref=e84]:
+                      - generic [ref=e85]: Title
+                      - img [ref=e87]
+                      - button "Show Filter Menu" [ref=e93]:
+                        - img [ref=e94]
+                  - columnheader "Active" [ref=e96] [cursor=pointer]:
+                    - generic [ref=e97]:
+                      - generic [ref=e98]: Active
+                      - img [ref=e100]
+                  - columnheader "Actions" [ref=e105]:
+                    - generic [ref=e107]: Actions
+              - rowgroup [ref=e108]:
+                - row "No available options" [ref=e109]:
+                  - cell "No available options" [ref=e110]
+            - generic [ref=e111]:
+              - button "First Page" [disabled]:
+                - img
+              - button "Previous Page" [disabled]:
+                - img
+              - button "Next Page" [disabled]:
+                - img
+              - button "Last Page" [disabled]:
+                - img
+```

@@ -3,6 +3,7 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import MainLayout from './components/layout/MainLayout';
 import Home from './pages/Home';
+import SearchPage from './pages/SearchPage';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
@@ -12,6 +13,7 @@ import AnnouncementsList from './pages/announcements/AnnouncementsList';
 import RulesList from './pages/rules/RulesList';
 import CategoriesList from './pages/categories/CategoriesList';
 import AdminProducts from './pages/products/AdminProducts';
+import ProductDetails from './pages/products/ProductDetails';
 import AdminOrders from './pages/orders/AdminOrders';
 import AdminUsers from './pages/users/AdminUsers';
 import InventoryAdmin from './pages/inventory/InventoryAdmin';
@@ -26,8 +28,10 @@ export default function App() {
             <Routes>
                 {/* Public */}
                 <Route path='/' element={<Home />} />
+                <Route path='/search' element={<SearchPage />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register />} />
+                <Route path='/product/:id' element={<ProductDetails />} />
 
                 {/* Authenticated customer routes */}
                 <Route path='/cart' element={<ProtectedByRole><CartPage /></ProtectedByRole>} />
