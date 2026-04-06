@@ -17,7 +17,7 @@ test.describe('Admin Management Deep Flows (Live)', () => {
     // 2. Add Category
     const timestamp = Date.now();
     const categoryName = `Playwright Test Category ${timestamp}`;
-    const addInput = page.getByLabel(/New Category Title/i);
+    const addInput = page.getByPlaceholder(/New Category Title/i);
     await addInput.fill(categoryName);
     const addButton = page.getByRole('button', { name: 'Add' });
     await expect(addButton).toBeEnabled();
@@ -30,7 +30,7 @@ test.describe('Admin Management Deep Flows (Live)', () => {
     await expect(page.getByText(categoryName, { exact: true })).toBeVisible({ timeout: 10000 });
 
     // 3. Edit Category
-    await page.locator('tr').filter({ hasText: categoryName }).locator('button').first().click();
+    await page.locator('tr').filter({ hasText: categoryName }).locator('.pi-pencil').click();
     const editDialogInput = page.getByRole('dialog').getByLabel(/Category Title/i);
     await expect(editDialogInput).toBeVisible();
     const updatedName = `Playwright Updated Category ${timestamp}`;
@@ -41,7 +41,7 @@ test.describe('Admin Management Deep Flows (Live)', () => {
 
     // 4. Delete Category
     page.on('dialog', dialog => dialog.accept());
-    await page.locator('tr').filter({ hasText: updatedName }).locator('button').nth(1).click();
+    await page.locator('tr').filter({ hasText: updatedName }).locator('.pi-trash').click();
     await expect(page.getByText(updatedName, { exact: true })).not.toBeVisible();
   });
 
@@ -54,9 +54,10 @@ test.describe('Admin Management Deep Flows (Live)', () => {
     await expect(dialog).toBeVisible();
 
     // Fill form
-    await page.getByLabel(/^Title$/i).fill('Playwright Test Product');
-    await page.getByLabel(/Description/i).fill('Latest model smartphone');
-    await page.getByLabel(/Price/i).fill('699');
+    await page.locator('#title').fill('Playwright Test Product');
+    await page.locator('#description').fill('Latest model smartphone');
+    // PrimeReact InputNumber binds ID to the input element
+    await page.locator('input#price').fill('699');
     
     // Save
     await dialog.getByRole('button', { name: /Save/i }).click();

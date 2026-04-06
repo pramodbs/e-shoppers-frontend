@@ -16,7 +16,9 @@ import AdminProducts from './pages/products/AdminProducts';
 import ProductDetails from './pages/products/ProductDetails';
 import AdminOrders from './pages/orders/AdminOrders';
 import AdminUsers from './pages/users/AdminUsers';
-import InventoryAdmin from './pages/inventory/InventoryAdmin';
+import SellersList from './pages/logistics/SellersList';
+import StoreroomsList from './pages/logistics/StoreroomsList';
+import InventoryList from './pages/logistics/InventoryList';
 import DeliveryDashboard from './pages/delivery/DeliveryDashboard';
 import CartPage from './pages/cart/CartPage';
 import Checkout from './pages/checkout/Checkout';
@@ -47,7 +49,9 @@ export default function App() {
                 <Route path='/admin/rules' element={<ProtectedByRole><RulesList /></ProtectedByRole>} />
                 <Route path='/admin/orders' element={<ProtectedByRole><AdminOrders /></ProtectedByRole>} />
                 <Route path='/admin/users' element={<ProtectedByRole><AdminUsers /></ProtectedByRole>} />
-                <Route path='/admin/inventory' element={<ProtectedByRole><InventoryAdmin /></ProtectedByRole>} />
+                <Route path='/admin/sellers' element={<ProtectedByRole><SellersList /></ProtectedByRole>} />
+                <Route path='/admin/storerooms' element={<ProtectedByRole><StoreroomsList /></ProtectedByRole>} />
+                <Route path='/admin/inventory' element={<ProtectedByRole><InventoryList /></ProtectedByRole>} />
                 <Route path='/delivery' element={<ProtectedByRole><DeliveryDashboard /></ProtectedByRole>} />
 
                 {/* Redirects */}

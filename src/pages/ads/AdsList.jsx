@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { Button } from 'primereact/button'
 import { Checkbox } from 'primereact/checkbox'
 import { Dialog } from 'primereact/dialog'
@@ -13,6 +13,8 @@ export default function AdsList() {
     const [rows, setRows] = useState([]);
     const [open, setOpen] = useState(false);
     const [editing, setEditing] = useState(null);
+    const [uploading, setUploading] = useState(false);
+    const fileInputRef = useRef(null);
     const [form, setForm] = useState({ title: '', content: '', categoryId: '', active: true, imageUrl: '', linkUrl: '' })
 
     const load = async () => {
@@ -27,9 +29,9 @@ export default function AdsList() {
         try {
             const payload = { ...form, categoryId: form.categoryId ? parseInt(form.categoryId, 10) : null };
             if (editing) {
-                await api.put(`/admin/advertisement/${editing.id}`, payload);
+                await api.put(`/admin/ads/${editing.id}`, payload);
             } else {
-                await api.post('/admin/advertisement', payload);
+                await api.post('/admin/ads', payload);
             }
             setOpen(false);
             setEditing(null);
@@ -39,6 +41,26 @@ export default function AdsList() {
             console.error("Save failed", err);
         }
     }
+
+    const handleFileUpload = async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const formData = new FormData();
+        formData.append('image', file);
+
+        setUploading(true);
+        try {
+            const { data } = await api.post('/admin/ads/upload', formData, {
+                headers: { 'Content-Type': 'multipart/form-data' }
+            });
+            setForm(prev => ({ ...prev, imageUrl: data.url }));
+        } catch (err) {
+            console.error("Upload failed", err);
+        } finally {
+            setUploading(false);
+        }
+    };
 
     const remove = async (id) => {
         if (!confirm('Delete item?')) return;
@@ -110,7 +132,34 @@ export default function AdsList() {
                     </div>
                     <div className="field mb-3">
                         <label htmlFor="adImg">Image URL</label>
-                        <InputText id="adImg" value={form.imageUrl || ''} onChange={e => setForm({ ...form, imageUrl: e.target.value })} />
+                        <div className="flex gap-2 mb-2">
+                            <InputText id="adImg" value={form.imageUrl || ''} onChange={e => setForm({ ...form, imageUrl: e.target.value })} placeholder="External URL or uploaded path" />
+                            <input 
+                                type="file" 
+                                ref={fileInputRef} 
+                                style={{ display: 'none' }} 
+                                accept="image/*" 
+                                onChange={handleFileUpload} 
+                            />
+                            <Button 
+                                type="button" 
+                                icon="pi pi-upload" 
+                                className="p-button-outlined" 
+                                onClick={() => fileInputRef.current.click()} 
+                                loading={uploading}
+                                tooltip="Upload local image"
+                            />
+                        </div>
+                        {form.imageUrl && (
+                            <div className="mt-2 flex justify-content-center border-1 border-300 border-round p-2" style={{ backgroundColor: 'var(--surface-ground)' }}>
+                                <img 
+                                    src={form.imageUrl} 
+                                    alt="Preview" 
+                                    className="max-h-10rem object-contain" 
+                                    onError={(e) => { e.target.src = 'https://placehold.co/400x200?text=Invalid+Image+URL'; e.target.onerror = null; }}
+                                />
+                            </div>
+                        )}
                     </div>
                     <div className="field mb-3">
                         <label htmlFor="adLink">Link URL</label>

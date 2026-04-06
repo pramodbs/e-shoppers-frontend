@@ -15,7 +15,7 @@ test.describe('Editor Marketing Campaign Flow (Live)', () => {
     await expect(page.getByRole('heading', { name: 'Ads', exact: true })).toBeVisible({ timeout: 10000 });
 
     // Add ad
-    await page.getByRole('button', { name: 'Add', exact: true }).click();
+    await page.getByRole('button', { name: /Add Advertisement/i }).click();
     
     // Dialog opens
     const dialog = page.getByRole('dialog');
@@ -34,9 +34,9 @@ test.describe('Editor Marketing Campaign Flow (Live)', () => {
 
   test('Editor can manage Offers', async ({ page }) => {
     await page.goto('/admin/offers');
-    await expect(page.getByRole('heading', { name: 'Offers', exact: true })).toBeVisible({ timeout: 10000 });
+    await expect(page.locator('.p-card-title').filter({ hasText: 'Offers' })).toBeVisible({ timeout: 10000 });
 
-    await page.getByRole('button', { name: 'Add', exact: true }).click();
+    await page.getByRole('button', { name: /Add Offer/i }).click();
     
     const dialog = page.getByRole('dialog');
     await expect(dialog).toBeVisible();
@@ -46,8 +46,8 @@ test.describe('Editor Marketing Campaign Flow (Live)', () => {
     await dialog.getByLabel(/Name/i).fill(offerName);
     await dialog.getByLabel(/Description/i).fill('Buy 1 Get 1 Free');
     await dialog.getByLabel(/Category ID/i).fill('1');
-    await dialog.getByLabel(/Discount %/i).fill('25');
-    await dialog.getByLabel(/Min Spend/i).fill('100');
+    await page.locator('#discount input').fill('25');
+    await page.locator('#minSpend input').fill('100');
     
     await dialog.getByRole('button', { name: /Save/i }).click();
     await expect(dialog).not.toBeVisible();

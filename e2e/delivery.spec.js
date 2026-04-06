@@ -15,7 +15,7 @@ test.describe('Delivery Person Fulfillment Flow (Live)', () => {
     // We just verify the UI renders without crashing and shows the data table.
     // Verify Delivery route
     await page.goto('/delivery');
-    await expect(page.getByRole('heading', { name: /My Delivery Orders/i })).toBeVisible({ timeout: 10000 });
+    await expect(page.locator('.p-card-title').filter({ hasText: /My Delivery Orders/i })).toBeVisible({ timeout: 10000 });
     
     // Check table headers
     await expect(page.getByRole('columnheader', { name: /Order ID/i })).toBeVisible();

@@ -16,7 +16,7 @@ export default function AnnouncementsList() {
     const [form, setForm] = useState({ title: '', message: '', active: true })
 
     const load = async () => {
-        const { data } = await api.get('/announcements');
+        const { data } = await api.get('/admin/announcements');
         setRows(data)
     }
     useEffect(() => {

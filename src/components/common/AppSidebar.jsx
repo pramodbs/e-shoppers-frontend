@@ -53,10 +53,12 @@ export default function AppSidebar({ visible, onHide }) {
             { label: 'Dashboard', icon: 'pi pi-chart-bar', command: () => handleNav('/admin') },
             { label: 'User Management', icon: 'pi pi-users', command: () => handleNav('/admin/users') },
             { label: 'Product Catalog', icon: 'pi pi-box', command: () => handleNav('/admin/products') },
-            { label: 'Inventory Control', icon: 'pi pi-database', command: () => handleNav('/admin/inventory') },
             { label: 'Order Processing', icon: 'pi pi-shopping-bag', command: () => handleNav('/admin/orders') },
             { label: 'Promotions (Ads)', icon: 'pi pi-megaphone', command: () => handleNav('/admin/ads') },
             { label: 'Discount Offers', icon: 'pi pi-percentage', command: () => handleNav('/admin/offers') },
+            { label: 'Seller Partners', icon: 'pi pi-id-card', command: () => handleNav('/admin/sellers') },
+            { label: 'Stock Storerooms', icon: 'pi pi-building', command: () => handleNav('/admin/storerooms') },
+            { label: 'Inventory Details', icon: 'pi pi-database', command: () => handleNav('/admin/inventory') },
             { label: 'Policy Rules', icon: 'pi pi-shield', command: () => handleNav('/admin/rules') }
         ];
 
@@ -77,7 +79,10 @@ export default function AppSidebar({ visible, onHide }) {
         const editorItems = [
             { label: 'Storefront Home', icon: 'pi pi-home', command: () => handleNav('/') },
             { label: 'Manage Ads', icon: 'pi pi-megaphone', command: () => handleNav('/admin/ads') },
-            { label: 'Manage Offers', icon: 'pi pi-percentage', command: () => handleNav('/admin/offers') }
+            { label: 'Manage Offers', icon: 'pi pi-percentage', command: () => handleNav('/admin/offers') },
+            { label: 'Manage Sellers', icon: 'pi pi-id-card', command: () => handleNav('/admin/sellers') },
+            { label: 'Manage Storerooms', icon: 'pi pi-building', command: () => handleNav('/admin/storerooms') },
+            { label: 'Manage Inventory', icon: 'pi pi-database', command: () => handleNav('/admin/inventory') }
         ];
 
         switch (user.role) {

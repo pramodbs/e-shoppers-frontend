@@ -7,6 +7,9 @@ import { Badge } from 'primereact/badge';
 import { Toast } from 'primereact/toast';
 import { ProgressSpinner } from 'primereact/progressspinner';
 import { Message } from 'primereact/message';
+import { InputTextarea } from 'primereact/inputtextarea';
+import { Divider } from 'primereact/divider';
+import api from '../../services/api';
 import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';
 import { useCart } from '../../context/CartContext';
@@ -21,6 +24,9 @@ export default function ProductDetails() {
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
+    const [reviews, setReviews] = useState([]);
+    const [newReview, setNewReview] = useState({ star: 5, review: '' });
+    const [submitting, setSubmitting] = useState(false);
     const toast = useRef(null);
 
     useEffect(() => {
@@ -28,6 +34,10 @@ export default function ProductDetails() {
             try {
                 const { data } = await axios.get(`/api/product/${id}`);
                 setProduct(data);
+                
+                // Fetch reviews
+                const revRes = await api.get(`/review/product/${id}`);
+                setReviews(revRes.data || []);
             } catch (err) {
                 console.error("Error fetching product details", err);
                 setError("Product not found or failed to load details.");
@@ -70,6 +80,39 @@ export default function ProductDetails() {
             detail: result.message, 
             life: 3000 
         });
+    };
+
+    const handleSubmitReview = async () => {
+        if (!user) {
+            toast.current.show({ severity: 'warn', summary: 'Login Required', detail: 'You must be logged in to post a review.' });
+            return;
+        }
+        if (!newReview.review.trim()) {
+            toast.current.show({ severity: 'warn', summary: 'Empty Review', detail: 'Please write something before submitting.' });
+            return;
+        }
+
+        setSubmitting(true);
+        try {
+            const body = {
+                userId: user.id,
+                productId: product.id,
+                star: newReview.star,
+                review: newReview.review
+            };
+            const { data } = await api.post('/review/add', body);
+            setReviews([data, ...reviews]);
+            setNewReview({ star: 5, review: '' });
+            toast.current.show({ severity: 'success', summary: 'Success', detail: 'Review submitted! Seller rating updated.' });
+            
+            // Refresh product to get updated seller info if needed
+            const { data: updatedProduct } = await axios.get(`/api/product/${id}`);
+            setProduct(updatedProduct);
+        } catch (err) {
+            toast.current.show({ severity: 'error', summary: 'Error', detail: 'Could not submit review.' });
+        } finally {
+            setSubmitting(false);
+        }
     };
 
     if (loading) {
@@ -131,8 +174,12 @@ export default function ProductDetails() {
                             <div>
                                 <h1 className="text-4xl font-bold m-0 mb-2">{product.title}</h1>
                                 <div className="flex align-items-center gap-2">
-                                    <Rating value={4} readOnly cancel={false} />
-                                    <span className="text-color-secondary text-sm">(128 reviews)</span>
+                                    <Rating value={product.productRating || 4} readOnly cancel={false} />
+                                    <span className="text-color-secondary text-sm">({reviews.length} reviews)</span>
+                                    {product.seller && (
+                                        <Badge value={`Sold by: ${product.seller.name} (Rating: ${product.seller.rating?.toFixed(1) || 'N/A'}/5)`} 
+                                               severity="info" className="ml-2" />
+                                    )}
                                 </div>
                             </div>
                             {product.quantity <= 5 && product.quantity > 0 && (
@@ -192,6 +239,61 @@ export default function ProductDetails() {
                                 <span className="block text-xs uppercase font-bold opacity-60">Easy Returns</span>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                {/* Reviews Section */}
+                <div className="mt-8 bg-white border-round-xl shadow-2 p-6" style={{ backgroundColor: 'var(--surface-card)' }}>
+                    <h2 className="text-2xl font-bold mb-4">Customer Reviews</h2>
+                    
+                    {user ? (
+                        <div className="mb-6 p-4 surface-100 border-round-lg">
+                            <h3 className="text-lg font-bold mb-3">Write a Review</h3>
+                            <div className="flex flex-column gap-3">
+                                <div className="flex align-items-center gap-3">
+                                    <span>Your Rating:</span>
+                                    <Rating value={newReview.star} onChange={(e) => setNewReview({...newReview, star: e.value})} cancel={false} />
+                                </div>
+                                <InputTextarea 
+                                    value={newReview.review} 
+                                    onChange={(e) => setNewReview({...newReview, review: e.target.value})} 
+                                    placeholder="Tell us what you think about this product..." 
+                                    rows={3} 
+                                    autoResize 
+                                />
+                                <div className="flex justify-content-end">
+                                    <Button label="Submit Review" icon="pi pi-check" onClick={handleSubmitReview} loading={submitting} />
+                                </div>
+                            </div>
+                        </div>
+                    ) : (
+                        <Message severity="info" text="Please login to write a review" className="mb-4 w-full" />
+                    )}
+
+                    <Divider />
+
+                    <div className="flex flex-column gap-6 mt-4">
+                        {reviews.length > 0 ? (
+                            reviews.map((rev, idx) => (
+                                <div key={idx} className="pb-4 border-bottom-1 surface-border">
+                                    <div className="flex justify-content-between align-items-center mb-2">
+                                        <div className="flex align-items-center gap-3">
+                                            <div className="w-2rem h-2rem border-circle bg-primary flex align-items-center justify-content-center text-white font-bold">
+                                                {rev.user?.firstName?.[0] || 'U'}
+                                            </div>
+                                            <span className="font-bold">{rev.user?.fullName || 'Anonymous'}</span>
+                                        </div>
+                                        <span className="text-color-secondary text-xs">
+                                            {rev.timestamp ? new Date(rev.timestamp).toLocaleDateString() : 'Recent'}
+                                        </span>
+                                    </div>
+                                    <Rating value={rev.star} readOnly cancel={false} className="mb-2" />
+                                    <p className="m-0 opacity-80 line-height-3">{rev.review}</p>
+                                </div>
+                            ))
+                        ) : (
+                            <p className="text-center text-color-secondary italic p-4">No reviews yet. Be the first to review!</p>
+                        )}
                     </div>
                 </div>
             </div>

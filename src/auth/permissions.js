@@ -18,7 +18,9 @@ export const NAV_PERMISSIONS = [
   { label: 'Orders',        path: '/admin/orders',        roles: [ROLES.ADMIN] },
   { label: 'Users',         path: '/admin/users',         roles: [ROLES.ADMIN] },
   { label: 'Delivery',      path: '/delivery',            roles: [ROLES.DELIVERY, ROLES.ADMIN] },
-  { label: 'Inventory',     path: '/admin/inventory',    roles: [ROLES.ADMIN] },
+  { label: 'Sellers',       path: '/admin/sellers',      roles: [ROLES.ADMIN, ROLES.EDITOR] },
+  { label: 'Storerooms',    path: '/admin/storerooms',   roles: [ROLES.ADMIN, ROLES.EDITOR] },
+  { label: 'Inventory',     path: '/admin/inventory',    roles: [ROLES.ADMIN, ROLES.EDITOR] },
 ]
 
 export function canAccess(role, path) {
