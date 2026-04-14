@@ -29,7 +29,7 @@ test.describe('Rules and Announcements Management', () => {
         await page.getByRole('button', { name: /Save/i }).click();
 
         // Verify it appears in the list
-        await expect(page.getByText('Test Rule E2E')).toBeVisible({ timeout: 10000 });
+        await expect(page.getByText('Test Rule E2E').first()).toBeVisible({ timeout: 10000 });
     });
 
     test('Admin can manage Announcements (Notifications)', async ({ page }) => {
@@ -45,7 +45,7 @@ test.describe('Rules and Announcements Management', () => {
         await page.getByRole('button', { name: /Save/i }).click();
 
         // Verify it appears in the list
-        await expect(page.getByText('System Update E2E')).toBeVisible({ timeout: 10000 });
+        await expect(page.getByText('System Update E2E').first()).toBeVisible({ timeout: 10000 });
     });
 
 });

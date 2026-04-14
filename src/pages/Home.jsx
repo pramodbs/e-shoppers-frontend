@@ -51,7 +51,7 @@ export default function Home() {
     };
 
     const offerTemplate = (offer) => (
-        <div className="surface-card p-4 shadow-2 m-2 border-round-xl text-center" style={{ background: 'linear-gradient(135deg, #1A237E 0%, #4169E1 100%)', color: '#fff' }}>
+        <div className="surface-card p-4 shadow-2 m-2 border-round-xl text-center" style={{ background: mode === 'light' ? 'linear-gradient(135deg, #1A237E 0%, #4169E1 100%)' : 'var(--surface-card)', color: mode === 'light' ? '#fff' : 'var(--text-primary)', border: mode === 'dark' ? '1px solid var(--surface-border)' : 'none' }}>
             <h4 className="mb-1 text-xl font-bold">{offer.name || 'Special Offer'}</h4>
             <h1 className="mb-3 text-4xl font-bold" style={{ color: '#FF8C00' }}>{offer.discountPercent || 20}% OFF</h1>
             <p className="mb-3 opacity-80">{offer.description || 'Limited time savings'}</p>
@@ -107,7 +107,7 @@ export default function Home() {
     }
 
     return (
-        <div className="surface-ground min-h-screen pb-6">
+        <div className="min-h-screen pb-6" style={{ background: 'var(--surface-bg)', color: 'var(--text-primary)' }}>
             {/* Hero Section */}
             <div className="relative overflow-hidden bg-no-repeat bg-cover p-4 md:p-8 text-center" style={{ 
                 height: '400px', 
@@ -160,9 +160,9 @@ export default function Home() {
                     <DataView value={products} itemTemplate={itemTemplate} layout="grid" />
                     
                     {products.length === 0 && !error && (
-                        <div className="text-center p-8 surface-card border-round-xl shadow-1">
+                        <div className="text-center p-8 surface-card border-round-xl shadow-1" style={{ background: 'var(--surface-card)', color: 'var(--text-primary)' }}>
                             <i className="pi pi-search text-600 text-5xl mb-3"></i>
-                            <p className="text-600">No products found. Please try again later.</p>
+                            <p>No products found. Please try again later.</p>
                         </div>
                     )}
                 </div>

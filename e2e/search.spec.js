@@ -1,6 +1,25 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Redis Search Functionality', () => {
+  
+  test.beforeAll(async ({ request }) => {
+    // 1. Login to get token for reindex
+    const loginRes = await request.post('/api/user/login', {
+      data: {
+        identifier: 'admin@example.com',
+        password: 'admin'
+      }
+    });
+    const { token } = await loginRes.json();
+
+    // 2. Trigger reindex
+    await request.post('/api/search/reindex', {
+      headers: { 'Authorization': `Bearer ${token}` }
+    });
+    
+    // 3. Small delay for Redis to catch up
+    await new Promise(resolve => setTimeout(resolve, 2000));
+  });
 
   test.beforeEach(async ({ page }) => {
     // Ensure desktop viewport so search bar is visible
@@ -14,15 +33,16 @@ test.describe('Redis Search Functionality', () => {
     const searchInput = page.getByPlaceholder(/search products or categories/i);
     await expect(searchInput).toBeVisible();
 
-    // Type query
+    // Type query and wait for debounce
     await searchInput.fill('Airdopes');
+    await page.waitForTimeout(1000);
     
     // Wait for overlay
     const overlay = page.locator('.p-overlaypanel');
-    await expect(overlay).toBeVisible();
+    await expect(overlay).toBeVisible({ timeout: 10000 });
 
     // Verify product suggestion
-    await expect(overlay.getByText(/Boat Airdopes/i).first()).toBeVisible();
+    await expect(overlay.getByText(/Boat Airdopes/i).first()).toBeVisible({ timeout: 8000 });
 
     // Verify "View All Results" link
     const viewAll = overlay.getByText(/View All Results/i);
@@ -41,12 +61,13 @@ test.describe('Redis Search Functionality', () => {
     
     const searchInput = page.getByPlaceholder(/search products or categories/i);
     await searchInput.fill('Elect');
+    await page.waitForTimeout(1000);
     
     const overlay = page.locator('.p-overlaypanel');
-    await expect(overlay).toBeVisible();
+    await expect(overlay).toBeVisible({ timeout: 10000 });
 
     // Verify category suggestion
-    await expect(overlay.getByText(/Electronics/i).first()).toBeVisible();
+    await expect(overlay.getByText(/Electronics/i).first()).toBeVisible({ timeout: 8000 });
 
     // Click category suggestion
     const catSuggestion = overlay.getByText(/Electronics/i).first();

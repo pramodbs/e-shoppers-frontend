@@ -6,7 +6,7 @@ import { useAppTheme } from '../../context/ThemeContext';
 
 export default function MainLayout({ children }) {
     const [mobileSidebarVisible, setMobileSidebarVisible] = useState(false);
-    const [desktopSidebarVisible, setDesktopSidebarVisible] = useState(true);
+    const [desktopSidebarVisible, setDesktopSidebarVisible] = useState(false);
     const { mode } = useAppTheme();
 
     const handleToggle = () => {
@@ -18,7 +18,7 @@ export default function MainLayout({ children }) {
     };
 
     return (
-        <div className="min-h-screen flex flex-column surface-ground">
+        <div className="min-h-screen flex flex-column" style={{ background: 'var(--surface-bg)', color: 'var(--text-primary)' }}>
             {/* Standard Header */}
             <AppHeader onToggleSidebar={handleToggle} />
 

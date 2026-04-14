@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { Button } from 'primereact/button'
 import { InputText } from 'primereact/inputtext'
 import { RadioButton } from 'primereact/radiobutton'
@@ -33,6 +34,7 @@ const INTERESTS = [
 
 export default function Register({ isModal, onSuccess, onSwitchToLogin }) {
     const nav = useNavigate()
+    const [searchParams] = useSearchParams();
     const { login } = useAuth()
     const [msg, setMsg] = useState({ type: '', text: '' })
     const [loading, setLoading] = useState(false)
@@ -70,7 +72,8 @@ export default function Register({ isModal, onSuccess, onSwitchToLogin }) {
                 return;
             }
 
-            nav('/')
+            const target = searchParams.get('redirect') || '/';
+            nav(target)
         } catch (err) {
             const t = err?.response?.data?.message || err?.response?.data || 'Registration failed'
             setMsg({ type: 'error', text: String(t) })

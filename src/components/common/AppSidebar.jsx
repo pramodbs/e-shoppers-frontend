@@ -132,7 +132,7 @@ export default function AppSidebar({ visible, onHide }) {
             items: categories.map(cat => ({
                 label: cat.title,
                 icon: 'pi pi-chevron-right',
-                command: () => handleNav(`/category/${cat.id}`)
+                command: () => handleNav(`/search?q=${encodeURIComponent(cat.title)}`)
             }))
         },
         {
@@ -181,7 +181,7 @@ export default function AppSidebar({ visible, onHide }) {
             {user ? (
                 <div className="p-4 mb-2 flex align-items-center gap-3 shadow-2"
                     style={{
-                        background: mode === 'light' ? 'linear-gradient(135deg, #1A237E 0%, #4169E1 100%)' : 'var(--primary-color)',
+                        background: 'var(--primary-color)',
                         color: '#ffffff'
                     }}>
                     <Avatar

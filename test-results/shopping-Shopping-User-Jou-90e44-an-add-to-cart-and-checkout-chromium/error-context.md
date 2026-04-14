@@ -1,0 +1,2263 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - generic [ref=e5]:
+    - generic [ref=e7]:
+      - button "" [ref=e8] [cursor=pointer]:
+        - generic: 
+      - link "E-SHOPPERS" [ref=e9] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e10]: E-SHOPPERS
+    - menubar
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - generic [ref=e14]: 
+        - textbox "Search products or categories..." [ref=e15]
+      - button "" [ref=e16] [cursor=pointer]:
+        - generic: 
+      - generic [ref=e17]:
+        - generic [ref=e18]:
+          - generic [ref=e19]: Hello,
+          - text: Emma
+        - button "" [ref=e20] [cursor=pointer]:
+          - generic: 
+        - button "" [ref=e21] [cursor=pointer]:
+          - generic: 
+      - button "" [ref=e22] [cursor=pointer]:
+        - generic: 
+  - generic [ref=e23]:
+    - complementary [ref=e24]:
+      - generic [ref=e25]:
+        - generic [ref=e26]:
+          - generic [ref=e28]: E
+          - generic [ref=e29]:
+            - generic [ref=e30]: Hello,
+            - generic [ref=e31]: Emma
+        - generic [ref=e32]:
+          - text:  
+          - button "Shop by Category" [ref=e34]:
+            - link " Shop by Category" [ref=e36] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e37]
+              - generic [ref=e39]: 
+              - generic [ref=e40]: Shop by Category
+          - button "Latest Offers" [ref=e42]:
+            - link " Latest Offers" [ref=e44] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e45]
+              - generic [ref=e47]: 
+              - generic [ref=e48]: Latest Offers
+          - button "Account & Operations" [ref=e50]:
+            - link " Account & Operations" [ref=e52] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e53]
+              - generic [ref=e55]: 
+              - generic [ref=e56]: Account & Operations
+    - main [ref=e57]:
+      - generic [ref=e59]:
+        - generic [ref=e62]:
+          - heading "The Great Savings Festival" [level=1] [ref=e63]
+          - heading "Up to 70% off on Premium Electronics" [level=4] [ref=e64]
+          - button "Shop Now" [ref=e65] [cursor=pointer]:
+            - generic: 
+            - generic [ref=e66]: Shop Now
+        - generic [ref=e67]:
+          - generic [ref=e68]:
+            - generic [ref=e69]:
+              - heading "Featured Offers" [level=3] [ref=e70]
+              - region [ref=e71]:
+                - generic [ref=e72]:
+                  - generic [ref=e73]:
+                    - button "Previous Page" [ref=e74] [cursor=pointer]:
+                      - img [ref=e75]
+                    - group "0" [ref=e79]:
+                      - generic [ref=e80]:
+                        - heading "Welcome Bonus" [level=4] [ref=e81]
+                        - heading "10% OFF" [level=1] [ref=e82]
+                        - paragraph [ref=e83]: Sign up today and get an extra 10% off your first purchase.
+                        - generic [ref=e84]: Min Spend ₹50
+                    - button "Next Page" [ref=e85] [cursor=pointer]:
+                      - img [ref=e86]
+                  - list [ref=e88]:
+                    - listitem [ref=e89]:
+                      - button "Page 1" [ref=e90] [cursor=pointer]
+                    - listitem [ref=e91]:
+                      - button "Page 2" [ref=e92] [cursor=pointer]
+                    - listitem [ref=e93]:
+                      - button "Page 3" [ref=e94] [cursor=pointer]
+            - generic [ref=e95]:
+              - heading "Sponsored Ads" [level=3] [ref=e96]
+              - region [ref=e97]:
+                - generic [ref=e98]:
+                  - generic [ref=e99]:
+                    - button "Previous Page" [ref=e100] [cursor=pointer]:
+                      - img [ref=e101]
+                    - generic [ref=e104]:
+                      - generic [ref=e107] [cursor=pointer]:
+                        - heading "New Electronics Arrival" [level=3] [ref=e108]
+                        - paragraph [ref=e109]: Upgrade your tech today with our newly arrived gadgets.
+                      - generic [ref=e112] [cursor=pointer]:
+                        - heading "Playwright Test Ad Campaign 1775489803898" [level=3] [ref=e113]
+                        - paragraph [ref=e114]: 50% Off Everything
+                      - group "0" [ref=e115]:
+                        - generic [ref=e117] [cursor=pointer]:
+                          - heading "Summer Sale Extravaganza!" [level=3] [ref=e118]
+                          - paragraph [ref=e119]: Get up to 50% off on all summer collections.
+                      - group "1" [ref=e120]:
+                        - generic [ref=e122] [cursor=pointer]:
+                          - heading "New Electronics Arrival" [level=3] [ref=e123]
+                          - paragraph [ref=e124]: Upgrade your tech today with our newly arrived gadgets.
+                      - group [ref=e125]:
+                        - generic [ref=e127] [cursor=pointer]:
+                          - heading [level=3] [ref=e128]: Playwright Test Ad Campaign 1775489803898
+                          - paragraph [ref=e129]: 50% Off Everything
+                      - generic [ref=e132] [cursor=pointer]:
+                        - heading "Summer Sale Extravaganza!" [level=3] [ref=e133]
+                        - paragraph [ref=e134]: Get up to 50% off on all summer collections.
+                      - generic [ref=e137] [cursor=pointer]:
+                        - heading "New Electronics Arrival" [level=3] [ref=e138]
+                        - paragraph [ref=e139]: Upgrade your tech today with our newly arrived gadgets.
+                    - button "Next Page" [ref=e140] [cursor=pointer]:
+                      - img [ref=e141]
+                  - list [ref=e143]:
+                    - listitem [ref=e144]:
+                      - button "Page 1" [ref=e145] [cursor=pointer]
+                    - listitem [ref=e146]:
+                      - button "Page 2" [ref=e147] [cursor=pointer]
+          - generic [ref=e148]:
+            - generic [ref=e149]:
+              - heading "Discover Products" [level=3] [ref=e150]
+              - generic [ref=e151]:
+                - button "" [ref=e152] [cursor=pointer]:
+                  - generic: 
+                - button "" [ref=e153] [cursor=pointer]:
+                  - generic: 
+            - generic [ref=e156]:
+              - generic [ref=e158]:
+                - link "Atomic Habits - Model v12" [ref=e161] [cursor=pointer]:
+                  - /url: /product/6234
+                  - img "Atomic Habits - Model v12" [ref=e162]
+                - generic [ref=e163]:
+                  - generic [ref=e165]:
+                    - link "Atomic Habits - Model v12" [ref=e166] [cursor=pointer]:
+                      - /url: /product/6234
+                      - generic "Atomic Habits - Model v12" [ref=e167]
+                    - generic [ref=e168]:
+                      - generic [ref=e169]:
+                        - img [ref=e171]
+                        - img [ref=e174]
+                        - img [ref=e177]
+                        - img [ref=e180]
+                        - img [ref=e183]
+                      - generic [ref=e185]: (128)
+                    - generic [ref=e186]: ₹994
+                  - button "Add to Cart" [ref=e188] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e189]: Add to Cart
+              - generic [ref=e191]:
+                - link "Quechua Backpack - Model v12" [ref=e194] [cursor=pointer]:
+                  - /url: /product/6235
+                  - img "Quechua Backpack - Model v12" [ref=e195]
+                - generic [ref=e196]:
+                  - generic [ref=e198]:
+                    - link "Quechua Backpack - Model v12" [ref=e199] [cursor=pointer]:
+                      - /url: /product/6235
+                      - generic "Quechua Backpack - Model v12" [ref=e200]
+                    - generic [ref=e201]:
+                      - generic [ref=e202]:
+                        - img [ref=e204]
+                        - img [ref=e207]
+                        - img [ref=e210]
+                        - img [ref=e213]
+                        - img [ref=e216]
+                      - generic [ref=e218]: (128)
+                    - generic [ref=e219]: ₹1,772
+                  - button "Add to Cart" [ref=e221] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e222]: Add to Cart
+              - generic [ref=e224]:
+                - link "Boat Airdopes 141 Gen 2 - Model v11" [ref=e227] [cursor=pointer]:
+                  - /url: /product/6236
+                  - img "Boat Airdopes 141 Gen 2 - Model v11" [ref=e228]
+                - generic [ref=e229]:
+                  - generic [ref=e231]:
+                    - link "Boat Airdopes 141 Gen 2 - Model v11" [ref=e232] [cursor=pointer]:
+                      - /url: /product/6236
+                      - generic "Boat Airdopes 141 Gen 2 - Model v11" [ref=e233]
+                    - generic [ref=e234]:
+                      - generic [ref=e235]:
+                        - img [ref=e237]
+                        - img [ref=e240]
+                        - img [ref=e243]
+                        - img [ref=e246]
+                        - img [ref=e249]
+                      - generic [ref=e251]: (128)
+                    - generic [ref=e252]: ₹2,157
+                  - button "Add to Cart" [ref=e254] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e255]: Add to Cart
+              - generic [ref=e257]:
+                - link "Levi's 511 Slim Jeans - Model v12" [ref=e260] [cursor=pointer]:
+                  - /url: /product/6237
+                  - img "Levi's 511 Slim Jeans - Model v12" [ref=e261]
+                - generic [ref=e262]:
+                  - generic [ref=e264]:
+                    - link "Levi's 511 Slim Jeans - Model v12" [ref=e265] [cursor=pointer]:
+                      - /url: /product/6237
+                      - generic "Levi's 511 Slim Jeans - Model v12" [ref=e266]
+                    - generic [ref=e267]:
+                      - generic [ref=e268]:
+                        - img [ref=e270]
+                        - img [ref=e273]
+                        - img [ref=e276]
+                        - img [ref=e279]
+                        - img [ref=e282]
+                      - generic [ref=e284]: (128)
+                    - generic [ref=e285]: ₹3,354
+                  - button "Add to Cart" [ref=e287] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e288]: Add to Cart
+              - generic [ref=e290]:
+                - link "Pigeon Mini Chopper - Model v13" [ref=e293] [cursor=pointer]:
+                  - /url: /product/6238
+                  - img "Pigeon Mini Chopper - Model v13" [ref=e294]
+                - generic [ref=e295]:
+                  - generic [ref=e297]:
+                    - link "Pigeon Mini Chopper - Model v13" [ref=e298] [cursor=pointer]:
+                      - /url: /product/6238
+                      - generic "Pigeon Mini Chopper - Model v13" [ref=e299]
+                    - generic [ref=e300]:
+                      - generic [ref=e301]:
+                        - img [ref=e303]
+                        - img [ref=e306]
+                        - img [ref=e309]
+                        - img [ref=e312]
+                        - img [ref=e315]
+                      - generic [ref=e317]: (128)
+                    - generic [ref=e318]: ₹8,818
+                  - button "Add to Cart" [ref=e320] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e321]: Add to Cart
+              - generic [ref=e323]:
+                - link "The 5 AM Club - Model v13" [ref=e326] [cursor=pointer]:
+                  - /url: /product/6239
+                  - img "The 5 AM Club - Model v13" [ref=e327]
+                - generic [ref=e328]:
+                  - generic [ref=e330]:
+                    - link "The 5 AM Club - Model v13" [ref=e331] [cursor=pointer]:
+                      - /url: /product/6239
+                      - generic "The 5 AM Club - Model v13" [ref=e332]
+                    - generic [ref=e333]:
+                      - generic [ref=e334]:
+                        - img [ref=e336]
+                        - img [ref=e339]
+                        - img [ref=e342]
+                        - img [ref=e345]
+                        - img [ref=e348]
+                      - generic [ref=e350]: (128)
+                    - generic [ref=e351]: ₹869
+                  - button "Add to Cart" [ref=e353] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e354]: Add to Cart
+              - generic [ref=e356]:
+                - link "Yonex Badminton Racket - Model v13" [ref=e359] [cursor=pointer]:
+                  - /url: /product/6240
+                  - img "Yonex Badminton Racket - Model v13" [ref=e360]
+                - generic [ref=e361]:
+                  - generic [ref=e363]:
+                    - link "Yonex Badminton Racket - Model v13" [ref=e364] [cursor=pointer]:
+                      - /url: /product/6240
+                      - generic "Yonex Badminton Racket - Model v13" [ref=e365]
+                    - generic [ref=e366]:
+                      - generic [ref=e367]:
+                        - img [ref=e369]
+                        - img [ref=e372]
+                        - img [ref=e375]
+                        - img [ref=e378]
+                        - img [ref=e381]
+                      - generic [ref=e383]: (128)
+                    - generic [ref=e384]: ₹1,503
+                  - button "Add to Cart" [ref=e386] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e387]: Add to Cart
+              - generic [ref=e389]:
+                - link "OnePlus Nord CE 3 Lite - Model v11" [ref=e392] [cursor=pointer]:
+                  - /url: /product/6241
+                  - img "OnePlus Nord CE 3 Lite - Model v11" [ref=e393]
+                - generic [ref=e394]:
+                  - generic [ref=e396]:
+                    - link "OnePlus Nord CE 3 Lite - Model v11" [ref=e397] [cursor=pointer]:
+                      - /url: /product/6241
+                      - generic "OnePlus Nord CE 3 Lite - Model v11" [ref=e398]
+                    - generic [ref=e399]:
+                      - generic [ref=e400]:
+                        - img [ref=e402]
+                        - img [ref=e405]
+                        - img [ref=e408]
+                        - img [ref=e411]
+                        - img [ref=e414]
+                      - generic [ref=e416]: (128)
+                    - generic [ref=e417]: ₹41,343
+                  - button "Add to Cart" [ref=e419] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e420]: Add to Cart
+              - generic [ref=e422]:
+                - link "Shasmi Maxi Dress - Model v13" [ref=e425] [cursor=pointer]:
+                  - /url: /product/6242
+                  - img "Shasmi Maxi Dress - Model v13" [ref=e426]
+                - generic [ref=e427]:
+                  - generic [ref=e429]:
+                    - link "Shasmi Maxi Dress - Model v13" [ref=e430] [cursor=pointer]:
+                      - /url: /product/6242
+                      - generic "Shasmi Maxi Dress - Model v13" [ref=e431]
+                    - generic [ref=e432]:
+                      - generic [ref=e433]:
+                        - img [ref=e435]
+                        - img [ref=e438]
+                        - img [ref=e441]
+                        - img [ref=e444]
+                        - img [ref=e447]
+                      - generic [ref=e449]: (128)
+                    - generic [ref=e450]: ₹3,338
+                  - button "Add to Cart" [ref=e452] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e453]: Add to Cart
+              - generic [ref=e455]:
+                - link "Philips Air Fryer - Model v13" [ref=e458] [cursor=pointer]:
+                  - /url: /product/6243
+                  - img "Philips Air Fryer - Model v13" [ref=e459]
+                - generic [ref=e460]:
+                  - generic [ref=e462]:
+                    - link "Philips Air Fryer - Model v13" [ref=e463] [cursor=pointer]:
+                      - /url: /product/6243
+                      - generic "Philips Air Fryer - Model v13" [ref=e464]
+                    - generic [ref=e465]:
+                      - generic [ref=e466]:
+                        - img [ref=e468]
+                        - img [ref=e471]
+                        - img [ref=e474]
+                        - img [ref=e477]
+                        - img [ref=e480]
+                      - generic [ref=e482]: (128)
+                    - generic [ref=e483]: ₹9,230
+                  - button "Add to Cart" [ref=e485] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e486]: Add to Cart
+              - generic [ref=e488]:
+                - link "The Monk Who Sold His Ferrari - Model v14" [ref=e491] [cursor=pointer]:
+                  - /url: /product/6244
+                  - img "The Monk Who Sold His Ferrari - Model v14" [ref=e492]
+                - generic [ref=e493]:
+                  - generic [ref=e495]:
+                    - link "The Monk Who Sold His Ferrari - Model v14" [ref=e496] [cursor=pointer]:
+                      - /url: /product/6244
+                      - generic "The Monk Who Sold His Ferrari - Model v14" [ref=e497]
+                    - generic [ref=e498]:
+                      - generic [ref=e499]:
+                        - img [ref=e501]
+                        - img [ref=e504]
+                        - img [ref=e507]
+                        - img [ref=e510]
+                        - img [ref=e513]
+                      - generic [ref=e515]: (128)
+                    - generic [ref=e516]: ₹172
+                  - button "Add to Cart" [ref=e518] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e519]: Add to Cart
+              - generic [ref=e521]:
+                - link "GISCO Training Kit - Model v14" [ref=e524] [cursor=pointer]:
+                  - /url: /product/6245
+                  - img "GISCO Training Kit - Model v14" [ref=e525]
+                - generic [ref=e526]:
+                  - generic [ref=e528]:
+                    - link "GISCO Training Kit - Model v14" [ref=e529] [cursor=pointer]:
+                      - /url: /product/6245
+                      - generic "GISCO Training Kit - Model v14" [ref=e530]
+                    - generic [ref=e531]:
+                      - generic [ref=e532]:
+                        - img [ref=e534]
+                        - img [ref=e537]
+                        - img [ref=e540]
+                        - img [ref=e543]
+                        - img [ref=e546]
+                      - generic [ref=e548]: (128)
+                    - generic [ref=e549]: ₹1,485
+                  - button "Add to Cart" [ref=e551] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e552]: Add to Cart
+              - generic [ref=e554]:
+                - link "Noise Twist Smartwatch - Model v12" [ref=e557] [cursor=pointer]:
+                  - /url: /product/6246
+                  - img "Noise Twist Smartwatch - Model v12" [ref=e558]
+                - generic [ref=e559]:
+                  - generic [ref=e561]:
+                    - link "Noise Twist Smartwatch - Model v12" [ref=e562] [cursor=pointer]:
+                      - /url: /product/6246
+                      - generic "Noise Twist Smartwatch - Model v12" [ref=e563]
+                    - generic [ref=e564]:
+                      - generic [ref=e565]:
+                        - img [ref=e567]
+                        - img [ref=e570]
+                        - img [ref=e573]
+                        - img [ref=e576]
+                        - img [ref=e579]
+                      - generic [ref=e581]: (128)
+                    - generic [ref=e582]: ₹17,778
+                  - button "Add to Cart" [ref=e584] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e585]: Add to Cart
+              - generic [ref=e587]:
+                - link "DEELMO Cotton Casual Shirt - Model v14" [ref=e590] [cursor=pointer]:
+                  - /url: /product/6247
+                  - img "DEELMO Cotton Casual Shirt - Model v14" [ref=e591]
+                - generic [ref=e592]:
+                  - generic [ref=e594]:
+                    - link "DEELMO Cotton Casual Shirt - Model v14" [ref=e595] [cursor=pointer]:
+                      - /url: /product/6247
+                      - generic "DEELMO Cotton Casual Shirt - Model v14" [ref=e596]
+                    - generic [ref=e597]:
+                      - generic [ref=e598]:
+                        - img [ref=e600]
+                        - img [ref=e603]
+                        - img [ref=e606]
+                        - img [ref=e609]
+                        - img [ref=e612]
+                      - generic [ref=e614]: (128)
+                    - generic [ref=e615]: ₹1,182
+                  - button "Add to Cart" [ref=e617] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e618]: Add to Cart
+              - generic [ref=e620]:
+                - link "Milton Thermosteel Bottle - Model v14" [ref=e623] [cursor=pointer]:
+                  - /url: /product/6248
+                  - img "Milton Thermosteel Bottle - Model v14" [ref=e624]
+                - generic [ref=e625]:
+                  - generic [ref=e627]:
+                    - link "Milton Thermosteel Bottle - Model v14" [ref=e628] [cursor=pointer]:
+                      - /url: /product/6248
+                      - generic "Milton Thermosteel Bottle - Model v14" [ref=e629]
+                    - generic [ref=e630]:
+                      - generic [ref=e631]:
+                        - img [ref=e633]
+                        - img [ref=e636]
+                        - img [ref=e639]
+                        - img [ref=e642]
+                        - img [ref=e645]
+                      - generic [ref=e647]: (128)
+                    - generic [ref=e648]: ₹3,974
+                  - button "Add to Cart" [ref=e650] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e651]: Add to Cart
+              - generic [ref=e653]:
+                - link "Who Will Cry When You Die? - Model v14" [ref=e656] [cursor=pointer]:
+                  - /url: /product/6249
+                  - img "Who Will Cry When You Die? - Model v14" [ref=e657]
+                - generic [ref=e658]:
+                  - generic [ref=e660]:
+                    - link "Who Will Cry When You Die? - Model v14" [ref=e661] [cursor=pointer]:
+                      - /url: /product/6249
+                      - generic "Who Will Cry When You Die? - Model v14" [ref=e662]
+                    - generic [ref=e663]:
+                      - generic [ref=e664]:
+                        - img [ref=e666]
+                        - img [ref=e669]
+                        - img [ref=e672]
+                        - img [ref=e675]
+                        - img [ref=e678]
+                      - generic [ref=e680]: (128)
+                    - generic [ref=e681]: ₹384
+                  - button "Add to Cart" [ref=e683] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e684]: Add to Cart
+              - generic [ref=e686]:
+                - link "Nivia Frisbee - Model v15" [ref=e689] [cursor=pointer]:
+                  - /url: /product/6250
+                  - img "Nivia Frisbee - Model v15" [ref=e690]
+                - generic [ref=e691]:
+                  - generic [ref=e693]:
+                    - link "Nivia Frisbee - Model v15" [ref=e694] [cursor=pointer]:
+                      - /url: /product/6250
+                      - generic "Nivia Frisbee - Model v15" [ref=e695]
+                    - generic [ref=e696]:
+                      - generic [ref=e697]:
+                        - img [ref=e699]
+                        - img [ref=e702]
+                        - img [ref=e705]
+                        - img [ref=e708]
+                        - img [ref=e711]
+                      - generic [ref=e713]: (128)
+                    - generic [ref=e714]: ₹1,453
+                  - button "Add to Cart" [ref=e716] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e717]: Add to Cart
+              - generic [ref=e719]:
+                - link "JBL C100SI Wired Earphone - Model v13" [ref=e722] [cursor=pointer]:
+                  - /url: /product/6251
+                  - img "JBL C100SI Wired Earphone - Model v13" [ref=e723]
+                - generic [ref=e724]:
+                  - generic [ref=e726]:
+                    - link "JBL C100SI Wired Earphone - Model v13" [ref=e727] [cursor=pointer]:
+                      - /url: /product/6251
+                      - generic "JBL C100SI Wired Earphone - Model v13" [ref=e728]
+                    - generic [ref=e729]:
+                      - generic [ref=e730]:
+                        - img [ref=e732]
+                        - img [ref=e735]
+                        - img [ref=e738]
+                        - img [ref=e741]
+                        - img [ref=e744]
+                      - generic [ref=e746]: (128)
+                    - generic [ref=e747]: ₹13,505
+                  - button "Add to Cart" [ref=e749] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e750]: Add to Cart
+              - generic [ref=e752]:
+                - link "Leriya Fashion T-Shirt - Model v15" [ref=e755] [cursor=pointer]:
+                  - /url: /product/6252
+                  - img "Leriya Fashion T-Shirt - Model v15" [ref=e756]
+                - generic [ref=e757]:
+                  - generic [ref=e759]:
+                    - link "Leriya Fashion T-Shirt - Model v15" [ref=e760] [cursor=pointer]:
+                      - /url: /product/6252
+                      - generic "Leriya Fashion T-Shirt - Model v15" [ref=e761]
+                    - generic [ref=e762]:
+                      - generic [ref=e763]:
+                        - img [ref=e765]
+                        - img [ref=e768]
+                        - img [ref=e771]
+                        - img [ref=e774]
+                        - img [ref=e777]
+                      - generic [ref=e779]: (128)
+                    - generic [ref=e780]: ₹3,773
+                  - button "Add to Cart" [ref=e782] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e783]: Add to Cart
+              - generic [ref=e785]:
+                - link "Digital Weighing Scale - Model v15" [ref=e788] [cursor=pointer]:
+                  - /url: /product/6253
+                  - img "Digital Weighing Scale - Model v15" [ref=e789]
+                - generic [ref=e790]:
+                  - generic [ref=e792]:
+                    - link "Digital Weighing Scale - Model v15" [ref=e793] [cursor=pointer]:
+                      - /url: /product/6253
+                      - generic "Digital Weighing Scale - Model v15" [ref=e794]
+                    - generic [ref=e795]:
+                      - generic [ref=e796]:
+                        - img [ref=e798]
+                        - img [ref=e801]
+                        - img [ref=e804]
+                        - img [ref=e807]
+                        - img [ref=e810]
+                      - generic [ref=e812]: (128)
+                    - generic [ref=e813]: ₹9,873
+                  - button "Add to Cart" [ref=e815] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e816]: Add to Cart
+              - generic [ref=e818]:
+                - link "The Psychology of Money - Model v15" [ref=e821] [cursor=pointer]:
+                  - /url: /product/6254
+                  - img "The Psychology of Money - Model v15" [ref=e822]
+                - generic [ref=e823]:
+                  - generic [ref=e825]:
+                    - link "The Psychology of Money - Model v15" [ref=e826] [cursor=pointer]:
+                      - /url: /product/6254
+                      - generic "The Psychology of Money - Model v15" [ref=e827]
+                    - generic [ref=e828]:
+                      - generic [ref=e829]:
+                        - img [ref=e831]
+                        - img [ref=e834]
+                        - img [ref=e837]
+                        - img [ref=e840]
+                        - img [ref=e843]
+                      - generic [ref=e845]: (128)
+                    - generic [ref=e846]: ₹1,002
+                  - button "Add to Cart" [ref=e848] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e849]: Add to Cart
+              - generic [ref=e851]:
+                - link "Nivia Football - Model v15" [ref=e854] [cursor=pointer]:
+                  - /url: /product/6255
+                  - img "Nivia Football - Model v15" [ref=e855]
+                - generic [ref=e856]:
+                  - generic [ref=e858]:
+                    - link "Nivia Football - Model v15" [ref=e859] [cursor=pointer]:
+                      - /url: /product/6255
+                      - generic "Nivia Football - Model v15" [ref=e860]
+                    - generic [ref=e861]:
+                      - generic [ref=e862]:
+                        - img [ref=e864]
+                        - img [ref=e867]
+                        - img [ref=e870]
+                        - img [ref=e873]
+                        - img [ref=e876]
+                      - generic [ref=e878]: (128)
+                    - generic [ref=e879]: ₹753
+                  - button "Add to Cart" [ref=e881] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e882]: Add to Cart
+              - generic [ref=e884]:
+                - link "Samsung Galaxy M34 5G - Model v13" [ref=e887] [cursor=pointer]:
+                  - /url: /product/6256
+                  - img "Samsung Galaxy M34 5G - Model v13" [ref=e888]
+                - generic [ref=e889]:
+                  - generic [ref=e891]:
+                    - link "Samsung Galaxy M34 5G - Model v13" [ref=e892] [cursor=pointer]:
+                      - /url: /product/6256
+                      - generic "Samsung Galaxy M34 5G - Model v13" [ref=e893]
+                    - generic [ref=e894]:
+                      - generic [ref=e895]:
+                        - img [ref=e897]
+                        - img [ref=e900]
+                        - img [ref=e903]
+                        - img [ref=e906]
+                        - img [ref=e909]
+                      - generic [ref=e911]: (128)
+                    - generic [ref=e912]: ₹27,769
+                  - button "Add to Cart" [ref=e914] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e915]: Add to Cart
+              - generic [ref=e917]:
+                - link "Lymio Lightweight Jacket - Model v16" [ref=e920] [cursor=pointer]:
+                  - /url: /product/6257
+                  - img "Lymio Lightweight Jacket - Model v16" [ref=e921]
+                - generic [ref=e922]:
+                  - generic [ref=e924]:
+                    - link "Lymio Lightweight Jacket - Model v16" [ref=e925] [cursor=pointer]:
+                      - /url: /product/6257
+                      - generic "Lymio Lightweight Jacket - Model v16" [ref=e926]
+                    - generic [ref=e927]:
+                      - generic [ref=e928]:
+                        - img [ref=e930]
+                        - img [ref=e933]
+                        - img [ref=e936]
+                        - img [ref=e939]
+                        - img [ref=e942]
+                      - generic [ref=e944]: (128)
+                    - generic [ref=e945]: ₹710
+                  - button "Add to Cart" [ref=e947] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e948]: Add to Cart
+              - generic [ref=e950]:
+                - link "Meyer Stainless Turner - Model v16" [ref=e953] [cursor=pointer]:
+                  - /url: /product/6258
+                  - img "Meyer Stainless Turner - Model v16" [ref=e954]
+                - generic [ref=e955]:
+                  - generic [ref=e957]:
+                    - link "Meyer Stainless Turner - Model v16" [ref=e958] [cursor=pointer]:
+                      - /url: /product/6258
+                      - generic "Meyer Stainless Turner - Model v16" [ref=e959]
+                    - generic [ref=e960]:
+                      - generic [ref=e961]:
+                        - img [ref=e963]
+                        - img [ref=e966]
+                        - img [ref=e969]
+                        - img [ref=e972]
+                        - img [ref=e975]
+                      - generic [ref=e977]: (128)
+                    - generic [ref=e978]: ₹7,623
+                  - button "Add to Cart" [ref=e980] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e981]: Add to Cart
+              - generic [ref=e983]:
+                - link "IKIGAI - Model v16" [ref=e986] [cursor=pointer]:
+                  - /url: /product/6259
+                  - img "IKIGAI - Model v16" [ref=e987]
+                - generic [ref=e988]:
+                  - generic [ref=e990]:
+                    - link "IKIGAI - Model v16" [ref=e991] [cursor=pointer]:
+                      - /url: /product/6259
+                      - generic "IKIGAI - Model v16" [ref=e992]
+                    - generic [ref=e993]:
+                      - generic [ref=e994]:
+                        - img [ref=e996]
+                        - img [ref=e999]
+                        - img [ref=e1002]
+                        - img [ref=e1005]
+                        - img [ref=e1008]
+                      - generic [ref=e1010]: (128)
+                    - generic [ref=e1011]: ₹844
+                  - button "Add to Cart" [ref=e1013] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1014]: Add to Cart
+              - generic [ref=e1016]:
+                - link "Boat Airdopes 141 Gen 2 - Model v1" [ref=e1019] [cursor=pointer]:
+                  - /url: /product/6166
+                  - img "Boat Airdopes 141 Gen 2 - Model v1" [ref=e1020]
+                - generic [ref=e1021]:
+                  - generic [ref=e1023]:
+                    - link "Boat Airdopes 141 Gen 2 - Model v1" [ref=e1024] [cursor=pointer]:
+                      - /url: /product/6166
+                      - generic "Boat Airdopes 141 Gen 2 - Model v1" [ref=e1025]
+                    - generic [ref=e1026]:
+                      - generic [ref=e1027]:
+                        - img [ref=e1029]
+                        - img [ref=e1032]
+                        - img [ref=e1035]
+                        - img [ref=e1038]
+                        - img [ref=e1041]
+                      - generic [ref=e1043]: (128)
+                    - generic [ref=e1044]: ₹30,580
+                  - button "Add to Cart" [ref=e1046] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1047]: Add to Cart
+              - generic [ref=e1049]:
+                - link "Lymio Lightweight Jacket - Model v1" [ref=e1052] [cursor=pointer]:
+                  - /url: /product/6167
+                  - img "Lymio Lightweight Jacket - Model v1" [ref=e1053]
+                - generic [ref=e1054]:
+                  - generic [ref=e1056]:
+                    - link "Lymio Lightweight Jacket - Model v1" [ref=e1057] [cursor=pointer]:
+                      - /url: /product/6167
+                      - generic "Lymio Lightweight Jacket - Model v1" [ref=e1058]
+                    - generic [ref=e1059]:
+                      - generic [ref=e1060]:
+                        - img [ref=e1062]
+                        - img [ref=e1065]
+                        - img [ref=e1068]
+                        - img [ref=e1071]
+                        - img [ref=e1074]
+                      - generic [ref=e1076]: (128)
+                    - generic [ref=e1077]: ₹1,471
+                  - button "Add to Cart" [ref=e1079] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1080]: Add to Cart
+              - generic [ref=e1082]:
+                - link "Meyer Stainless Turner - Model v1" [ref=e1085] [cursor=pointer]:
+                  - /url: /product/6168
+                  - img "Meyer Stainless Turner - Model v1" [ref=e1086]
+                - generic [ref=e1087]:
+                  - generic [ref=e1089]:
+                    - link "Meyer Stainless Turner - Model v1" [ref=e1090] [cursor=pointer]:
+                      - /url: /product/6168
+                      - generic "Meyer Stainless Turner - Model v1" [ref=e1091]
+                    - generic [ref=e1092]:
+                      - generic [ref=e1093]:
+                        - img [ref=e1095]
+                        - img [ref=e1098]
+                        - img [ref=e1101]
+                        - img [ref=e1104]
+                        - img [ref=e1107]
+                      - generic [ref=e1109]: (128)
+                    - generic [ref=e1110]: ₹12,631
+                  - button "Add to Cart" [ref=e1112] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1113]: Add to Cart
+              - generic [ref=e1115]:
+                - link "IKIGAI - Model v1" [ref=e1118] [cursor=pointer]:
+                  - /url: /product/6169
+                  - img "IKIGAI - Model v1" [ref=e1119]
+                - generic [ref=e1120]:
+                  - generic [ref=e1122]:
+                    - link "IKIGAI - Model v1" [ref=e1123] [cursor=pointer]:
+                      - /url: /product/6169
+                      - generic "IKIGAI - Model v1" [ref=e1124]
+                    - generic [ref=e1125]:
+                      - generic [ref=e1126]:
+                        - img [ref=e1128]
+                        - img [ref=e1131]
+                        - img [ref=e1134]
+                        - img [ref=e1137]
+                        - img [ref=e1140]
+                      - generic [ref=e1142]: (128)
+                    - generic [ref=e1143]: ₹561
+                  - button "Add to Cart" [ref=e1145] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1146]: Add to Cart
+              - generic [ref=e1148]:
+                - link "Decathlon Yoga Mat - Model v1" [ref=e1151] [cursor=pointer]:
+                  - /url: /product/6170
+                  - img "Decathlon Yoga Mat - Model v1" [ref=e1152]
+                - generic [ref=e1153]:
+                  - generic [ref=e1155]:
+                    - link "Decathlon Yoga Mat - Model v1" [ref=e1156] [cursor=pointer]:
+                      - /url: /product/6170
+                      - generic "Decathlon Yoga Mat - Model v1" [ref=e1157]
+                    - generic [ref=e1158]:
+                      - generic [ref=e1159]:
+                        - img [ref=e1161]
+                        - img [ref=e1164]
+                        - img [ref=e1167]
+                        - img [ref=e1170]
+                        - img [ref=e1173]
+                      - generic [ref=e1175]: (128)
+                    - generic [ref=e1176]: ₹1,063
+                  - button "Add to Cart" [ref=e1178] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1179]: Add to Cart
+              - generic [ref=e1181]:
+                - link "OnePlus Nord CE 3 Lite - Model v1" [ref=e1184] [cursor=pointer]:
+                  - /url: /product/6171
+                  - img "OnePlus Nord CE 3 Lite - Model v1" [ref=e1185]
+                - generic [ref=e1186]:
+                  - generic [ref=e1188]:
+                    - link "OnePlus Nord CE 3 Lite - Model v1" [ref=e1189] [cursor=pointer]:
+                      - /url: /product/6171
+                      - generic "OnePlus Nord CE 3 Lite - Model v1" [ref=e1190]
+                    - generic [ref=e1191]:
+                      - generic [ref=e1192]:
+                        - img [ref=e1194]
+                        - img [ref=e1197]
+                        - img [ref=e1200]
+                        - img [ref=e1203]
+                        - img [ref=e1206]
+                      - generic [ref=e1208]: (128)
+                    - generic [ref=e1209]: ₹2,810
+                  - button "Add to Cart" [ref=e1211] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1212]: Add to Cart
+              - generic [ref=e1214]:
+                - link "AUSK T-Shirt for Men - Model v2" [ref=e1217] [cursor=pointer]:
+                  - /url: /product/6172
+                  - img "AUSK T-Shirt for Men - Model v2" [ref=e1218]
+                - generic [ref=e1219]:
+                  - generic [ref=e1221]:
+                    - link "AUSK T-Shirt for Men - Model v2" [ref=e1222] [cursor=pointer]:
+                      - /url: /product/6172
+                      - generic "AUSK T-Shirt for Men - Model v2" [ref=e1223]
+                    - generic [ref=e1224]:
+                      - generic [ref=e1225]:
+                        - img [ref=e1227]
+                        - img [ref=e1230]
+                        - img [ref=e1233]
+                        - img [ref=e1236]
+                        - img [ref=e1239]
+                      - generic [ref=e1241]: (128)
+                    - generic [ref=e1242]: ₹675
+                  - button "Add to Cart" [ref=e1244] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1245]: Add to Cart
+              - generic [ref=e1247]:
+                - link "Victorinox Peeler - Model v2" [ref=e1250] [cursor=pointer]:
+                  - /url: /product/6173
+                  - img "Victorinox Peeler - Model v2" [ref=e1251]
+                - generic [ref=e1252]:
+                  - generic [ref=e1254]:
+                    - link "Victorinox Peeler - Model v2" [ref=e1255] [cursor=pointer]:
+                      - /url: /product/6173
+                      - generic "Victorinox Peeler - Model v2" [ref=e1256]
+                    - generic [ref=e1257]:
+                      - generic [ref=e1258]:
+                        - img [ref=e1260]
+                        - img [ref=e1263]
+                        - img [ref=e1266]
+                        - img [ref=e1269]
+                        - img [ref=e1272]
+                      - generic [ref=e1274]: (128)
+                    - generic [ref=e1275]: ₹3,214
+                  - button "Add to Cart" [ref=e1277] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1278]: Add to Cart
+              - generic [ref=e1280]:
+                - link "Atomic Habits - Model v2" [ref=e1283] [cursor=pointer]:
+                  - /url: /product/6174
+                  - img "Atomic Habits - Model v2" [ref=e1284]
+                - generic [ref=e1285]:
+                  - generic [ref=e1287]:
+                    - link "Atomic Habits - Model v2" [ref=e1288] [cursor=pointer]:
+                      - /url: /product/6174
+                      - generic "Atomic Habits - Model v2" [ref=e1289]
+                    - generic [ref=e1290]:
+                      - generic [ref=e1291]:
+                        - img [ref=e1293]
+                        - img [ref=e1296]
+                        - img [ref=e1299]
+                        - img [ref=e1302]
+                        - img [ref=e1305]
+                      - generic [ref=e1307]: (128)
+                    - generic [ref=e1308]: ₹518
+                  - button "Add to Cart" [ref=e1310] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1311]: Add to Cart
+              - generic [ref=e1313]:
+                - link "Quechua Backpack - Model v2" [ref=e1316] [cursor=pointer]:
+                  - /url: /product/6175
+                  - img "Quechua Backpack - Model v2" [ref=e1317]
+                - generic [ref=e1318]:
+                  - generic [ref=e1320]:
+                    - link "Quechua Backpack - Model v2" [ref=e1321] [cursor=pointer]:
+                      - /url: /product/6175
+                      - generic "Quechua Backpack - Model v2" [ref=e1322]
+                    - generic [ref=e1323]:
+                      - generic [ref=e1324]:
+                        - img [ref=e1326]
+                        - img [ref=e1329]
+                        - img [ref=e1332]
+                        - img [ref=e1335]
+                        - img [ref=e1338]
+                      - generic [ref=e1340]: (128)
+                    - generic [ref=e1341]: ₹1,368
+                  - button "Add to Cart" [ref=e1343] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1344]: Add to Cart
+              - generic [ref=e1346]:
+                - link "Noise Twist Smartwatch - Model v2" [ref=e1349] [cursor=pointer]:
+                  - /url: /product/6176
+                  - img "Noise Twist Smartwatch - Model v2" [ref=e1350]
+                - generic [ref=e1351]:
+                  - generic [ref=e1353]:
+                    - link "Noise Twist Smartwatch - Model v2" [ref=e1354] [cursor=pointer]:
+                      - /url: /product/6176
+                      - generic "Noise Twist Smartwatch - Model v2" [ref=e1355]
+                    - generic [ref=e1356]:
+                      - generic [ref=e1357]:
+                        - img [ref=e1359]
+                        - img [ref=e1362]
+                        - img [ref=e1365]
+                        - img [ref=e1368]
+                        - img [ref=e1371]
+                      - generic [ref=e1373]: (128)
+                    - generic [ref=e1374]: ₹17,479
+                  - button "Add to Cart" [ref=e1376] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1377]: Add to Cart
+              - generic [ref=e1379]:
+                - link "Levi's 511 Slim Jeans - Model v2" [ref=e1382] [cursor=pointer]:
+                  - /url: /product/6177
+                  - img "Levi's 511 Slim Jeans - Model v2" [ref=e1383]
+                - generic [ref=e1384]:
+                  - generic [ref=e1386]:
+                    - link "Levi's 511 Slim Jeans - Model v2" [ref=e1387] [cursor=pointer]:
+                      - /url: /product/6177
+                      - generic "Levi's 511 Slim Jeans - Model v2" [ref=e1388]
+                    - generic [ref=e1389]:
+                      - generic [ref=e1390]:
+                        - img [ref=e1392]
+                        - img [ref=e1395]
+                        - img [ref=e1398]
+                        - img [ref=e1401]
+                        - img [ref=e1404]
+                      - generic [ref=e1406]: (128)
+                    - generic [ref=e1407]: ₹2,474
+                  - button "Add to Cart" [ref=e1409] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1410]: Add to Cart
+              - generic [ref=e1412]:
+                - generic [ref=e1414]:
+                  - link "Pigeon Mini Chopper - Model v3" [ref=e1415] [cursor=pointer]:
+                    - /url: /product/6178
+                    - img "Pigeon Mini Chopper - Model v3" [ref=e1416]
+                  - generic [ref=e1417]: Only 5 left
+                - generic [ref=e1418]:
+                  - generic [ref=e1420]:
+                    - link "Pigeon Mini Chopper - Model v3" [ref=e1421] [cursor=pointer]:
+                      - /url: /product/6178
+                      - generic "Pigeon Mini Chopper - Model v3" [ref=e1422]
+                    - generic [ref=e1423]:
+                      - generic [ref=e1424]:
+                        - img [ref=e1426]
+                        - img [ref=e1429]
+                        - img [ref=e1432]
+                        - img [ref=e1435]
+                        - img [ref=e1438]
+                      - generic [ref=e1440]: (128)
+                    - generic [ref=e1441]: ₹8,458
+                  - button "Add to Cart" [ref=e1443] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1444]: Add to Cart
+              - generic [ref=e1446]:
+                - link "The 5 AM Club - Model v3" [ref=e1449] [cursor=pointer]:
+                  - /url: /product/6179
+                  - img "The 5 AM Club - Model v3" [ref=e1450]
+                - generic [ref=e1451]:
+                  - generic [ref=e1453]:
+                    - link "The 5 AM Club - Model v3" [ref=e1454] [cursor=pointer]:
+                      - /url: /product/6179
+                      - generic "The 5 AM Club - Model v3" [ref=e1455]
+                    - generic [ref=e1456]:
+                      - generic [ref=e1457]:
+                        - img [ref=e1459]
+                        - img [ref=e1462]
+                        - img [ref=e1465]
+                        - img [ref=e1468]
+                        - img [ref=e1471]
+                      - generic [ref=e1473]: (128)
+                    - generic [ref=e1474]: ₹564
+                  - button "Add to Cart" [ref=e1476] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1477]: Add to Cart
+              - generic [ref=e1479]:
+                - link "Yonex Badminton Racket - Model v3" [ref=e1482] [cursor=pointer]:
+                  - /url: /product/6180
+                  - img "Yonex Badminton Racket - Model v3" [ref=e1483]
+                - generic [ref=e1484]:
+                  - generic [ref=e1486]:
+                    - link "Yonex Badminton Racket - Model v3" [ref=e1487] [cursor=pointer]:
+                      - /url: /product/6180
+                      - generic "Yonex Badminton Racket - Model v3" [ref=e1488]
+                    - generic [ref=e1489]:
+                      - generic [ref=e1490]:
+                        - img [ref=e1492]
+                        - img [ref=e1495]
+                        - img [ref=e1498]
+                        - img [ref=e1501]
+                        - img [ref=e1504]
+                      - generic [ref=e1506]: (128)
+                    - generic [ref=e1507]: ₹1,321
+                  - button "Add to Cart" [ref=e1509] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1510]: Add to Cart
+              - generic [ref=e1512]:
+                - link "JBL C100SI Wired Earphone - Model v3" [ref=e1515] [cursor=pointer]:
+                  - /url: /product/6181
+                  - img "JBL C100SI Wired Earphone - Model v3" [ref=e1516]
+                - generic [ref=e1517]:
+                  - generic [ref=e1519]:
+                    - link "JBL C100SI Wired Earphone - Model v3" [ref=e1520] [cursor=pointer]:
+                      - /url: /product/6181
+                      - generic "JBL C100SI Wired Earphone - Model v3" [ref=e1521]
+                    - generic [ref=e1522]:
+                      - generic [ref=e1523]:
+                        - img [ref=e1525]
+                        - img [ref=e1528]
+                        - img [ref=e1531]
+                        - img [ref=e1534]
+                        - img [ref=e1537]
+                      - generic [ref=e1539]: (128)
+                    - generic [ref=e1540]: ₹19,845
+                  - button "Add to Cart" [ref=e1542] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1543]: Add to Cart
+              - generic [ref=e1545]:
+                - link "Shasmi Maxi Dress - Model v3" [ref=e1548] [cursor=pointer]:
+                  - /url: /product/6182
+                  - img "Shasmi Maxi Dress - Model v3" [ref=e1549]
+                - generic [ref=e1550]:
+                  - generic [ref=e1552]:
+                    - link "Shasmi Maxi Dress - Model v3" [ref=e1553] [cursor=pointer]:
+                      - /url: /product/6182
+                      - generic "Shasmi Maxi Dress - Model v3" [ref=e1554]
+                    - generic [ref=e1555]:
+                      - generic [ref=e1556]:
+                        - img [ref=e1558]
+                        - img [ref=e1561]
+                        - img [ref=e1564]
+                        - img [ref=e1567]
+                        - img [ref=e1570]
+                      - generic [ref=e1572]: (128)
+                    - generic [ref=e1573]: ₹2,781
+                  - button "Add to Cart" [ref=e1575] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1576]: Add to Cart
+              - generic [ref=e1578]:
+                - link "Philips Air Fryer - Model v3" [ref=e1581] [cursor=pointer]:
+                  - /url: /product/6183
+                  - img "Philips Air Fryer - Model v3" [ref=e1582]
+                - generic [ref=e1583]:
+                  - generic [ref=e1585]:
+                    - link "Philips Air Fryer - Model v3" [ref=e1586] [cursor=pointer]:
+                      - /url: /product/6183
+                      - generic "Philips Air Fryer - Model v3" [ref=e1587]
+                    - generic [ref=e1588]:
+                      - generic [ref=e1589]:
+                        - img [ref=e1591]
+                        - img [ref=e1594]
+                        - img [ref=e1597]
+                        - img [ref=e1600]
+                        - img [ref=e1603]
+                      - generic [ref=e1605]: (128)
+                    - generic [ref=e1606]: ₹8,530
+                  - button "Add to Cart" [ref=e1608] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1609]: Add to Cart
+              - generic [ref=e1611]:
+                - link "The Monk Who Sold His Ferrari - Model v4" [ref=e1614] [cursor=pointer]:
+                  - /url: /product/6184
+                  - img "The Monk Who Sold His Ferrari - Model v4" [ref=e1615]
+                - generic [ref=e1616]:
+                  - generic [ref=e1618]:
+                    - link "The Monk Who Sold His Ferrari - Model v4" [ref=e1619] [cursor=pointer]:
+                      - /url: /product/6184
+                      - generic "The Monk Who Sold His Ferrari - Model v4" [ref=e1620]
+                    - generic [ref=e1621]:
+                      - generic [ref=e1622]:
+                        - img [ref=e1624]
+                        - img [ref=e1627]
+                        - img [ref=e1630]
+                        - img [ref=e1633]
+                        - img [ref=e1636]
+                      - generic [ref=e1638]: (128)
+                    - generic [ref=e1639]: ₹214
+                  - button "Add to Cart" [ref=e1641] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1642]: Add to Cart
+              - generic [ref=e1644]:
+                - link "GISCO Training Kit - Model v4" [ref=e1647] [cursor=pointer]:
+                  - /url: /product/6185
+                  - img "GISCO Training Kit - Model v4" [ref=e1648]
+                - generic [ref=e1649]:
+                  - generic [ref=e1651]:
+                    - link "GISCO Training Kit - Model v4" [ref=e1652] [cursor=pointer]:
+                      - /url: /product/6185
+                      - generic "GISCO Training Kit - Model v4" [ref=e1653]
+                    - generic [ref=e1654]:
+                      - generic [ref=e1655]:
+                        - img [ref=e1657]
+                        - img [ref=e1660]
+                        - img [ref=e1663]
+                        - img [ref=e1666]
+                        - img [ref=e1669]
+                      - generic [ref=e1671]: (128)
+                    - generic [ref=e1672]: ₹1,635
+                  - button "Add to Cart" [ref=e1674] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1675]: Add to Cart
+              - generic [ref=e1677]:
+                - link "Samsung Galaxy M34 5G - Model v3" [ref=e1680] [cursor=pointer]:
+                  - /url: /product/6186
+                  - img "Samsung Galaxy M34 5G - Model v3" [ref=e1681]
+                - generic [ref=e1682]:
+                  - generic [ref=e1684]:
+                    - link "Samsung Galaxy M34 5G - Model v3" [ref=e1685] [cursor=pointer]:
+                      - /url: /product/6186
+                      - generic "Samsung Galaxy M34 5G - Model v3" [ref=e1686]
+                    - generic [ref=e1687]:
+                      - generic [ref=e1688]:
+                        - img [ref=e1690]
+                        - img [ref=e1693]
+                        - img [ref=e1696]
+                        - img [ref=e1699]
+                        - img [ref=e1702]
+                      - generic [ref=e1704]: (128)
+                    - generic [ref=e1705]: ₹2,432
+                  - button "Add to Cart" [ref=e1707] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1708]: Add to Cart
+              - generic [ref=e1710]:
+                - link "DEELMO Cotton Casual Shirt - Model v4" [ref=e1713] [cursor=pointer]:
+                  - /url: /product/6187
+                  - img "DEELMO Cotton Casual Shirt - Model v4" [ref=e1714]
+                - generic [ref=e1715]:
+                  - generic [ref=e1717]:
+                    - link "DEELMO Cotton Casual Shirt - Model v4" [ref=e1718] [cursor=pointer]:
+                      - /url: /product/6187
+                      - generic "DEELMO Cotton Casual Shirt - Model v4" [ref=e1719]
+                    - generic [ref=e1720]:
+                      - generic [ref=e1721]:
+                        - img [ref=e1723]
+                        - img [ref=e1726]
+                        - img [ref=e1729]
+                        - img [ref=e1732]
+                        - img [ref=e1735]
+                      - generic [ref=e1737]: (128)
+                    - generic [ref=e1738]: ₹1,835
+                  - button "Add to Cart" [ref=e1740] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1741]: Add to Cart
+              - generic [ref=e1743]:
+                - link "Milton Thermosteel Bottle - Model v4" [ref=e1746] [cursor=pointer]:
+                  - /url: /product/6188
+                  - img "Milton Thermosteel Bottle - Model v4" [ref=e1747]
+                - generic [ref=e1748]:
+                  - generic [ref=e1750]:
+                    - link "Milton Thermosteel Bottle - Model v4" [ref=e1751] [cursor=pointer]:
+                      - /url: /product/6188
+                      - generic "Milton Thermosteel Bottle - Model v4" [ref=e1752]
+                    - generic [ref=e1753]:
+                      - generic [ref=e1754]:
+                        - img [ref=e1756]
+                        - img [ref=e1759]
+                        - img [ref=e1762]
+                        - img [ref=e1765]
+                        - img [ref=e1768]
+                      - generic [ref=e1770]: (128)
+                    - generic [ref=e1771]: ₹13,699
+                  - button "Add to Cart" [ref=e1773] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1774]: Add to Cart
+              - generic [ref=e1776]:
+                - link "Who Will Cry When You Die? - Model v4" [ref=e1779] [cursor=pointer]:
+                  - /url: /product/6189
+                  - img "Who Will Cry When You Die? - Model v4" [ref=e1780]
+                - generic [ref=e1781]:
+                  - generic [ref=e1783]:
+                    - link "Who Will Cry When You Die? - Model v4" [ref=e1784] [cursor=pointer]:
+                      - /url: /product/6189
+                      - generic "Who Will Cry When You Die? - Model v4" [ref=e1785]
+                    - generic [ref=e1786]:
+                      - generic [ref=e1787]:
+                        - img [ref=e1789]
+                        - img [ref=e1792]
+                        - img [ref=e1795]
+                        - img [ref=e1798]
+                        - img [ref=e1801]
+                      - generic [ref=e1803]: (128)
+                    - generic [ref=e1804]: ₹941
+                  - button "Add to Cart" [ref=e1806] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1807]: Add to Cart
+              - generic [ref=e1809]:
+                - link "Nivia Frisbee - Model v5" [ref=e1812] [cursor=pointer]:
+                  - /url: /product/6190
+                  - img "Nivia Frisbee - Model v5" [ref=e1813]
+                - generic [ref=e1814]:
+                  - generic [ref=e1816]:
+                    - link "Nivia Frisbee - Model v5" [ref=e1817] [cursor=pointer]:
+                      - /url: /product/6190
+                      - generic "Nivia Frisbee - Model v5" [ref=e1818]
+                    - generic [ref=e1819]:
+                      - generic [ref=e1820]:
+                        - img [ref=e1822]
+                        - img [ref=e1825]
+                        - img [ref=e1828]
+                        - img [ref=e1831]
+                        - img [ref=e1834]
+                      - generic [ref=e1836]: (128)
+                    - generic [ref=e1837]: ₹226
+                  - button "Add to Cart" [ref=e1839] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1840]: Add to Cart
+              - generic [ref=e1842]:
+                - link "pTron Bassbuds Pearl - Model v4" [ref=e1845] [cursor=pointer]:
+                  - /url: /product/6191
+                  - img "pTron Bassbuds Pearl - Model v4" [ref=e1846]
+                - generic [ref=e1847]:
+                  - generic [ref=e1849]:
+                    - link "pTron Bassbuds Pearl - Model v4" [ref=e1850] [cursor=pointer]:
+                      - /url: /product/6191
+                      - generic "pTron Bassbuds Pearl - Model v4" [ref=e1851]
+                    - generic [ref=e1852]:
+                      - generic [ref=e1853]:
+                        - img [ref=e1855]
+                        - img [ref=e1858]
+                        - img [ref=e1861]
+                        - img [ref=e1864]
+                        - img [ref=e1867]
+                      - generic [ref=e1869]: (128)
+                    - generic [ref=e1870]: ₹33,753
+                  - button "Add to Cart" [ref=e1872] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1873]: Add to Cart
+              - generic [ref=e1875]:
+                - link "Leriya Fashion T-Shirt - Model v5" [ref=e1878] [cursor=pointer]:
+                  - /url: /product/6192
+                  - img "Leriya Fashion T-Shirt - Model v5" [ref=e1879]
+                - generic [ref=e1880]:
+                  - generic [ref=e1882]:
+                    - link "Leriya Fashion T-Shirt - Model v5" [ref=e1883] [cursor=pointer]:
+                      - /url: /product/6192
+                      - generic "Leriya Fashion T-Shirt - Model v5" [ref=e1884]
+                    - generic [ref=e1885]:
+                      - generic [ref=e1886]:
+                        - img [ref=e1888]
+                        - img [ref=e1891]
+                        - img [ref=e1894]
+                        - img [ref=e1897]
+                        - img [ref=e1900]
+                      - generic [ref=e1902]: (128)
+                    - generic [ref=e1903]: ₹3,590
+                  - button "Add to Cart" [ref=e1905] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1906]: Add to Cart
+              - generic [ref=e1908]:
+                - link "Digital Weighing Scale - Model v5" [ref=e1911] [cursor=pointer]:
+                  - /url: /product/6193
+                  - img "Digital Weighing Scale - Model v5" [ref=e1912]
+                - generic [ref=e1913]:
+                  - generic [ref=e1915]:
+                    - link "Digital Weighing Scale - Model v5" [ref=e1916] [cursor=pointer]:
+                      - /url: /product/6193
+                      - generic "Digital Weighing Scale - Model v5" [ref=e1917]
+                    - generic [ref=e1918]:
+                      - generic [ref=e1919]:
+                        - img [ref=e1921]
+                        - img [ref=e1924]
+                        - img [ref=e1927]
+                        - img [ref=e1930]
+                        - img [ref=e1933]
+                      - generic [ref=e1935]: (128)
+                    - generic [ref=e1936]: ₹10,756
+                  - button "Add to Cart" [ref=e1938] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1939]: Add to Cart
+              - generic [ref=e1941]:
+                - link "The Psychology of Money - Model v5" [ref=e1944] [cursor=pointer]:
+                  - /url: /product/6194
+                  - img "The Psychology of Money - Model v5" [ref=e1945]
+                - generic [ref=e1946]:
+                  - generic [ref=e1948]:
+                    - link "The Psychology of Money - Model v5" [ref=e1949] [cursor=pointer]:
+                      - /url: /product/6194
+                      - generic "The Psychology of Money - Model v5" [ref=e1950]
+                    - generic [ref=e1951]:
+                      - generic [ref=e1952]:
+                        - img [ref=e1954]
+                        - img [ref=e1957]
+                        - img [ref=e1960]
+                        - img [ref=e1963]
+                        - img [ref=e1966]
+                      - generic [ref=e1968]: (128)
+                    - generic [ref=e1969]: ₹216
+                  - button "Add to Cart" [ref=e1971] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e1972]: Add to Cart
+              - generic [ref=e1974]:
+                - link "Nivia Football - Model v5" [ref=e1977] [cursor=pointer]:
+                  - /url: /product/6195
+                  - img "Nivia Football - Model v5" [ref=e1978]
+                - generic [ref=e1979]:
+                  - generic [ref=e1981]:
+                    - link "Nivia Football - Model v5" [ref=e1982] [cursor=pointer]:
+                      - /url: /product/6195
+                      - generic "Nivia Football - Model v5" [ref=e1983]
+                    - generic [ref=e1984]:
+                      - generic [ref=e1985]:
+                        - img [ref=e1987]
+                        - img [ref=e1990]
+                        - img [ref=e1993]
+                        - img [ref=e1996]
+                        - img [ref=e1999]
+                      - generic [ref=e2001]: (128)
+                    - generic [ref=e2002]: ₹1,152
+                  - button "Add to Cart" [ref=e2004] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2005]: Add to Cart
+              - generic [ref=e2007]:
+                - link "Fire-Boltt Ninja Call Pro Plus - Model v5" [ref=e2010] [cursor=pointer]:
+                  - /url: /product/6196
+                  - img "Fire-Boltt Ninja Call Pro Plus - Model v5" [ref=e2011]
+                - generic [ref=e2012]:
+                  - generic [ref=e2014]:
+                    - link "Fire-Boltt Ninja Call Pro Plus - Model v5" [ref=e2015] [cursor=pointer]:
+                      - /url: /product/6196
+                      - generic "Fire-Boltt Ninja Call Pro Plus - Model v5" [ref=e2016]
+                    - generic [ref=e2017]:
+                      - generic [ref=e2018]:
+                        - img [ref=e2020]
+                        - img [ref=e2023]
+                        - img [ref=e2026]
+                        - img [ref=e2029]
+                        - img [ref=e2032]
+                      - generic [ref=e2034]: (128)
+                    - generic [ref=e2035]: ₹12,944
+                  - button "Add to Cart" [ref=e2037] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2038]: Add to Cart
+              - generic [ref=e2040]:
+                - link "Lymio Lightweight Jacket - Model v6" [ref=e2043] [cursor=pointer]:
+                  - /url: /product/6197
+                  - img "Lymio Lightweight Jacket - Model v6" [ref=e2044]
+                - generic [ref=e2045]:
+                  - generic [ref=e2047]:
+                    - link "Lymio Lightweight Jacket - Model v6" [ref=e2048] [cursor=pointer]:
+                      - /url: /product/6197
+                      - generic "Lymio Lightweight Jacket - Model v6" [ref=e2049]
+                    - generic [ref=e2050]:
+                      - generic [ref=e2051]:
+                        - img [ref=e2053]
+                        - img [ref=e2056]
+                        - img [ref=e2059]
+                        - img [ref=e2062]
+                        - img [ref=e2065]
+                      - generic [ref=e2067]: (128)
+                    - generic [ref=e2068]: ₹4,275
+                  - button "Add to Cart" [ref=e2070] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2071]: Add to Cart
+              - generic [ref=e2073]:
+                - link "Meyer Stainless Turner - Model v6" [ref=e2076] [cursor=pointer]:
+                  - /url: /product/6198
+                  - img "Meyer Stainless Turner - Model v6" [ref=e2077]
+                - generic [ref=e2078]:
+                  - generic [ref=e2080]:
+                    - link "Meyer Stainless Turner - Model v6" [ref=e2081] [cursor=pointer]:
+                      - /url: /product/6198
+                      - generic "Meyer Stainless Turner - Model v6" [ref=e2082]
+                    - generic [ref=e2083]:
+                      - generic [ref=e2084]:
+                        - img [ref=e2086]
+                        - img [ref=e2089]
+                        - img [ref=e2092]
+                        - img [ref=e2095]
+                        - img [ref=e2098]
+                      - generic [ref=e2100]: (128)
+                    - generic [ref=e2101]: ₹9,170
+                  - button "Add to Cart" [ref=e2103] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2104]: Add to Cart
+              - generic [ref=e2106]:
+                - link "IKIGAI - Model v6" [ref=e2109] [cursor=pointer]:
+                  - /url: /product/6199
+                  - img "IKIGAI - Model v6" [ref=e2110]
+                - generic [ref=e2111]:
+                  - generic [ref=e2113]:
+                    - link "IKIGAI - Model v6" [ref=e2114] [cursor=pointer]:
+                      - /url: /product/6199
+                      - generic "IKIGAI - Model v6" [ref=e2115]
+                    - generic [ref=e2116]:
+                      - generic [ref=e2117]:
+                        - img [ref=e2119]
+                        - img [ref=e2122]
+                        - img [ref=e2125]
+                        - img [ref=e2128]
+                        - img [ref=e2131]
+                      - generic [ref=e2133]: (128)
+                    - generic [ref=e2134]: ₹292
+                  - button "Add to Cart" [ref=e2136] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2137]: Add to Cart
+              - generic [ref=e2139]:
+                - link "Decathlon Yoga Mat - Model v6" [ref=e2142] [cursor=pointer]:
+                  - /url: /product/6200
+                  - img "Decathlon Yoga Mat - Model v6" [ref=e2143]
+                - generic [ref=e2144]:
+                  - generic [ref=e2146]:
+                    - link "Decathlon Yoga Mat - Model v6" [ref=e2147] [cursor=pointer]:
+                      - /url: /product/6200
+                      - generic "Decathlon Yoga Mat - Model v6" [ref=e2148]
+                    - generic [ref=e2149]:
+                      - generic [ref=e2150]:
+                        - img [ref=e2152]
+                        - img [ref=e2155]
+                        - img [ref=e2158]
+                        - img [ref=e2161]
+                        - img [ref=e2164]
+                      - generic [ref=e2166]: (128)
+                    - generic [ref=e2167]: ₹1,679
+                  - button "Add to Cart" [ref=e2169] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2170]: Add to Cart
+              - generic [ref=e2172]:
+                - link "Boat Airdopes 141 Gen 2 - Model v6" [ref=e2175] [cursor=pointer]:
+                  - /url: /product/6201
+                  - img "Boat Airdopes 141 Gen 2 - Model v6" [ref=e2176]
+                - generic [ref=e2177]:
+                  - generic [ref=e2179]:
+                    - link "Boat Airdopes 141 Gen 2 - Model v6" [ref=e2180] [cursor=pointer]:
+                      - /url: /product/6201
+                      - generic "Boat Airdopes 141 Gen 2 - Model v6" [ref=e2181]
+                    - generic [ref=e2182]:
+                      - generic [ref=e2183]:
+                        - img [ref=e2185]
+                        - img [ref=e2188]
+                        - img [ref=e2191]
+                        - img [ref=e2194]
+                        - img [ref=e2197]
+                      - generic [ref=e2199]: (128)
+                    - generic [ref=e2200]: ₹9,505
+                  - button "Add to Cart" [ref=e2202] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2203]: Add to Cart
+              - generic [ref=e2205]:
+                - link "AUSK T-Shirt for Men - Model v7" [ref=e2208] [cursor=pointer]:
+                  - /url: /product/6202
+                  - img "AUSK T-Shirt for Men - Model v7" [ref=e2209]
+                - generic [ref=e2210]:
+                  - generic [ref=e2212]:
+                    - link "AUSK T-Shirt for Men - Model v7" [ref=e2213] [cursor=pointer]:
+                      - /url: /product/6202
+                      - generic "AUSK T-Shirt for Men - Model v7" [ref=e2214]
+                    - generic [ref=e2215]:
+                      - generic [ref=e2216]:
+                        - img [ref=e2218]
+                        - img [ref=e2221]
+                        - img [ref=e2224]
+                        - img [ref=e2227]
+                        - img [ref=e2230]
+                      - generic [ref=e2232]: (128)
+                    - generic [ref=e2233]: ₹3,790
+                  - button "Add to Cart" [ref=e2235] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2236]: Add to Cart
+              - generic [ref=e2238]:
+                - link "Victorinox Peeler - Model v7" [ref=e2241] [cursor=pointer]:
+                  - /url: /product/6203
+                  - img "Victorinox Peeler - Model v7" [ref=e2242]
+                - generic [ref=e2243]:
+                  - generic [ref=e2245]:
+                    - link "Victorinox Peeler - Model v7" [ref=e2246] [cursor=pointer]:
+                      - /url: /product/6203
+                      - generic "Victorinox Peeler - Model v7" [ref=e2247]
+                    - generic [ref=e2248]:
+                      - generic [ref=e2249]:
+                        - img [ref=e2251]
+                        - img [ref=e2254]
+                        - img [ref=e2257]
+                        - img [ref=e2260]
+                        - img [ref=e2263]
+                      - generic [ref=e2265]: (128)
+                    - generic [ref=e2266]: ₹14,895
+                  - button "Add to Cart" [ref=e2268] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2269]: Add to Cart
+              - generic [ref=e2271]:
+                - link "Atomic Habits - Model v7" [ref=e2274] [cursor=pointer]:
+                  - /url: /product/6204
+                  - img "Atomic Habits - Model v7" [ref=e2275]
+                - generic [ref=e2276]:
+                  - generic [ref=e2278]:
+                    - link "Atomic Habits - Model v7" [ref=e2279] [cursor=pointer]:
+                      - /url: /product/6204
+                      - generic "Atomic Habits - Model v7" [ref=e2280]
+                    - generic [ref=e2281]:
+                      - generic [ref=e2282]:
+                        - img [ref=e2284]
+                        - img [ref=e2287]
+                        - img [ref=e2290]
+                        - img [ref=e2293]
+                        - img [ref=e2296]
+                      - generic [ref=e2298]: (128)
+                    - generic [ref=e2299]: ₹215
+                  - button "Add to Cart" [ref=e2301] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2302]: Add to Cart
+              - generic [ref=e2304]:
+                - link "Quechua Backpack - Model v7" [ref=e2307] [cursor=pointer]:
+                  - /url: /product/6205
+                  - img "Quechua Backpack - Model v7" [ref=e2308]
+                - generic [ref=e2309]:
+                  - generic [ref=e2311]:
+                    - link "Quechua Backpack - Model v7" [ref=e2312] [cursor=pointer]:
+                      - /url: /product/6205
+                      - generic "Quechua Backpack - Model v7" [ref=e2313]
+                    - generic [ref=e2314]:
+                      - generic [ref=e2315]:
+                        - img [ref=e2317]
+                        - img [ref=e2320]
+                        - img [ref=e2323]
+                        - img [ref=e2326]
+                        - img [ref=e2329]
+                      - generic [ref=e2331]: (128)
+                    - generic [ref=e2332]: ₹1,850
+                  - button "Add to Cart" [ref=e2334] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2335]: Add to Cart
+              - generic [ref=e2337]:
+                - link "OnePlus Nord CE 3 Lite - Model v6" [ref=e2340] [cursor=pointer]:
+                  - /url: /product/6206
+                  - img "OnePlus Nord CE 3 Lite - Model v6" [ref=e2341]
+                - generic [ref=e2342]:
+                  - generic [ref=e2344]:
+                    - link "OnePlus Nord CE 3 Lite - Model v6" [ref=e2345] [cursor=pointer]:
+                      - /url: /product/6206
+                      - generic "OnePlus Nord CE 3 Lite - Model v6" [ref=e2346]
+                    - generic [ref=e2347]:
+                      - generic [ref=e2348]:
+                        - img [ref=e2350]
+                        - img [ref=e2353]
+                        - img [ref=e2356]
+                        - img [ref=e2359]
+                        - img [ref=e2362]
+                      - generic [ref=e2364]: (128)
+                    - generic [ref=e2365]: ₹24,720
+                  - button "Add to Cart" [ref=e2367] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2368]: Add to Cart
+              - generic [ref=e2370]:
+                - link "Levi's 511 Slim Jeans - Model v7" [ref=e2373] [cursor=pointer]:
+                  - /url: /product/6207
+                  - img "Levi's 511 Slim Jeans - Model v7" [ref=e2374]
+                - generic [ref=e2375]:
+                  - generic [ref=e2377]:
+                    - link "Levi's 511 Slim Jeans - Model v7" [ref=e2378] [cursor=pointer]:
+                      - /url: /product/6207
+                      - generic "Levi's 511 Slim Jeans - Model v7" [ref=e2379]
+                    - generic [ref=e2380]:
+                      - generic [ref=e2381]:
+                        - img [ref=e2383]
+                        - img [ref=e2386]
+                        - img [ref=e2389]
+                        - img [ref=e2392]
+                        - img [ref=e2395]
+                      - generic [ref=e2397]: (128)
+                    - generic [ref=e2398]: ₹4,636
+                  - button "Add to Cart" [ref=e2400] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2401]: Add to Cart
+              - generic [ref=e2403]:
+                - link "Pigeon Mini Chopper - Model v8" [ref=e2406] [cursor=pointer]:
+                  - /url: /product/6208
+                  - img "Pigeon Mini Chopper - Model v8" [ref=e2407]
+                - generic [ref=e2408]:
+                  - generic [ref=e2410]:
+                    - link "Pigeon Mini Chopper - Model v8" [ref=e2411] [cursor=pointer]:
+                      - /url: /product/6208
+                      - generic "Pigeon Mini Chopper - Model v8" [ref=e2412]
+                    - generic [ref=e2413]:
+                      - generic [ref=e2414]:
+                        - img [ref=e2416]
+                        - img [ref=e2419]
+                        - img [ref=e2422]
+                        - img [ref=e2425]
+                        - img [ref=e2428]
+                      - generic [ref=e2430]: (128)
+                    - generic [ref=e2431]: ₹4,189
+                  - button "Add to Cart" [ref=e2433] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2434]: Add to Cart
+              - generic [ref=e2436]:
+                - link "The 5 AM Club - Model v8" [ref=e2439] [cursor=pointer]:
+                  - /url: /product/6209
+                  - img "The 5 AM Club - Model v8" [ref=e2440]
+                - generic [ref=e2441]:
+                  - generic [ref=e2443]:
+                    - link "The 5 AM Club - Model v8" [ref=e2444] [cursor=pointer]:
+                      - /url: /product/6209
+                      - generic "The 5 AM Club - Model v8" [ref=e2445]
+                    - generic [ref=e2446]:
+                      - generic [ref=e2447]:
+                        - img [ref=e2449]
+                        - img [ref=e2452]
+                        - img [ref=e2455]
+                        - img [ref=e2458]
+                        - img [ref=e2461]
+                      - generic [ref=e2463]: (128)
+                    - generic [ref=e2464]: ₹716
+                  - button "Add to Cart" [ref=e2466] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2467]: Add to Cart
+              - generic [ref=e2469]:
+                - link "Yonex Badminton Racket - Model v8" [ref=e2472] [cursor=pointer]:
+                  - /url: /product/6210
+                  - img "Yonex Badminton Racket - Model v8" [ref=e2473]
+                - generic [ref=e2474]:
+                  - generic [ref=e2476]:
+                    - link "Yonex Badminton Racket - Model v8" [ref=e2477] [cursor=pointer]:
+                      - /url: /product/6210
+                      - generic "Yonex Badminton Racket - Model v8" [ref=e2478]
+                    - generic [ref=e2479]:
+                      - generic [ref=e2480]:
+                        - img [ref=e2482]
+                        - img [ref=e2485]
+                        - img [ref=e2488]
+                        - img [ref=e2491]
+                        - img [ref=e2494]
+                      - generic [ref=e2496]: (128)
+                    - generic [ref=e2497]: ₹1,656
+                  - button "Add to Cart" [ref=e2499] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2500]: Add to Cart
+              - generic [ref=e2502]:
+                - link "Noise Twist Smartwatch - Model v7" [ref=e2505] [cursor=pointer]:
+                  - /url: /product/6211
+                  - img "Noise Twist Smartwatch - Model v7" [ref=e2506]
+                - generic [ref=e2507]:
+                  - generic [ref=e2509]:
+                    - link "Noise Twist Smartwatch - Model v7" [ref=e2510] [cursor=pointer]:
+                      - /url: /product/6211
+                      - generic "Noise Twist Smartwatch - Model v7" [ref=e2511]
+                    - generic [ref=e2512]:
+                      - generic [ref=e2513]:
+                        - img [ref=e2515]
+                        - img [ref=e2518]
+                        - img [ref=e2521]
+                        - img [ref=e2524]
+                        - img [ref=e2527]
+                      - generic [ref=e2529]: (128)
+                    - generic [ref=e2530]: ₹40,695
+                  - button "Add to Cart" [ref=e2532] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2533]: Add to Cart
+              - generic [ref=e2535]:
+                - link "Shasmi Maxi Dress - Model v8" [ref=e2538] [cursor=pointer]:
+                  - /url: /product/6212
+                  - img "Shasmi Maxi Dress - Model v8" [ref=e2539]
+                - generic [ref=e2540]:
+                  - generic [ref=e2542]:
+                    - link "Shasmi Maxi Dress - Model v8" [ref=e2543] [cursor=pointer]:
+                      - /url: /product/6212
+                      - generic "Shasmi Maxi Dress - Model v8" [ref=e2544]
+                    - generic [ref=e2545]:
+                      - generic [ref=e2546]:
+                        - img [ref=e2548]
+                        - img [ref=e2551]
+                        - img [ref=e2554]
+                        - img [ref=e2557]
+                        - img [ref=e2560]
+                      - generic [ref=e2562]: (128)
+                    - generic [ref=e2563]: ₹2,426
+                  - button "Add to Cart" [ref=e2565] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2566]: Add to Cart
+              - generic [ref=e2568]:
+                - link "Philips Air Fryer - Model v8" [ref=e2571] [cursor=pointer]:
+                  - /url: /product/6213
+                  - img "Philips Air Fryer - Model v8" [ref=e2572]
+                - generic [ref=e2573]:
+                  - generic [ref=e2575]:
+                    - link "Philips Air Fryer - Model v8" [ref=e2576] [cursor=pointer]:
+                      - /url: /product/6213
+                      - generic "Philips Air Fryer - Model v8" [ref=e2577]
+                    - generic [ref=e2578]:
+                      - generic [ref=e2579]:
+                        - img [ref=e2581]
+                        - img [ref=e2584]
+                        - img [ref=e2587]
+                        - img [ref=e2590]
+                        - img [ref=e2593]
+                      - generic [ref=e2595]: (128)
+                    - generic [ref=e2596]: ₹3,637
+                  - button "Add to Cart" [ref=e2598] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2599]: Add to Cart
+              - generic [ref=e2601]:
+                - link "The Monk Who Sold His Ferrari - Model v9" [ref=e2604] [cursor=pointer]:
+                  - /url: /product/6214
+                  - img "The Monk Who Sold His Ferrari - Model v9" [ref=e2605]
+                - generic [ref=e2606]:
+                  - generic [ref=e2608]:
+                    - link "The Monk Who Sold His Ferrari - Model v9" [ref=e2609] [cursor=pointer]:
+                      - /url: /product/6214
+                      - generic "The Monk Who Sold His Ferrari - Model v9" [ref=e2610]
+                    - generic [ref=e2611]:
+                      - generic [ref=e2612]:
+                        - img [ref=e2614]
+                        - img [ref=e2617]
+                        - img [ref=e2620]
+                        - img [ref=e2623]
+                        - img [ref=e2626]
+                      - generic [ref=e2628]: (128)
+                    - generic [ref=e2629]: ₹521
+                  - button "Add to Cart" [ref=e2631] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2632]: Add to Cart
+              - generic [ref=e2634]:
+                - link "GISCO Training Kit - Model v9" [ref=e2637] [cursor=pointer]:
+                  - /url: /product/6215
+                  - img "GISCO Training Kit - Model v9" [ref=e2638]
+                - generic [ref=e2639]:
+                  - generic [ref=e2641]:
+                    - link "GISCO Training Kit - Model v9" [ref=e2642] [cursor=pointer]:
+                      - /url: /product/6215
+                      - generic "GISCO Training Kit - Model v9" [ref=e2643]
+                    - generic [ref=e2644]:
+                      - generic [ref=e2645]:
+                        - img [ref=e2647]
+                        - img [ref=e2650]
+                        - img [ref=e2653]
+                        - img [ref=e2656]
+                        - img [ref=e2659]
+                      - generic [ref=e2661]: (128)
+                    - generic [ref=e2662]: ₹1,771
+                  - button "Add to Cart" [ref=e2664] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2665]: Add to Cart
+              - generic [ref=e2667]:
+                - link "JBL C100SI Wired Earphone - Model v8" [ref=e2670] [cursor=pointer]:
+                  - /url: /product/6216
+                  - img "JBL C100SI Wired Earphone - Model v8" [ref=e2671]
+                - generic [ref=e2672]:
+                  - generic [ref=e2674]:
+                    - link "JBL C100SI Wired Earphone - Model v8" [ref=e2675] [cursor=pointer]:
+                      - /url: /product/6216
+                      - generic "JBL C100SI Wired Earphone - Model v8" [ref=e2676]
+                    - generic [ref=e2677]:
+                      - generic [ref=e2678]:
+                        - img [ref=e2680]
+                        - img [ref=e2683]
+                        - img [ref=e2686]
+                        - img [ref=e2689]
+                        - img [ref=e2692]
+                      - generic [ref=e2694]: (128)
+                    - generic [ref=e2695]: ₹15,224
+                  - button "Add to Cart" [ref=e2697] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2698]: Add to Cart
+              - generic [ref=e2700]:
+                - link "DEELMO Cotton Casual Shirt - Model v9" [ref=e2703] [cursor=pointer]:
+                  - /url: /product/6217
+                  - img "DEELMO Cotton Casual Shirt - Model v9" [ref=e2704]
+                - generic [ref=e2705]:
+                  - generic [ref=e2707]:
+                    - link "DEELMO Cotton Casual Shirt - Model v9" [ref=e2708] [cursor=pointer]:
+                      - /url: /product/6217
+                      - generic "DEELMO Cotton Casual Shirt - Model v9" [ref=e2709]
+                    - generic [ref=e2710]:
+                      - generic [ref=e2711]:
+                        - img [ref=e2713]
+                        - img [ref=e2716]
+                        - img [ref=e2719]
+                        - img [ref=e2722]
+                        - img [ref=e2725]
+                      - generic [ref=e2727]: (128)
+                    - generic [ref=e2728]: ₹1,145
+                  - button "Add to Cart" [ref=e2730] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2731]: Add to Cart
+              - generic [ref=e2733]:
+                - link "Milton Thermosteel Bottle - Model v9" [ref=e2736] [cursor=pointer]:
+                  - /url: /product/6218
+                  - img "Milton Thermosteel Bottle - Model v9" [ref=e2737]
+                - generic [ref=e2738]:
+                  - generic [ref=e2740]:
+                    - link "Milton Thermosteel Bottle - Model v9" [ref=e2741] [cursor=pointer]:
+                      - /url: /product/6218
+                      - generic "Milton Thermosteel Bottle - Model v9" [ref=e2742]
+                    - generic [ref=e2743]:
+                      - generic [ref=e2744]:
+                        - img [ref=e2746]
+                        - img [ref=e2749]
+                        - img [ref=e2752]
+                        - img [ref=e2755]
+                        - img [ref=e2758]
+                      - generic [ref=e2760]: (128)
+                    - generic [ref=e2761]: ₹5,450
+                  - button "Add to Cart" [ref=e2763] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2764]: Add to Cart
+              - generic [ref=e2766]:
+                - link "Who Will Cry When You Die? - Model v9" [ref=e2769] [cursor=pointer]:
+                  - /url: /product/6219
+                  - img "Who Will Cry When You Die? - Model v9" [ref=e2770]
+                - generic [ref=e2771]:
+                  - generic [ref=e2773]:
+                    - link "Who Will Cry When You Die? - Model v9" [ref=e2774] [cursor=pointer]:
+                      - /url: /product/6219
+                      - generic "Who Will Cry When You Die? - Model v9" [ref=e2775]
+                    - generic [ref=e2776]:
+                      - generic [ref=e2777]:
+                        - img [ref=e2779]
+                        - img [ref=e2782]
+                        - img [ref=e2785]
+                        - img [ref=e2788]
+                        - img [ref=e2791]
+                      - generic [ref=e2793]: (128)
+                    - generic [ref=e2794]: ₹257
+                  - button "Add to Cart" [ref=e2796] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2797]: Add to Cart
+              - generic [ref=e2799]:
+                - link "Nivia Frisbee - Model v10" [ref=e2802] [cursor=pointer]:
+                  - /url: /product/6220
+                  - img "Nivia Frisbee - Model v10" [ref=e2803]
+                - generic [ref=e2804]:
+                  - generic [ref=e2806]:
+                    - link "Nivia Frisbee - Model v10" [ref=e2807] [cursor=pointer]:
+                      - /url: /product/6220
+                      - generic "Nivia Frisbee - Model v10" [ref=e2808]
+                    - generic [ref=e2809]:
+                      - generic [ref=e2810]:
+                        - img [ref=e2812]
+                        - img [ref=e2815]
+                        - img [ref=e2818]
+                        - img [ref=e2821]
+                        - img [ref=e2824]
+                      - generic [ref=e2826]: (128)
+                    - generic [ref=e2827]: ₹803
+                  - button "Add to Cart" [ref=e2829] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2830]: Add to Cart
+              - generic [ref=e2832]:
+                - link "Samsung Galaxy M34 5G - Model v8" [ref=e2835] [cursor=pointer]:
+                  - /url: /product/6221
+                  - img "Samsung Galaxy M34 5G - Model v8" [ref=e2836]
+                - generic [ref=e2837]:
+                  - generic [ref=e2839]:
+                    - link "Samsung Galaxy M34 5G - Model v8" [ref=e2840] [cursor=pointer]:
+                      - /url: /product/6221
+                      - generic "Samsung Galaxy M34 5G - Model v8" [ref=e2841]
+                    - generic [ref=e2842]:
+                      - generic [ref=e2843]:
+                        - img [ref=e2845]
+                        - img [ref=e2848]
+                        - img [ref=e2851]
+                        - img [ref=e2854]
+                        - img [ref=e2857]
+                      - generic [ref=e2859]: (128)
+                    - generic [ref=e2860]: ₹14,711
+                  - button "Add to Cart" [ref=e2862] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2863]: Add to Cart
+              - generic [ref=e2865]:
+                - link "Leriya Fashion T-Shirt - Model v10" [ref=e2868] [cursor=pointer]:
+                  - /url: /product/6222
+                  - img "Leriya Fashion T-Shirt - Model v10" [ref=e2869]
+                - generic [ref=e2870]:
+                  - generic [ref=e2872]:
+                    - link "Leriya Fashion T-Shirt - Model v10" [ref=e2873] [cursor=pointer]:
+                      - /url: /product/6222
+                      - generic "Leriya Fashion T-Shirt - Model v10" [ref=e2874]
+                    - generic [ref=e2875]:
+                      - generic [ref=e2876]:
+                        - img [ref=e2878]
+                        - img [ref=e2881]
+                        - img [ref=e2884]
+                        - img [ref=e2887]
+                        - img [ref=e2890]
+                      - generic [ref=e2892]: (128)
+                    - generic [ref=e2893]: ₹1,330
+                  - button "Add to Cart" [ref=e2895] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2896]: Add to Cart
+              - generic [ref=e2898]:
+                - link "Digital Weighing Scale - Model v10" [ref=e2901] [cursor=pointer]:
+                  - /url: /product/6223
+                  - img "Digital Weighing Scale - Model v10" [ref=e2902]
+                - generic [ref=e2903]:
+                  - generic [ref=e2905]:
+                    - link "Digital Weighing Scale - Model v10" [ref=e2906] [cursor=pointer]:
+                      - /url: /product/6223
+                      - generic "Digital Weighing Scale - Model v10" [ref=e2907]
+                    - generic [ref=e2908]:
+                      - generic [ref=e2909]:
+                        - img [ref=e2911]
+                        - img [ref=e2914]
+                        - img [ref=e2917]
+                        - img [ref=e2920]
+                        - img [ref=e2923]
+                      - generic [ref=e2925]: (128)
+                    - generic [ref=e2926]: ₹3,786
+                  - button "Add to Cart" [ref=e2928] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2929]: Add to Cart
+              - generic [ref=e2931]:
+                - link "The Psychology of Money - Model v10" [ref=e2934] [cursor=pointer]:
+                  - /url: /product/6224
+                  - img "The Psychology of Money - Model v10" [ref=e2935]
+                - generic [ref=e2936]:
+                  - generic [ref=e2938]:
+                    - link "The Psychology of Money - Model v10" [ref=e2939] [cursor=pointer]:
+                      - /url: /product/6224
+                      - generic "The Psychology of Money - Model v10" [ref=e2940]
+                    - generic [ref=e2941]:
+                      - generic [ref=e2942]:
+                        - img [ref=e2944]
+                        - img [ref=e2947]
+                        - img [ref=e2950]
+                        - img [ref=e2953]
+                        - img [ref=e2956]
+                      - generic [ref=e2958]: (128)
+                    - generic [ref=e2959]: ₹1,012
+                  - button "Add to Cart" [ref=e2961] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2962]: Add to Cart
+              - generic [ref=e2964]:
+                - link "Nivia Football - Model v10" [ref=e2967] [cursor=pointer]:
+                  - /url: /product/6225
+                  - img "Nivia Football - Model v10" [ref=e2968]
+                - generic [ref=e2969]:
+                  - generic [ref=e2971]:
+                    - link "Nivia Football - Model v10" [ref=e2972] [cursor=pointer]:
+                      - /url: /product/6225
+                      - generic "Nivia Football - Model v10" [ref=e2973]
+                    - generic [ref=e2974]:
+                      - generic [ref=e2975]:
+                        - img [ref=e2977]
+                        - img [ref=e2980]
+                        - img [ref=e2983]
+                        - img [ref=e2986]
+                        - img [ref=e2989]
+                      - generic [ref=e2991]: (128)
+                    - generic [ref=e2992]: ₹987
+                  - button "Add to Cart" [ref=e2994] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e2995]: Add to Cart
+              - generic [ref=e2997]:
+                - link "pTron Bassbuds Pearl - Model v9" [ref=e3000] [cursor=pointer]:
+                  - /url: /product/6226
+                  - img "pTron Bassbuds Pearl - Model v9" [ref=e3001]
+                - generic [ref=e3002]:
+                  - generic [ref=e3004]:
+                    - link "pTron Bassbuds Pearl - Model v9" [ref=e3005] [cursor=pointer]:
+                      - /url: /product/6226
+                      - generic "pTron Bassbuds Pearl - Model v9" [ref=e3006]
+                    - generic [ref=e3007]:
+                      - generic [ref=e3008]:
+                        - img [ref=e3010]
+                        - img [ref=e3013]
+                        - img [ref=e3016]
+                        - img [ref=e3019]
+                        - img [ref=e3022]
+                      - generic [ref=e3024]: (128)
+                    - generic [ref=e3025]: ₹3,361
+                  - button "Add to Cart" [ref=e3027] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e3028]: Add to Cart
+              - generic [ref=e3030]:
+                - link "Lymio Lightweight Jacket - Model v11" [ref=e3033] [cursor=pointer]:
+                  - /url: /product/6227
+                  - img "Lymio Lightweight Jacket - Model v11" [ref=e3034]
+                - generic [ref=e3035]:
+                  - generic [ref=e3037]:
+                    - link "Lymio Lightweight Jacket - Model v11" [ref=e3038] [cursor=pointer]:
+                      - /url: /product/6227
+                      - generic "Lymio Lightweight Jacket - Model v11" [ref=e3039]
+                    - generic [ref=e3040]:
+                      - generic [ref=e3041]:
+                        - img [ref=e3043]
+                        - img [ref=e3046]
+                        - img [ref=e3049]
+                        - img [ref=e3052]
+                        - img [ref=e3055]
+                      - generic [ref=e3057]: (128)
+                    - generic [ref=e3058]: ₹2,076
+                  - button "Add to Cart" [ref=e3060] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e3061]: Add to Cart
+              - generic [ref=e3063]:
+                - link "Meyer Stainless Turner - Model v11" [ref=e3066] [cursor=pointer]:
+                  - /url: /product/6228
+                  - img "Meyer Stainless Turner - Model v11" [ref=e3067]
+                - generic [ref=e3068]:
+                  - generic [ref=e3070]:
+                    - link "Meyer Stainless Turner - Model v11" [ref=e3071] [cursor=pointer]:
+                      - /url: /product/6228
+                      - generic "Meyer Stainless Turner - Model v11" [ref=e3072]
+                    - generic [ref=e3073]:
+                      - generic [ref=e3074]:
+                        - img [ref=e3076]
+                        - img [ref=e3079]
+                        - img [ref=e3082]
+                        - img [ref=e3085]
+                        - img [ref=e3088]
+                      - generic [ref=e3090]: (128)
+                    - generic [ref=e3091]: ₹10,435
+                  - button "Add to Cart" [ref=e3093] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e3094]: Add to Cart
+              - generic [ref=e3096]:
+                - link "IKIGAI - Model v11" [ref=e3099] [cursor=pointer]:
+                  - /url: /product/6229
+                  - img "IKIGAI - Model v11" [ref=e3100]
+                - generic [ref=e3101]:
+                  - generic [ref=e3103]:
+                    - link "IKIGAI - Model v11" [ref=e3104] [cursor=pointer]:
+                      - /url: /product/6229
+                      - generic "IKIGAI - Model v11" [ref=e3105]
+                    - generic [ref=e3106]:
+                      - generic [ref=e3107]:
+                        - img [ref=e3109]
+                        - img [ref=e3112]
+                        - img [ref=e3115]
+                        - img [ref=e3118]
+                        - img [ref=e3121]
+                      - generic [ref=e3123]: (128)
+                    - generic [ref=e3124]: ₹1,084
+                  - button "Add to Cart" [ref=e3126] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e3127]: Add to Cart
+              - generic [ref=e3129]:
+                - link "Decathlon Yoga Mat - Model v11" [ref=e3132] [cursor=pointer]:
+                  - /url: /product/6230
+                  - img "Decathlon Yoga Mat - Model v11" [ref=e3133]
+                - generic [ref=e3134]:
+                  - generic [ref=e3136]:
+                    - link "Decathlon Yoga Mat - Model v11" [ref=e3137] [cursor=pointer]:
+                      - /url: /product/6230
+                      - generic "Decathlon Yoga Mat - Model v11" [ref=e3138]
+                    - generic [ref=e3139]:
+                      - generic [ref=e3140]:
+                        - img [ref=e3142]
+                        - img [ref=e3145]
+                        - img [ref=e3148]
+                        - img [ref=e3151]
+                        - img [ref=e3154]
+                      - generic [ref=e3156]: (128)
+                    - generic [ref=e3157]: ₹1,931
+                  - button "Add to Cart" [ref=e3159] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e3160]: Add to Cart
+              - generic [ref=e3162]:
+                - link "Fire-Boltt Ninja Call Pro Plus - Model v10" [ref=e3165] [cursor=pointer]:
+                  - /url: /product/6231
+                  - img "Fire-Boltt Ninja Call Pro Plus - Model v10" [ref=e3166]
+                - generic [ref=e3167]:
+                  - generic [ref=e3169]:
+                    - link "Fire-Boltt Ninja Call Pro Plus - Model v10" [ref=e3170] [cursor=pointer]:
+                      - /url: /product/6231
+                      - generic "Fire-Boltt Ninja Call Pro Plus - Model v10" [ref=e3171]
+                    - generic [ref=e3172]:
+                      - generic [ref=e3173]:
+                        - img [ref=e3175]
+                        - img [ref=e3178]
+                        - img [ref=e3181]
+                        - img [ref=e3184]
+                        - img [ref=e3187]
+                      - generic [ref=e3189]: (128)
+                    - generic [ref=e3190]: ₹38,955
+                  - button "Add to Cart" [ref=e3192] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e3193]: Add to Cart
+              - generic [ref=e3195]:
+                - link "AUSK T-Shirt for Men - Model v12" [ref=e3198] [cursor=pointer]:
+                  - /url: /product/6232
+                  - img "AUSK T-Shirt for Men - Model v12" [ref=e3199]
+                - generic [ref=e3200]:
+                  - generic [ref=e3202]:
+                    - link "AUSK T-Shirt for Men - Model v12" [ref=e3203] [cursor=pointer]:
+                      - /url: /product/6232
+                      - generic "AUSK T-Shirt for Men - Model v12" [ref=e3204]
+                    - generic [ref=e3205]:
+                      - generic [ref=e3206]:
+                        - img [ref=e3208]
+                        - img [ref=e3211]
+                        - img [ref=e3214]
+                        - img [ref=e3217]
+                        - img [ref=e3220]
+                      - generic [ref=e3222]: (128)
+                    - generic [ref=e3223]: ₹4,665
+                  - button "Add to Cart" [ref=e3225] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e3226]: Add to Cart
+              - generic [ref=e3228]:
+                - link "Victorinox Peeler - Model v12" [ref=e3231] [cursor=pointer]:
+                  - /url: /product/6233
+                  - img "Victorinox Peeler - Model v12" [ref=e3232]
+                - generic [ref=e3233]:
+                  - generic [ref=e3235]:
+                    - link "Victorinox Peeler - Model v12" [ref=e3236] [cursor=pointer]:
+                      - /url: /product/6233
+                      - generic "Victorinox Peeler - Model v12" [ref=e3237]
+                    - generic [ref=e3238]:
+                      - generic [ref=e3239]:
+                        - img [ref=e3241]
+                        - img [ref=e3244]
+                        - img [ref=e3247]
+                        - img [ref=e3250]
+                        - img [ref=e3253]
+                      - generic [ref=e3255]: (128)
+                    - generic [ref=e3256]: ₹2,222
+                  - button "Add to Cart" [ref=e3258] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e3259]: Add to Cart
+              - generic [ref=e3261]:
+                - link "Decathlon Yoga Mat - Model v16" [ref=e3264] [cursor=pointer]:
+                  - /url: /product/6260
+                  - img "Decathlon Yoga Mat - Model v16" [ref=e3265]
+                - generic [ref=e3266]:
+                  - generic [ref=e3268]:
+                    - link "Decathlon Yoga Mat - Model v16" [ref=e3269] [cursor=pointer]:
+                      - /url: /product/6260
+                      - generic "Decathlon Yoga Mat - Model v16" [ref=e3270]
+                    - generic [ref=e3271]:
+                      - generic [ref=e3272]:
+                        - img [ref=e3274]
+                        - img [ref=e3277]
+                        - img [ref=e3280]
+                        - img [ref=e3283]
+                        - img [ref=e3286]
+                      - generic [ref=e3288]: (128)
+                    - generic [ref=e3289]: ₹514
+                  - button "Add to Cart" [ref=e3291] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e3292]: Add to Cart
+              - generic [ref=e3294]:
+                - link "pTron Bassbuds Pearl - Model v14" [ref=e3297] [cursor=pointer]:
+                  - /url: /product/6261
+                  - img "pTron Bassbuds Pearl - Model v14" [ref=e3298]
+                - generic [ref=e3299]:
+                  - generic [ref=e3301]:
+                    - link "pTron Bassbuds Pearl - Model v14" [ref=e3302] [cursor=pointer]:
+                      - /url: /product/6261
+                      - generic "pTron Bassbuds Pearl - Model v14" [ref=e3303]
+                    - generic [ref=e3304]:
+                      - generic [ref=e3305]:
+                        - img [ref=e3307]
+                        - img [ref=e3310]
+                        - img [ref=e3313]
+                        - img [ref=e3316]
+                        - img [ref=e3319]
+                      - generic [ref=e3321]: (128)
+                    - generic [ref=e3322]: ₹4,927
+                  - button "Add to Cart" [ref=e3324] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e3325]: Add to Cart
+              - generic [ref=e3327]:
+                - link "AUSK T-Shirt for Men - Model v17" [ref=e3330] [cursor=pointer]:
+                  - /url: /product/6262
+                  - img "AUSK T-Shirt for Men - Model v17" [ref=e3331]
+                - generic [ref=e3332]:
+                  - generic [ref=e3334]:
+                    - link "AUSK T-Shirt for Men - Model v17" [ref=e3335] [cursor=pointer]:
+                      - /url: /product/6262
+                      - generic "AUSK T-Shirt for Men - Model v17" [ref=e3336]
+                    - generic [ref=e3337]:
+                      - generic [ref=e3338]:
+                        - img [ref=e3340]
+                        - img [ref=e3343]
+                        - img [ref=e3346]
+                        - img [ref=e3349]
+                        - img [ref=e3352]
+                      - generic [ref=e3354]: (128)
+                    - generic [ref=e3355]: ₹1,528
+                  - button "Add to Cart" [ref=e3357] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e3358]: Add to Cart
+              - generic [ref=e3360]:
+                - link "Victorinox Peeler - Model v17" [ref=e3363] [cursor=pointer]:
+                  - /url: /product/6263
+                  - img "Victorinox Peeler - Model v17" [ref=e3364]
+                - generic [ref=e3365]:
+                  - generic [ref=e3367]:
+                    - link "Victorinox Peeler - Model v17" [ref=e3368] [cursor=pointer]:
+                      - /url: /product/6263
+                      - generic "Victorinox Peeler - Model v17" [ref=e3369]
+                    - generic [ref=e3370]:
+                      - generic [ref=e3371]:
+                        - img [ref=e3373]
+                        - img [ref=e3376]
+                        - img [ref=e3379]
+                        - img [ref=e3382]
+                        - img [ref=e3385]
+                      - generic [ref=e3387]: (128)
+                    - generic [ref=e3388]: ₹9,230
+                  - button "Add to Cart" [ref=e3390] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e3391]: Add to Cart
+              - generic [ref=e3393]:
+                - link "Atomic Habits - Model v17" [ref=e3396] [cursor=pointer]:
+                  - /url: /product/6264
+                  - img "Atomic Habits - Model v17" [ref=e3397]
+                - generic [ref=e3398]:
+                  - generic [ref=e3400]:
+                    - link "Atomic Habits - Model v17" [ref=e3401] [cursor=pointer]:
+                      - /url: /product/6264
+                      - generic "Atomic Habits - Model v17" [ref=e3402]
+                    - generic [ref=e3403]:
+                      - generic [ref=e3404]:
+                        - img [ref=e3406]
+                        - img [ref=e3409]
+                        - img [ref=e3412]
+                        - img [ref=e3415]
+                        - img [ref=e3418]
+                      - generic [ref=e3420]: (128)
+                    - generic [ref=e3421]: ₹685
+                  - button "Add to Cart" [ref=e3423] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e3424]: Add to Cart
+              - generic [ref=e3426]:
+                - link "Quechua Backpack - Model v17" [ref=e3429] [cursor=pointer]:
+                  - /url: /product/6265
+                  - img "Quechua Backpack - Model v17" [ref=e3430]
+                - generic [ref=e3431]:
+                  - generic [ref=e3433]:
+                    - link "Quechua Backpack - Model v17" [ref=e3434] [cursor=pointer]:
+                      - /url: /product/6265
+                      - generic "Quechua Backpack - Model v17" [ref=e3435]
+                    - generic [ref=e3436]:
+                      - generic [ref=e3437]:
+                        - img [ref=e3439]
+                        - img [ref=e3442]
+                        - img [ref=e3445]
+                        - img [ref=e3448]
+                        - img [ref=e3451]
+                      - generic [ref=e3453]: (128)
+                    - generic [ref=e3454]: ₹395
+                  - button "Add to Cart" [ref=e3456] [cursor=pointer]:
+                    - generic: 
+                    - generic [ref=e3457]: Add to Cart
+              - generic [ref=e3459]:
+                - generic [ref=e3461]:
+                  - link "Playwright Test Product" [ref=e3462] [cursor=pointer]:
+                    - /url: /product/6266
+                    - img "Playwright Test Product" [ref=e3463]
+                  - generic [ref=e3464]: Out of Stock
+                - generic [ref=e3465]:
+                  - generic [ref=e3467]:
+                    - link "Playwright Test Product" [ref=e3468] [cursor=pointer]:
+                      - /url: /product/6266
+                      - generic "Playwright Test Product" [ref=e3469]
+                    - generic [ref=e3470]:
+                      - generic [ref=e3471]:
+                        - img [ref=e3473]
+                        - img [ref=e3476]
+                        - img [ref=e3479]
+                        - img [ref=e3482]
+                        - img [ref=e3485]
+                      - generic [ref=e3487]: (128)
+                    - generic [ref=e3488]: ₹699
+                  - generic [ref=e3489]:
+                    - button "Out of Stock" [disabled]:
+                      - generic: 
+                      - generic: Out of Stock
+```

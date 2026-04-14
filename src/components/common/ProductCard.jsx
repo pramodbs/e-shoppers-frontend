@@ -26,18 +26,7 @@ export default function ProductCard({ product, onLoginRequired }) {
     const handleAddToCart = async (e) => {
         if (e) e.stopPropagation();
 
-        if (!user) {
-            if (onLoginRequired) onLoginRequired();
-            toast.current.show({ 
-                severity: 'info', 
-                summary: 'Sign In Required', 
-                detail: 'Please log in to add items to your cart', 
-                life: 3000 
-            });
-            return;
-        }
-
-        const result = await addToCart(product.id, 1);
+        const result = await addToCart(product, 1);
         toast.current.show({ 
             severity: result.success ? 'success' : 'error', 
             summary: result.success ? 'Success' : 'Error', 
@@ -47,7 +36,7 @@ export default function ProductCard({ product, onLoginRequired }) {
     };
 
     const header = (
-        <div className="flex justify-content-center p-3 relative" style={{ background: 'var(--surface-ground)', borderRadius: '12px 12px 0 0' }}>
+        <div className="flex justify-content-center p-3 relative" style={{ background: 'var(--surface-bg)', borderRadius: '12px 12px 0 0' }}>
             <Link to={`/product/${product.id}`} className="w-full">
                 <img 
                     alt={product.title} 

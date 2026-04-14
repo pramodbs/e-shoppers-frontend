@@ -4,12 +4,42 @@
     --royal-light: #4169E1;
     --accent: #FF8C00; 
 
+    /* Day Mode Variables */
+    --surface-bg: #f8f9fa;
+    --surface-card: #ffffff;
+    --surface-border: #e9ecef;
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+
     /* PrimeReact Overrides */
     --primary-color: var(--royal);
     --primary-color-text: #ffffff;
     --secondary-color: var(--accent);
 }
 
+.dark-theme {
+    --surface-bg: #121212;
+    --surface-card: #1e1e1e;
+    --surface-border: #333333;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --royal: #4169E1;
+}
+
+body { 
+    background: var(--surface-bg); 
+    color: var(--text-primary);
+    margin: 0; 
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 body { background: #f8f9fa; margin: 0; font-family: var(--font-family); }
 .card-shadow { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
 .primary-gradient { background: linear-gradient(90deg, var(--royal-dark), var(--royal)); color: #fff; }
+                                                                                
+/* Ensure Toast notifications appear above all other UI elements and below the nav bar */
+.p-toast {
+    z-index: 10000 !important;
+    top: 80px !important;
+}
+

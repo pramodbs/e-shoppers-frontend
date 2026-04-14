@@ -18,7 +18,7 @@ import { ProgressSpinner } from 'primereact/progressspinner';
 
 export default function AppHeader({ onToggleSidebar }) {
     const { user, logout } = useAuth();
-    const { cartCount, clearCart, refreshCart } = useCart();
+    const { cartCount, clearCart, refreshCart, syncCart } = useCart();
     const { mode, toggleTheme } = useAppTheme();
     const nav = useNavigate();
     const [openLogin, setOpenLogin] = useState(false);
@@ -75,7 +75,7 @@ export default function AppHeader({ onToggleSidebar }) {
                         if (e.target.nextSibling) e.target.nextSibling.style.display = 'block'; 
                     }} 
                 />
-                <span style={{ fontSize: '1.5rem', fontWeight: 800, color: mode === 'light' ? '#0038A8' : '#4169E1', letterSpacing: '-1px', display: 'none' }}>
+                <span style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--royal)', letterSpacing: '-1px', display: 'none' }}>
                     E-SHOPPERS
                 </span>
             </Link>
@@ -183,7 +183,7 @@ export default function AppHeader({ onToggleSidebar }) {
                 <div className="flex align-items-center gap-2">
                     <div className="text-right mr-2 hidden xl:block">
                         <span className="block text-xs text-color-secondary line-height-1">Hello,</span>
-                        <span className="text-sm font-bold" style={{ color: 'var(--text-color)' }}>{user.firstName || 'User'}</span>
+                        <span className="text-sm font-bold" style={{ color: 'var(--text-primary)' }}>{user.firstName || 'User'}</span>
                     </div>
                     <Button icon="pi pi-user" rounded text severity="secondary" onClick={() => nav('/profile')} className="hidden lg:inline-flex" />
                     <Button icon="pi pi-power-off" rounded text severity="danger" onClick={handleLogout} className="hidden lg:inline-flex" />
@@ -196,14 +196,15 @@ export default function AppHeader({ onToggleSidebar }) {
             )}
 
             <Button 
-                icon="pi pi-shopping-cart" 
                 rounded 
                 text 
                 severity="secondary" 
                 onClick={() => nav('/cart')}
-                className="p-overlay-badge"
+                className="p-0 flex align-items-center justify-content-center w-3rem h-3rem"
             >
-                {cartCount > 0 && <Badge value={cartCount} severity="danger"></Badge>}
+                <i className="pi pi-shopping-cart p-overlay-badge" style={{ fontSize: '1.5rem' }}>
+                    {cartCount > 0 && <Badge value={cartCount} severity="danger"></Badge>}
+                </i>
             </Button>
         </div>
     );
@@ -217,15 +218,16 @@ export default function AppHeader({ onToggleSidebar }) {
                 style={{ border: 'none', background: 'transparent', padding: '0.5rem 1.5rem' }} 
             />
             
-            <Sidebar visible={openLogin} onHide={() => setOpenLogin(false)} position="right" className="w-full md:w-30rem" style={{ background: 'var(--surface-card)', color: 'var(--text-color)' }}>
-                <Typography variant="h5" sx={{ mb: 3, fontWeight: 700, color: 'var(--text-color)' }}>
+            <Sidebar visible={openLogin} onHide={() => setOpenLogin(false)} position="right" className="w-full md:w-30rem" style={{ background: 'var(--surface-card)', color: 'var(--text-primary)' }}>
+                <Typography variant="h5" sx={{ mb: 3, fontWeight: 700, color: 'var(--text-primary)' }}>
                     {isRegistering ? 'Create Account' : 'Welcome Back'}
                 </Typography>
                 {isRegistering ? (
                     <Register 
                         isModal={true} 
-                        onSuccess={(data) => {
+                        onSuccess={async (data) => {
                             setOpenLogin(false);
+                            await syncCart();
                             refreshCart();
                         }}
                         onSwitchToLogin={() => setIsRegistering(false)}
@@ -233,8 +235,9 @@ export default function AppHeader({ onToggleSidebar }) {
                 ) : (
                     <Login 
                         isModal={true} 
-                        onSuccess={() => {
+                        onSuccess={async () => {
                             setOpenLogin(false);
+                            await syncCart();
                             refreshCart();
                         }} 
                         onSwitchToRegister={() => setIsRegistering(true)}

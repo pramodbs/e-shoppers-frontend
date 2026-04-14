@@ -23,26 +23,52 @@ export default function CartPage() {
     const load = async () => {
         setLoading(true);
         setMsg('');
-        try {
-            const { data } = await api.get('/user/myCart');
-            setItems(data.cartData || []);
-            setTotal(data.totalCartPrice || '0');
-        } catch {
-            setMsg('Could not load your cart. Please try again.');
-        } finally {
-            setLoading(false);
+        const u = localStorage.getItem('esh_user');
+
+        if (u) {
+            try {
+                const { data } = await api.get('/user/myCart');
+                setItems(data.cartData || []);
+                setTotal(data.totalCartPrice || '0');
+            } catch {
+                setMsg('Could not load your cart. Please try again.');
+            } finally {
+                setLoading(false);
+            }
+        } else {
+            // Guest mode
+            try {
+                const gCart = JSON.parse(localStorage.getItem('esh_guest_cart') || '[]');
+                setItems(gCart);
+                const gTotal = gCart.reduce((acc, it) => acc + (it.price * it.quantity), 0);
+                setTotal(gTotal.toString());
+            } catch {
+                setMsg('Failed to read local cart.');
+            } finally {
+                setLoading(false);
+            }
         }
     };
 
     useEffect(() => { load() }, []);
 
     const removeItem = async (id) => {
-        try {
-            await api.delete(`/user/cart/${id}`);
+        const u = localStorage.getItem('esh_user');
+        if (u) {
+            try {
+                await api.delete(`/user/cart/${id}`);
+                load();
+                refreshCart();
+            } catch {
+                setMsg('Failed to remove item.');
+            }
+        } else {
+            // Guest remove (id here is productId)
+            const gCart = JSON.parse(localStorage.getItem('esh_guest_cart') || '[]');
+            const newCart = gCart.filter(it => it.productId !== id);
+            localStorage.setItem('esh_guest_cart', JSON.stringify(newCart));
             load();
             refreshCart();
-        } catch {
-            setMsg('Failed to remove item.');
         }
     };
 
@@ -69,7 +95,7 @@ export default function CartPage() {
                 rounded 
                 outlined 
                 severity="danger" 
-                onClick={() => removeItem(rowData.cartId)} 
+                onClick={() => removeItem(rowData.cartId || rowData.productId)} 
                 className="h-2rem w-2rem"
                 tooltip="Remove Item"
             />

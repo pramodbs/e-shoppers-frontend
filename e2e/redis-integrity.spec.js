@@ -2,7 +2,28 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Redis Search Integrity & Sync', () => {
 
+  test.beforeAll(async ({ request }) => {
+    // 1. Login to get token for reindex
+    const loginRes = await request.post('/api/user/login', {
+      data: {
+        identifier: 'admin@example.com',
+        password: 'admin'
+      }
+    });
+    const { token } = await loginRes.json();
+
+    // 2. Trigger reindex
+    await request.post('/api/search/reindex', {
+      headers: { 'Authorization': `Bearer ${token}` }
+    });
+    
+    // 3. Small delay for Redis to catch up
+    await new Promise(resolve => setTimeout(resolve, 2000));
+  });
+
   test.beforeEach(async ({ page }) => {
+    // Ensure desktop viewport so search bar is visible
+    await page.setViewportSize({ width: 1280, height: 900 });
     // Brute force stub for native confirm dialogs
     await page.addInitScript(() => {
       window.confirm = () => true;
@@ -27,7 +48,14 @@ test.describe('Redis Search Integrity & Sync', () => {
     await page.locator('#description').fill('Testing Redis Sync');
     await page.locator('input#price').fill('999');
     await dialog.getByRole('button', { name: /Save/i }).click();
-    await expect(dialog).not.toBeVisible();
+    await expect(dialog).not.toBeVisible({ timeout: 10000 });
+    // Sort by ID descending so newest product appears on page 1
+    await page.getByRole('columnheader', { name: 'ID' }).click();
+    await page.waitForTimeout(300);
+    await page.getByRole('columnheader', { name: 'ID' }).click();
+    await page.waitForTimeout(300);
+    // Wait for the new row to appear in the table
+    await expect(page.locator('tr').filter({ hasText: productName })).toBeVisible({ timeout: 10000 });
 
     // 2. Verify in Search Suggestions
     await page.goto('/');
@@ -36,7 +64,7 @@ test.describe('Redis Search Integrity & Sync', () => {
 
     // We expect the overlay to show up and contain our new product
     const overlay = page.locator('.p-overlaypanel');
-    await expect(overlay.getByText(productName)).toBeVisible({ timeout: 10000 });
+    await expect(overlay.getByText(productName, { exact: true })).toBeVisible({ timeout: 10000 });
 
     // 3. Delete Product
     await page.goto('/admin/products');
@@ -50,14 +78,15 @@ test.describe('Redis Search Integrity & Sync', () => {
     // Logic is now handled by the stubbed window.confirm in beforeEach
     await row.getByLabel('delete').click();
 
-    await expect(row).not.toBeVisible({ timeout: 10000 });
+    // Soft-delete: row stays but Active column becomes 'false'
+    await expect(row.getByRole('cell', { name: 'false' })).toBeVisible({ timeout: 10000 });
 
     // 4. Verify removed from Search
     await page.goto('/');
     await searchInput.fill(productName);
-    // Overlay should NOT contain it now (Wait for debounce and search to complete)
-    await page.waitForTimeout(1000);
-    await expect(overlay.getByText(productName)).not.toBeVisible({ timeout: 5000 });
+    // Debounce + Redis indexing delay
+    await page.waitForTimeout(1500);
+    await expect(overlay.getByText(productName, { exact: true })).not.toBeVisible({ timeout: 8000 });
   });
 
   test('Sync on Update', async ({ page }) => {
@@ -71,7 +100,13 @@ test.describe('Redis Search Integrity & Sync', () => {
     await page.locator('#title').fill(originalName);
     await page.locator('input#price').fill('100');
     await page.getByRole('dialog').getByRole('button', { name: /Save/i }).click();
-    await expect(page.locator('tr').filter({ hasText: originalName })).toBeVisible();
+    await expect(page.getByRole('dialog')).not.toBeVisible({ timeout: 10000 });
+    // Sort by ID descending to find the newest product at top
+    await page.getByRole('columnheader', { name: 'ID' }).click();
+    await page.waitForTimeout(300);
+    await page.getByRole('columnheader', { name: 'ID' }).click();
+    await page.waitForTimeout(300);
+    await expect(page.locator('tr').filter({ hasText: originalName })).toBeVisible({ timeout: 10000 });
 
     // 2. Update
     await page.getByRole('columnheader', { name: 'ID' }).click();

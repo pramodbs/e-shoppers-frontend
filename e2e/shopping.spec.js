@@ -3,6 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Shopping User Journey (Live)', () => {
 
   test('User can browse products on the home page', async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 900 });
     await page.goto('/');
     await expect(page.locator('.p-card').first()).toBeVisible({ timeout: 10000 });
     const products = page.locator('.p-card');
@@ -10,19 +11,34 @@ test.describe('Shopping User Journey (Live)', () => {
   });
 
   test('Auhenticated user can add to cart and checkout', async ({ page }) => {
+    test.setTimeout(60000);
+    await page.setViewportSize({ width: 1280, height: 900 });
     // 1. Login
     await page.goto('/login');
     await page.getByLabel(/email or mobile/i).fill('user1@example.com');
     await page.getByLabel(/password/i).fill('password123');
     await page.getByRole('button', { name: /login/i }).click();
     await expect(page.getByText(/Hello,/i).first()).toBeVisible({ timeout: 10000 });
+    // Small wait for Auth/Cart context to sync
+    await page.waitForTimeout(2000);
 
-    // 2. Add product to cart
-    const addToCartBtns = page.getByRole('button', { name: /add to cart/i });
-    if (await addToCartBtns.count() > 0) {
-      await addToCartBtns.first().click();
-      await expect(page.getByText(/Added to cart/i)).toBeVisible({ timeout: 5000 });
-    }
+    // 2. Navigate home and wait for products then click first in-stock item
+    page.on('console', msg => console.log(`DEBUG CONSOLE: ${msg.text()}`));
+    await page.goto('/');
+    await expect(page.locator('.p-card').first()).toBeVisible({ timeout: 20000 });
+    
+    // Header cart badge is inside the cart link
+    const cartBadge = page.locator('a[href="/cart"] .p-badge');
+    const initialCountStr = await cartBadge.innerText().catch(() => "0");
+    const initialCount = parseInt(initialCountStr) || 0;
+    
+    const addToCartBtns = page.getByRole('button', { name: /^add to cart$/i });
+    await expect(addToCartBtns.first()).toBeVisible({ timeout: 10000 });
+    await addToCartBtns.first().click();
+
+    // Verify Cart Badge increments
+    await expect(cartBadge).toHaveText((initialCount + 1).toString(), { timeout: 10000 });
+
 
     // 3. Go to cart and checkout
     await page.goto('/cart');

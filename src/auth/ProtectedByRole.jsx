@@ -11,8 +11,8 @@ export default function ProtectedByRole({ children }) {
   const { user } = useAuth()
   const location = useLocation()
 
-  // Not logged in at all — always redirect to login
-  if (!user) return <Navigate to="/login" replace />
+  // Not logged in at all — always redirect to login with redirect param
+  if (!user) return <Navigate to={`/login?redirect=${location.pathname}`} replace />
 
   const role = user.role || 'USER'
 

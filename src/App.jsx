@@ -36,7 +36,7 @@ export default function App() {
                 <Route path='/product/:id' element={<ProductDetails />} />
 
                 {/* Authenticated customer routes */}
-                <Route path='/cart' element={<ProtectedByRole><CartPage /></ProtectedByRole>} />
+                <Route path='/cart' element={<CartPage />} />
                 <Route path='/checkout' element={<ProtectedByRole><Checkout /></ProtectedByRole>} />
 
                 {/* Role-aware admin/staff routes */}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { Button } from 'primereact/button'
 import { InputText } from 'primereact/inputtext'
 import { Message } from 'primereact/message'
@@ -13,6 +14,7 @@ export default function Login({ isModal, onSuccess, onSwitchToRegister }) {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState('')
     const nav = useNavigate();
+    const [searchParams] = useSearchParams();
     const { login } = useAuth()
 
     const submit = async (e) => {
@@ -25,7 +27,8 @@ export default function Login({ isModal, onSuccess, onSwitchToRegister }) {
             if (onSuccess) {
                 onSuccess(data);
             } else {
-                nav('/');
+                const target = searchParams.get('redirect') || '/';
+                nav(target);
             }
         } catch (err) {
             const msg = err?.response?.data;

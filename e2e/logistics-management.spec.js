@@ -26,7 +26,7 @@ test.describe('Logistics and Inventory Management', () => {
         await page.getByRole('button', { name: /Save/i }).click();
 
         // Verify it appears in the list
-        await expect(page.getByText('Test Logistics Co')).toBeVisible();
+        await expect(page.getByText('Test Logistics Co').first()).toBeVisible();
     });
 
     test('Admin can manage Stock Storerooms', async ({ page }) => {
@@ -40,7 +40,7 @@ test.describe('Logistics and Inventory Management', () => {
         await page.getByRole('button', { name: /Save/i }).click();
 
         // Verify it appears in the list
-        await expect(page.getByText('North Wing Hub')).toBeVisible();
+        await expect(page.getByText('North Wing Hub').first()).toBeVisible();
     });
 
     test('Admin can manage Inventory Details', async ({ page }) => {
@@ -93,7 +93,7 @@ test.describe('Logistics and Inventory Management', () => {
         // Login as Delivery (assuming we have one or create one)
         // For simplicity, let's just check the UI doesn't show the links
         await page.goto('/login');
-        await page.getByLabel(/email or mobile/i).fill('deliv@example.com'); // Placeholder if exists
+        await page.getByLabel(/email or mobile/i).fill('delivery@example.com');
         await page.getByLabel(/password/i).fill('delivery');
         await page.getByRole('button', { name: /login/i }).click();
         

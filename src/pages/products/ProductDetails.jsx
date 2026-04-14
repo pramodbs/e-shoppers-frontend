@@ -63,17 +63,7 @@ export default function ProductDetails() {
     }, [id]);
 
     const handleAddToCart = async () => {
-        if (!user) {
-            toast.current.show({ 
-                severity: 'info', 
-                summary: 'Sign In Required', 
-                detail: 'Please log in to add items to your cart', 
-                life: 3000 
-            });
-            return;
-        }
-
-        const result = await addToCart(product.id, 1);
+        const result = await addToCart(product, 1);
         toast.current.show({ 
             severity: result.success ? 'success' : 'error', 
             summary: result.success ? 'Success' : 'Error', 
