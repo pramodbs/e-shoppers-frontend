@@ -12,6 +12,14 @@ import { useNavigate } from 'react-router-dom';
 import api from '../../services/api';
 import { useCart } from '../../context/CartContext';
 
+// Stripe imports
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+import StripePayment from '../../components/checkout/StripePayment';
+
+// Use environment variable or placeholder
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || "pk_test_placeholder");
+
 const formatINR = (val) => new Intl.NumberFormat('en-IN', {
     style: 'currency', currency: 'INR', maximumFractionDigits: 0
 }).format(val || 0);
@@ -24,6 +32,7 @@ export default function Checkout() {
     const [paying, setPaying] = useState(false);
     const [order, setOrder] = useState(null);
     const [err, setErr] = useState('');
+    const [clientSecret, setClientSecret] = useState('');
     const { clearCart } = useCart();
     const nav = useNavigate();
 
@@ -50,18 +59,49 @@ export default function Checkout() {
 
     useEffect(() => { load() }, []);
 
+    // Handle initial stripe payment intent creation when "CARD" is selected
+    useEffect(() => {
+        if (method === 'CARD' && !clientSecret && items.length > 0) {
+            createPaymentIntent();
+        }
+    }, [method]);
+
+    const createPaymentIntent = async () => {
+        setErr('');
+        try {
+            const { data } = await api.post('/payment/create-payment-intent');
+            setClientSecret(data.clientSecret);
+        } catch (e) {
+            setErr('Failed to initialize Stripe. Please try another method or refresh.');
+            setMethod('COD');
+        }
+    };
+
     const pay = async () => {
         setPaying(true);
         setErr('');
         try {
             const { data } = await api.post('/user/checkout/pay', { method });
-            setOrder(data);
+            setOrder({
+                orderId: data.orderId,
+                amount: data.amount,
+                method: data.method
+            });
             clearCart();
         } catch (e) {
             setErr(typeof e?.response?.data === 'string' ? e.response.data : 'Payment failed. Please try again.');
         } finally {
             setPaying(false);
         }
+    };
+
+    const handleStripeSuccess = (paymentIntent) => {
+        setOrder({
+            orderId: "STRIPE_" + paymentIntent.id.substring(3, 13),
+            amount: paymentIntent.amount / 100,
+            method: 'CARD (Stripe)'
+        });
+        clearCart();
     };
 
     if (order) {
@@ -75,7 +115,7 @@ export default function Checkout() {
                     <Divider className="my-5" />
                     
                     <div className="flex flex-column align-items-center gap-3">
-                        <span className="p-badge p-badge-info p-badge-lg px-4 py-2 border-round-3xl">Order ID: {order.orderId}</span>
+                        <span className="p-badge p-badge-info p-badge-lg px-4 py-2 border-round-3xl">Ref: {order.orderId}</span>
                         <h3 className="text-3xl font-bold text-primary m-0">{formatINR(order.amount)}</h3>
                         <div className="flex align-items-center gap-2 text-color-secondary">
                              <i className="pi pi-truck"></i>
@@ -119,9 +159,7 @@ export default function Checkout() {
                         <div className="flex flex-column gap-4 mt-2">
                             {[
                                 { id: 'COD', label: 'Cash on Delivery (COD)', icon: 'pi-wallet' },
-                                { id: 'UPI', label: 'UPI / QR Code', icon: 'pi-mobile' },
-                                { id: 'CARD', label: 'Credit / Debit Card', icon: 'pi-credit-card' },
-                                { id: 'NETBANKING', label: 'Net Banking', icon: 'pi-globe' }
+                                { id: 'CARD', label: 'Credit / Debit Card (Stripe)', icon: 'pi-credit-card' }
                             ].map((opt) => (
                                 <div key={opt.id} className={`flex align-items-center p-3 border-round-lg cursor-pointer transition-colors duration-200 ${method === opt.id ? 'surface-100 border-primary' : 'surface-card border-1 border-surface-border'}`} onClick={() => setMethod(opt.id)}>
                                     <RadioButton inputId={opt.id} value={opt.id} onChange={(e) => setMethod(e.value)} checked={method === opt.id} className="mr-3" />
@@ -132,6 +170,21 @@ export default function Checkout() {
                                 </div>
                             ))}
                         </div>
+
+                        {method === 'CARD' && clientSecret && (
+                            <Elements stripe={stripePromise} options={{ clientSecret }}>
+                                <StripePayment 
+                                    clientSecret={clientSecret} 
+                                    onPaymentSuccess={handleStripeSuccess} 
+                                />
+                            </Elements>
+                        )}
+                        {method === 'CARD' && !clientSecret && (
+                            <div className="mt-4 flex align-items-center gap-3 p-3 surface-100 border-round">
+                                <i className="pi pi-spin pi-spinner text-primary"></i>
+                                <span>Initializing secure payment...</span>
+                            </div>
+                        )}
                     </Card>
                 </div>
 
@@ -151,14 +204,16 @@ export default function Checkout() {
                         </div>
 
                         <div className="flex flex-column gap-3">
-                            <Button 
-                                label={paying ? "Processing..." : `Complete Order`} 
-                                icon={paying ? "pi pi-spin pi-spinner" : "pi pi-check-circle"} 
-                                className="w-full p-button-lg font-bold border-round-3xl"
-                                style={{ background: '#FF8C00', borderColor: '#FF8C00' }}
-                                disabled={paying || items.length === 0}
-                                onClick={pay}
-                            />
+                            {method !== 'CARD' && (
+                                <Button 
+                                    label={paying ? "Processing..." : `Complete Order`} 
+                                    icon={paying ? "pi pi-spin pi-spinner" : "pi pi-check-circle"} 
+                                    className="w-full p-button-lg font-bold border-round-3xl"
+                                    style={{ background: '#FF8C00', borderColor: '#FF8C00' }}
+                                    disabled={paying || items.length === 0}
+                                    onClick={pay}
+                                />
+                            )}
                             <Button label="Back to Cart" icon="pi pi-arrow-left" className="w-full p-button-text font-bold" onClick={() => nav('/cart')} />
                         </div>
                     </Card>

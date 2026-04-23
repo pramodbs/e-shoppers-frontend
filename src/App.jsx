@@ -22,18 +22,26 @@ import InventoryList from './pages/logistics/InventoryList';
 import DeliveryDashboard from './pages/delivery/DeliveryDashboard';
 import CartPage from './pages/cart/CartPage';
 import Checkout from './pages/checkout/Checkout';
+import PaymentSuccess from './pages/checkout/PaymentSuccess';
 import ProtectedByRole from './auth/ProtectedByRole';
+
+// Stripe imports
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || "pk_test_placeholder");
 
 export default function App() {
     return (
-        <MainLayout>
-            <Routes>
-                {/* Public */}
-                <Route path='/' element={<Home />} />
-                <Route path='/search' element={<SearchPage />} />
-                <Route path='/login' element={<Login />} />
-                <Route path='/register' element={<Register />} />
-                <Route path='/product/:id' element={<ProductDetails />} />
+        <Elements stripe={stripePromise}>
+            <MainLayout>
+                <Routes>
+                    {/* Public */}
+                    <Route path='/' element={<Home />} />
+                    <Route path='/search' element={<SearchPage />} />
+                    <Route path='/login' element={<Login />} />
+                    <Route path='/register' element={<Register />} />
+                    <Route path='/product/:id' element={<ProductDetails />} />
+                    <Route path='/payment-success' element={<PaymentSuccess />} />
 
                 {/* Authenticated customer routes */}
                 <Route path='/cart' element={<CartPage />} />
@@ -57,6 +65,7 @@ export default function App() {
                 {/* Redirects */}
                 <Route path='*' element={<Navigate to='/' replace />} />
             </Routes>
-        </MainLayout>
+            </MainLayout>
+        </Elements>
     );
 }
