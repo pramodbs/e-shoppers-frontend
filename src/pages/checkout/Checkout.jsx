@@ -33,6 +33,8 @@ export default function Checkout() {
     const [order, setOrder] = useState(null);
     const [err, setErr] = useState('');
     const [clientSecret, setClientSecret] = useState('');
+    const [addresses, setAddresses] = useState([]);
+    const [selectedAddress, setSelectedAddress] = useState(null);
     const { clearCart } = useCart();
     const nav = useNavigate();
 
@@ -47,11 +49,21 @@ export default function Checkout() {
         setLoading(true);
         setErr('');
         try {
-            const { data } = await api.get('/user/checkout/preview');
-            setItems(data.items || []);
-            setTotal(data.total || '0');
+            // Parallel fetch for checkout summary and addresses
+            const [checkoutRes, addressRes] = await Promise.all([
+                api.get('/user/checkout/preview'),
+                api.get('/api/user/profile/addresses')
+            ]);
+            
+            setItems(checkoutRes.data.items || []);
+            setTotal(checkoutRes.data.total || '0');
+            setAddresses(addressRes.data || []);
+            
+            if (addressRes.data && addressRes.data.length > 0) {
+                setSelectedAddress(addressRes.data[0]);
+            }
         } catch (e) {
-            setErr('Failed to load checkout summary. Please go back to cart and try again.');
+            setErr('Failed to load checkout details. Please refresh or go back to cart.');
         } finally {
             setLoading(false);
         }
@@ -78,10 +90,18 @@ export default function Checkout() {
     };
 
     const pay = async () => {
+        if (!selectedAddress) {
+            setErr('Please select a delivery address first.');
+            return;
+        }
+
         setPaying(true);
         setErr('');
         try {
-            const { data } = await api.post('/user/checkout/pay', { method });
+            const { data } = await api.post('/user/checkout/pay', { 
+                method, 
+                addressId: selectedAddress.id 
+            });
             setOrder({
                 orderId: data.orderId,
                 amount: data.amount,
@@ -146,12 +166,42 @@ export default function Checkout() {
                 <div className="col-12 lg:col-8">
                     {err && <Message severity="error" text={err} className="w-full mb-4" />}
                     
-                    <Card className="shadow-2 border-round-xl mb-4" title="Billing & Shipping">
-                         <div className="grid p-fluid mt-2">
-                            <div className="col-12 md:col-6">
-                                <label className="block text-900 font-bold mb-2">Contact Holder</label>
-                                <div className="p-3 surface-100 border-round">{items.length > 0 ? 'Home Delivery' : 'Not Available'}</div>
-                            </div>
+                    <Card className="shadow-2 border-round-xl mb-4" title="Delivery Address">
+                         <div className="grid mt-2">
+                            {addresses.length > 0 ? (
+                                addresses.map((addr) => (
+                                    <div key={addr.id} className="col-12 md:col-6">
+                                        <div 
+                                            className={`p-3 border-round-xl border-1 cursor-pointer transition-all duration-200 h-full flex flex-column justify-content-between ${selectedAddress?.id === addr.id ? 'border-primary surface-100 shadow-3' : 'border-surface-border hover:surface-50'}`}
+                                            onClick={() => setSelectedAddress(addr)}
+                                            style={selectedAddress?.id === addr.id ? { borderLeft: '5px solid var(--primary-color)' } : {}}
+                                        >
+                                            <div className="flex justify-content-between align-items-start mb-3">
+                                                <div className="flex align-items-center gap-2">
+                                                    <i className={`pi ${selectedAddress?.id === addr.id ? 'pi-check-circle text-primary' : 'pi-circle'} text-xl`}></i>
+                                                    <span className="font-bold text-900">{addr.landmark || 'Home Address'}</span>
+                                                </div>
+                                                {selectedAddress?.id === addr.id && <span className="p-badge p-badge-success text-xs">Selected</span>}
+                                            </div>
+                                            
+                                            <div className="text-700 line-height-3 text-sm">
+                                                <div className="mb-1"><i className="pi pi-map-marker mr-2 text-xs"></i>{addr.street}</div>
+                                                <div>{addr.city}, {addr.state}</div>
+                                                <div>{addr.country} - <span className="font-bold">{addr.pincode}</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))
+                            ) : (
+                                <div className="col-12">
+                                    <div className="p-4 surface-100 border-round-xl text-center border-dashed border-2 border-surface-border">
+                                        <i className="pi pi-map-pin text-4xl text-color-secondary mb-3"></i>
+                                        <p className="text-color-secondary font-bold m-0">No saved addresses found.</p>
+                                        <p className="text-sm text-color-secondary mt-2 mb-4">Please add a delivery address in your profile to continue.</p>
+                                        <Button label="Go to Profile" icon="pi pi-user" className="p-button-outlined border-round-3xl" onClick={() => nav('/profile')} />
+                                    </div>
+                                </div>
+                            )}
                          </div>
                     </Card>
 
@@ -210,7 +260,7 @@ export default function Checkout() {
                                     icon={paying ? "pi pi-spin pi-spinner" : "pi pi-check-circle"} 
                                     className="w-full p-button-lg font-bold border-round-3xl"
                                     style={{ background: '#FF8C00', borderColor: '#FF8C00' }}
-                                    disabled={paying || items.length === 0}
+                                    disabled={paying || items.length === 0 || !selectedAddress}
                                     onClick={pay}
                                 />
                             )}

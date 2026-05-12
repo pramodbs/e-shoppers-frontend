@@ -13,18 +13,29 @@ export default function StripePayment({ clientSecret, onPaymentSuccess }) {
     const elements = useElements();
     const [message, setMessage] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
+    const [isReady, setIsReady] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!stripe || !elements) {
+        if (!stripe || !elements || !isReady) {
             return;
         }
 
         setIsLoading(true);
+        setMessage(null);
+
+        // Trigger form validation and wallet collection
+        const { error: submitError } = await elements.submit();
+        if (submitError) {
+            setMessage(submitError.message);
+            setIsLoading(false);
+            return;
+        }
 
         const { error, paymentIntent } = await stripe.confirmPayment({
             elements,
+            clientSecret,
             confirmParams: {
                 // Return URL for fallback if redirect happens
                 return_url: window.location.origin + "/payment-success",
@@ -48,20 +59,22 @@ export default function StripePayment({ clientSecret, onPaymentSuccess }) {
                 onPaymentSuccess(paymentIntent);
             } catch (err) {
                 setMessage("Payment succeeded, but we failed to confirm your order. Please contact support.");
+                setIsLoading(false);
             }
+        } else {
             setIsLoading(false);
         }
     };
 
     return (
         <form id="payment-form" onSubmit={handleSubmit} className="mt-4">
-            <PaymentElement id="payment-element" />
+            <PaymentElement id="payment-element" onReady={() => setIsReady(true)} />
             
             {message && <Message severity="error" text={message} className="w-full mt-4" />}
             
             <Button
                 id="submit"
-                disabled={isLoading || !stripe || !elements}
+                disabled={isLoading || !stripe || !elements || !isReady}
                 label={isLoading ? "Processing..." : "Pay Now"}
                 icon={isLoading ? "pi pi-spin pi-spinner" : "pi pi-credit-card"}
                 className="w-full mt-6 p-button-lg border-round-3xl"
